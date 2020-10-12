@@ -2,4 +2,106 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: gray;
+}
+
+
+/* ------------- HEADER ------------- */
+header {
+    position: fixed;
+    z-index: 99;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    padding: 0px 50px 0px 50px;
+}
+
+/* LOGO */
+.logo {
+
+}
+
+/* NAVIGATION BAR */
+.navbar {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.navbar ul{
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li{
+    padding-right: 40px;
+}
+
+.navbar ul li a{
+    color: black;
+    text-decoration: none;
+}
+
+
+/* ------------- MAIN ------------- */
+
+main {
+    position: relative;
+    top: 70px;
+    justify-content: center;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    height: 1500px;
+}
+
+/* BIG-SLIDE */
+.big-slide {
+    height: 400px;
+    background-image: url(../images/cctv_landscape.jpg);
+    background-size: cover;
+}
+
+
+/* SLIDE-BOX */
+.slide-box {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+}
+
+.slide-box .item{
+    background-color: #F8C90F;
+    border: 5px solid white;
+    height: 250px;
+    width: 500px;
+    margin-right: 40px;
+}
+
+@media only screen and (max-width: 1600px) {
+    .navbar {
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+    .slide-box .item {
+        height: 250px;
+        width: 400px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .slide-box {
+        flex-wrap: wrap;
+    }
 }
