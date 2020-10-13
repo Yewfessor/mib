@@ -1,53 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>MULTI INNOVATION BROADCAST</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M.I.B.</title>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
 </head>
+
 <body>
-    <header>
-        <div class="logo">
-            <h2>MIB-LOGO</h2>
+  <!-- Navbar Section -->
+  <nav class="navbar">
+    <div class="navbar__container">
+
+      <a href="#home" id="navbar__logo">MIB</a>
+
+      <div class="navbar__toggle" id="mobile-menu">
+        <span class="bar"></span> <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <ul class="navbar__menu">
+        <li class="navbar__item">
+          <a href="#home" class="navbar__links" id="home-page">Home</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#about" class="navbar__links" id="about-page">About</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#product" class="navbar__links" id="services-page">Product</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#new" class="navbar__links" id="services-page">New</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#contact" class="navbar__links" id="services-page">Contact</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero" id="home">
+    <div class="hero__container">
+      <h1 class="hero__heading">MULTI INNOVATION BROADCAST</h1>
+      <p class="hero__description">Solution . Strategy . Technology</p>
+      <p class="hero__description">www.mib-thailand.com</p>
+    </div>
+
+
+  </div>
+  <!-- [Under] Hero Section -->
+  <div class="underhero">
+    <div class="underhero__slide">
+
+      <div class="swiper-container box1">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" style="background: url('./assets/images/slide_img1.jpg');background-size: cover;">
+          </div>
+          <div class="swiper-slide" style="background: url('./assets/images/slide_img2.jpg');background-size: cover;">
+          </div>
+          <div class="swiper-slide" style="background: url('./assets/images/slide_img3.jpg');background-size: cover;">
+          </div>
         </div>
-        <div class="navbar">
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Product</a></li>
-                <li><a href="">New</a></li>
-                <li><a href="">Contact</a></li>
-            </ul>
+      </div>
+
+      <div class="swiper-container box2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" style="background: url('./assets/images/slide_img4.jpg');background-size: cover;">
+          </div>
+          <div class="swiper-slide" style="background: url('./assets/images/slide_img5.jpg');background-size: cover;">
+          </div>
+          <div class="swiper-slide" style="background: url('./assets/images/slide_img6.jpg');background-size: cover;">
+          </div>
         </div>
-    </header>
+      </div>
 
-    <main>
-        <div class="top">
-
-            <div class="big-slide">
-
-            </div>
-    
-            <div class="slide-box">
-
-                <div class="item">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/G7ONrDab6cU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="item">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/G7ONrDab6cU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="item">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/G7ONrDab6cU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-
+      <div class="swiper-container box3">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" style="background: url('./assets/images/slide_img7.jpg');background-size: cover;">
+          </div>
+          <div class="swiper-slide" style="background: url('./assets/images/slide_img8.jpg');background-size: cover;">
+          </div>
+          <div class="swiper-slide" style="background: url('./assets/images/slide_img9.jpg');background-size: cover;">
+          </div>
         </div>
+      </div>
+
+    </div>
+  </div>
 
 
-    </main>
+
+  <!-- Footer Section -->
+  <div class="footer__container">
+    <div class="footer__links">
+      <div class="footer__link--wrapper">
+        <div class="footer__link--items">
+          <h2>About Us</h2>
+          <a href="/sign__up">How it works</a> <a href="/">Testimonials</a>
+          <a href="/">Careers</a> <a href="/">Terms of Service</a>
+        </div>
+        <div class="footer__link--items">
+          <h2>Contact Us</h2>
+          <a href="/">Contact</a> <a href="/">Support</a>
+          <a href="/">Destinations</a>
+        </div>
+      </div>
+      <div class="footer__link--wrapper">
+        <div class="footer__link--items">
+          <h2>Videos</h2>
+          <a href="/">Submit Video</a> <a href="/">Ambassadors</a>
+          <a href="/">Agency</a>
+        </div>
+        <div class="footer__link--items">
+          <h2>Social Media</h2>
+          <a href="/">Instagram</a> <a href="/">Facebook</a>
+          <a href="/">Youtube</a> <a href="/">Twitter</a>
+        </div>
+      </div>
+    </div>
+    <section class="social__media">
+      <div class="social__media--wrap">
+        <div class="footer__logo">
+          <a href="/" id="footer__logo">MIB</a>
+        </div>
+        <p class="website__rights">© MIB 2020. All rights reserved</p>
+        <div class="social__icons">
+          <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="/" class="social__icon--link"><i class="fab fa-instagram"></i></a>
+          <a href="/" class="social__icon--link"><i class="fab fa-youtube"></i></a>
+          <a href="/" class="social__icon--link"><i class="fab fa-linkedin"></i></a>
+          <a href="/" class="social__icon--link"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </section>
+  </div>
 
 
+
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="./assets/js/app.js"></script>
+  <script src="./assets/js/swiper.js"></script>
 
 </body>
+
 </html>
