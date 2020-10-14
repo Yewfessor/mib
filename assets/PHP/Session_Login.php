@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
     if (isset($_POST['account_username'])) {
         include("connection.php");
@@ -11,9 +12,10 @@ session_start();
             $row = mysqli_fetch_array($result);
             $_SESSION["account_id"] = $row["account_id"];
             $_SESSION["account_username"] = $row["account_username"];
-            Header("Location:index.html");
+            Header("Location: ../../index.html");
+ 
         } else {
-            session_destroy();
+            session_destroy();  
             echo "<script>";
                 echo "alert(\" ชื่อผู้ใช้ หรือ รหัสผ่าน ไม่ถูกต้อง\");";
                 echo "window.history.back()";
@@ -21,4 +23,7 @@ session_start();
         }
     } else {
         Header("Location: index.html"); //user & password incorrect back to login again
+        
     }
+    ob_end_flush();
+    ?>
