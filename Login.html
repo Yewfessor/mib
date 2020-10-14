@@ -1,19 +1,14 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>M.I.B.</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
-      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
-  
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-  
-    <title></title>
-
+    <title>Login</title>
 </head>
 
 <body>
@@ -21,25 +16,16 @@
     <div>
         <div>
             <div>
-                <form action="Session_Login.php" method="post" autocomplete="off">
+                <form name="login" method="post" action="session_login.php" autocomplete="off">
                     <span>MIB Controler</span>
                     <div>
-                        <input type="text" name="account_username" id="account_username">
+                        <input type="text" id="account_username" required name="account_username" placeholder="Username">
                     </div>
                     <div>
-                        <input type="password" name="account_password" id="account_password">
+                        <input type="password" id="account_password" required name="account_password" placeholder="Password">
                     </div>
                     <div>
                         <input type="submit" value="Login" />
-                    </div>
-                    <div>
-                        <!--<span class="txt1">
-							Don’t have an account?
-						</span>
-
-						<a class="txt2" href="#">
-							Sign Up
-						</a>-->
                     </div>
                 </form>
             </div>

@@ -2,9 +2,8 @@
     $server     = "localhost";
 	$username   = "root";
 	$password   = "";
-	$database   = "MIB";
+	$database   = "mib";
 	
-	$connection = mysqli_connect($server,$username,$password,$database) or die("Error Connection Database");
-	mysqli_query($connection,"SET NAMES UTF8");
-	echo "Connection";
+	$connection = mysqli_connect($server,$username,$password,$database) or die("Error: ".mysqli_error($connection));
+	mysqli_query($connection,"SET NAMES 'utf8'");
 ?>
