@@ -5,7 +5,7 @@ if (isset($_POST['account_username'])) {
     include("Connection.php");
     $account_username = $_POST['account_username'];
     $account_password = $_POST['account_password'];
-    $sql = "SELECT * FROM mib_acoount Where account_username = '" . $account_username . "' and account_password = '" . $account_password . "'";
+    $sql = "SELECT * FROM mib_account Where account_username = '" . $account_username . "' and account_password = '" . $account_password . "'";
     $result = mysqli_query($connection, $sql);
 
     if (mysqli_num_rows($result) == 1) {
