@@ -12,7 +12,7 @@ session_start();
             $row = mysqli_fetch_array($result);
             $_SESSION["account_id"] = $row["account_id"];
             $_SESSION["account_username"] = $row["account_username"];
-            Header("Location: ../../index.html");
+            Header("Location: ../../admin.php");
  
         } else {
             session_destroy();  
@@ -22,7 +22,7 @@ session_start();
             echo "</script>";
         }
     } else {
-        Header("Location: index.html"); //user & password incorrect back to login again
+        Header("Location: login.html"); //user & password incorrect back to login again
         
     }
     ob_end_flush();
