@@ -1,24 +1,18 @@
 <html>
 
 <head>
-    <title>ThaiCreate.Com Tutorial</title>
+	<title></title>
 </head>
 
 <body>
-    <?
-	if(copy($_FILES["filUpload"]["tmp_name"],"myfile/".$_FILES["filUpload"]["name"]))
-	{
-		echo "Copy/Upload Complete<br>";
-
-		//*** Insert Record ***//
-		$objConnect = mysql_connect("localhost","root","root") or die("Error Connect to Database");
-		$objDB = mysql_select_db("mydatabase");
-		$strSQL = "INSERT INTO files ";
-		$strSQL .="(FilesName) VALUES ('".$_FILES["filUpload"]["name"]."')";
-		$objQuery = mysql_query($strSQL);		
-	}
-?>
-    <a href="PageUploadToMySQL3.php">View files</a>
+	<?php
+		if(move_uploaded_file($_FILES["fileUpload"]["tmp_name"],"assets/images/slide1/".$_FILES["fileUpload"]["name"])) // Upload/Copy
+		{
+			echo "Copy/Upload Complete.";
+			include("connection.php");
+			$sql = "INSERT INTO mib_slide1 (slide1_pict_location) VALUES ('".$_FILES["fileUpload"]["name"]."')";
+			$result = mysqli_query($connection,$sql);
+			Header("Location: ../../admin.php");
+		}
+	?>
 </body>
-
-</html>
