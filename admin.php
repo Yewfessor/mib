@@ -16,13 +16,13 @@
 	$result = mysqli_query($connection, $sql);
 	?>
 
-	<table width="200" border="1">
+	<table border="1">
 		<tr>
-			<th width="50">
-				<div align="center">Files ID </div>
+			<th>
+				<div align="center">Images </div>
 			</th>
-			<th width="150">
-				<div align="center">Files Name </div>
+			<th>
+				<div align="center">Date </div>
 			</th>
 		</tr>
 
@@ -31,10 +31,10 @@
 		?>
 			<tr>
 				<td>
-					<div align="center"><?php echo $row["slide1_id"]; ?></div>
+					<center><img width="200" src="assets/images/slide1/<?php echo $row["slide1_pict_location"]; ?>"></center>
 				</td>
 				<td>
-					<center><img src="assets/images/slide1/<?php echo $row["slide1_pict_location"]; ?>"></center>
+					<div><?php echo $row["slide1_date"]; ?></div>
 				</td>
 			</tr>
 		<?php
