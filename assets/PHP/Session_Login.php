@@ -22,7 +22,7 @@ session_start();
             echo "</script>";
         }
     } else {
-        Header("Location: login.html"); //user & password incorrect back to login again
+        Header("Location: login.php"); //user & password incorrect back to login again
         
     }
     ob_end_flush();
