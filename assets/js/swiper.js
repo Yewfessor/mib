@@ -1,6 +1,19 @@
 let randomSec = () => {
     return Math.floor(Math.random() * 3000) + 2000;
 }
+var swiperHero = new Swiper('.swiper-container.hero', {
+    effect: 'fade',
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      dynamicBullets: true,
+    },
+    keyboard: true,
+    loop: true,
+  });
 
 var swiper1 = new Swiper('.swiper-container.box1', {
     autoplay: {
