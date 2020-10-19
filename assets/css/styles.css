@@ -407,6 +407,45 @@ body {
 }
 
 
+/* About Us */
+.about {
+  padding: 100px;
+}
+.about .container {
+  display: flex;
+}
+
+.about .container .text {
+  padding: 50px 30px;
+  background-color: #fff0c4;
+}
+.about .container .text .heading {
+  text-align: center;
+  font-size: 2.5rem;
+  line-height: 2;
+}
+.about .container .text .description {
+  font-size: 1.3rem;
+  text-indent: 50px;
+}
+.about .container img{
+
+}
+
+
+
+
+/*  News  */
+.news {
+  height: 500px;
+  background-color: #fff0c4;
+}
+
+
+
+
+
+
 /* Footer CSS */
 .footer__container {
   background-color: #131313;
