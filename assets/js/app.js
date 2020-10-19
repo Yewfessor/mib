@@ -14,23 +14,30 @@ menu.addEventListener('click', mobileMenu);
 const highlightMenu = () => {
   const elem = document.querySelector('.highlight');
   const homeMenu = document.querySelector('#home-page');
+  const productMenu = document.querySelector('#product-page');
   const aboutMenu = document.querySelector('#about-page');
-  const servicesMenu = document.querySelector('#services-page');
+  const newsMenu = document.querySelector('#news-page');
   let scrollPos = window.scrollY;
-  // console.log(scrollPos);
+  
 
+  // console.log('test',scrollPos);
   // adds 'highlight' class to my menu items
-  if (window.innerWidth > 960 && scrollPos < 600) {
+  if (window.innerWidth > 960 && scrollPos < 900) {
     homeMenu.classList.add('highlight');
+    productMenu.classList.remove('highlight');
+    return;
+  } else if (window.innerWidth > 960 && scrollPos < 1700) {
+    productMenu.classList.add('highlight');
+    homeMenu.classList.remove('highlight');
     aboutMenu.classList.remove('highlight');
     return;
-  } else if (window.innerWidth > 960 && scrollPos < 1400) {
+  } else if (window.innerWidth > 960 && scrollPos < 2000) {
     aboutMenu.classList.add('highlight');
-    homeMenu.classList.remove('highlight');
-    servicesMenu.classList.remove('highlight');
+    productMenu.classList.remove('highlight');
+    newsMenu.classList.remove('highlight');
     return;
-  } else if (window.innerWidth > 960 && scrollPos < 2345) {
-    servicesMenu.classList.add('highlight');
+  } else if (window.innerWidth > 960 && scrollPos < 3200) {
+    newsMenu.classList.add('highlight');
     aboutMenu.classList.remove('highlight');
     return;
   }
