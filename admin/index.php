@@ -1,3 +1,5 @@
+<?php include_once("models/accountmodel/checklogin.php");?> 
+
 <html>
 
 <head>
@@ -6,6 +8,7 @@
 </head>
 
 <body>
+	<a href="models/accountmodel/logout.php">Log out</a>
 
 	<div>
 		<form action="models/iomodel/upload.php" method="post" enctype="multipart/form-data" name="upload_hero">
@@ -26,7 +29,7 @@
 	<div>
 		<table width="500" border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
 			<form name="show_hero" method="post" action="models/iomodel/delete.php">
-				
+
 				<tr>
 					<td align="center" bgcolor="#FFFFFF" colspan="3"><strong>ลบครั้งละหลายเรคคอด</strong></td>
 				</tr>
@@ -38,7 +41,7 @@
 				</tr>
 
 				<?php
-				include("../admin/models/BaseModel.php");
+				include("models/BaseModel.php");
 				$sql = "SELECT * FROM tb_hero";
 				$result = mysqli_query($connection, $sql);
 				while ($row = mysqli_fetch_array($result)) {
@@ -50,7 +53,7 @@
 						<td align="center" bgcolor="#FFFFFF">
 							<label for="pict<?php echo $row["hero_images"]; ?>"><img width="200" src="../assets/images/hero/<?php echo $row["hero_images"]; ?>"></label>
 						</td>
-						
+
 						<td align="center" bgcolor="#FFFFFF">
 							<?php echo $row["adddate"]; ?>
 						</td>
@@ -62,7 +65,7 @@
 				<tr>
 					<td align="center" bgcolor="#FFFFFF" colspan="3"><input type="submit" value=" - ลบข้อมูล "></td>
 				</tr>
-				
+
 			</form>
 		</table>
 	</div>
