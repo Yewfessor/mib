@@ -77,11 +77,9 @@
         align-items: center;
         justify-content: space-between;
     }
-
     .logo img {
-        max-width: 50%;
+        max-width: 5rem;
     }
-
     .hamburger-menu {
         font-size: 2.6rem;
         color: black;
@@ -282,6 +280,9 @@
     }
     .footer-content-brand {
         margin-bottom: 5rem;
+    }
+    .footer-content-brand .logo-image {
+        max-width: 30rem;
     }
     .footer .paragraph {
         color: inherit;
