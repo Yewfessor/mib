@@ -11,11 +11,11 @@
 
 /* Custom properties */
     :root {
-        --dark-color: #263238;
-        --blue-solid: #37474f;
-        --blue-light: #90a4ae;
-        --dark-transparent: rgba(144, 164, 174, .7);
-        --dark-transparent-alt: rgba(144, 164, 174, .5);
+        --dark-color: #1a1a1a;
+        --solid-color: #464646;
+        --light-color: #c4c4c4;
+        --dark-transparent: rgba(170, 170, 170, 0.7);
+        --light-transparent: rgba(170, 170, 170, 0.5);
     }
     
 /* Global Style */
@@ -249,7 +249,7 @@
         width: 100%;
     }
     .news-date {
-        color: var(--blue-light);
+        color: var(--light-color);
         font-size: 1.2rem;
         margin-bottom: 1rem;
     }
@@ -267,7 +267,7 @@
         font-size: .9rem;
         text-transform: uppercase;
         color: #fff;
-        background: var(--blue-light);
+        background: var(--light-color);
         border-radius: .8rem;
     }
 
@@ -298,7 +298,7 @@
         width: 4rem;
         height: 4rem;
         font-size: 2rem;
-        border: 2px solid var(--blue-light);
+        border: 2px solid var(--light-color);
         border-radius: 50%;
         display: flex;
         margin-right: 1rem;
@@ -394,7 +394,7 @@
               font-size: 1.5rem;
           }
           .nav-link:hover {
-              color: var(--blue-light);
+              color: var(--light-color);
           }
       }
       @media screen and (min-width: 1200px) {

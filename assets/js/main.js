@@ -54,3 +54,16 @@ var swiperUnderHero3 = new Swiper('.swiper-container.underhero-slide3', {
     grabCursor: true,
     loop: true,
 });
+// VDO
+var swiperUnderHero1VDO = new Swiper('.swiper-container.underhero-slide1-vdo', {
+    grabCursor: true,
+    loop: true,
+});
+var swiperUnderHero2VDO = new Swiper('.swiper-container.underhero-slide2-vdo', {
+    grabCursor: true,
+    loop: true,
+});
+var swiperUnderHero3VDO = new Swiper('.swiper-container.underhero-slide3-vdo', {
+    grabCursor: true,
+    loop: true,
+});
