@@ -18,14 +18,14 @@
     <div>
         <div>
             <div>
-                <form name="login" method="post" action="assets/php/session_login.php" autocomplete="off">
+                <form name="login" method="post" action="models/accountmodel/session_login.php" autocomplete="off">
                     <span>MIB Controler</span>
                     <div>
-                        <input type="text" id="account_username" required name="account_username"
+                        <input type="text" id="user_username" required name="user_username"
                             placeholder="Username">
                     </div>
                     <div>
-                        <input type="password" id="account_password" required name="account_password"
+                        <input type="password" id="user_password" required name="user_password"
                             placeholder="Password">
                     </div>
                     <div>
