@@ -10,6 +10,8 @@
 		list($txt, $ext) = explode(".", $name);
 		$new_file_name = $time . "." . $ext;
 		move_uploaded_file($tmp, $path . $new_file_name);
+
+		
 		include("../BaseModel.php");
 		$sql = "INSERT INTO tb_herounder (herounder_images,adddate) 
 		VALUES ('" . $new_file_name . "','" . $date . "')";
