@@ -2,7 +2,7 @@
     <table border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
         <tr>
             <td>Product Image : </td>
-            <td><input type="file" name="product_image" id="product_image" required ></td>
+            <td><input type="file" name="product_image" id="product_image" required></td>
         </tr>
         <tr>
             <td>Product Name : </td>
@@ -44,10 +44,10 @@
 <form name="productsearch" method="get" action="">
     <table border="1">
         <tr>
-            <th> ค้นหาจากวันที่
+            <th> Search ID
                 <input name="productall" id="productall" type="text" value="">
                 <input type="submit" value="Search">
-                <a href="../../index.php">Refresh</a>
+                <a href="index.php">Refresh</a>
             </th>
         </tr>
     </table>
@@ -57,11 +57,8 @@
 <?php
 if (isset($_GET["productall"]) != "") {
     $i = 1;
-    $path = "../../../assets/images/product";
-    include("../models/BaseModel.php");
-
-
-  
+    $path = "../assets/images/product/";
+    //include("../models/BaseModel.php");
     $sql = "SELECT * FROM tb_product
         WHERE product_id = '" . $_GET["productall"] . "'";
     $result = mysqli_query($connection, $sql);
@@ -79,23 +76,60 @@ if (isset($_GET["productall"]) != "") {
             <td>Delete</td>
         </tr>
         <?php
-        while ($row = mysqli_fetch_array($result)) {?>
+        while ($row = mysqli_fetch_array($result)) { ?>
             <tr>
-                <td hidden ><?php echo $row["work_id"] ?></td>
+                <td hidden><?php echo $row["product_id"] ?></td>
                 <td><?php echo $i; ?></td>
-                
-                <td><img src="<?php echo $path.$row["product_image"]; ?>"></td>
+                <td><img height="100" src="<?php echo $path . $row["product_image"]; ?>"></td>
                 <td><?php echo $row["product_name_en"]; ?></td>
                 <td><?php echo $row["product_description_en"]; ?></td>
                 <td><?php echo $row["product_detail_en"]; ?></td>
-                <td><?php echo $row["product_type"]; ?></td>
-                <td><a href="WorkEdit.php?edit_id=<?php echo $row["work_id"]; ?>">แก้ไข </a></td>
-                <td><a href="WorkDeleteModel.php?delete_id=<?php echo $row["work_id"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">ลบ</a></td>
+                <td><?php echo $row["product_id"]; ?></td>
+                <td><a href="productedit.php?edit_id=<?php echo $row["product_id"]; ?>">แก้ไข </a></td>
+                <td><a href="productdelete.php?delete_id=<?php echo $row["product_id"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">ลบ</a></td>
             </tr>
         <?php
-                $i++;
+            $i++;
         }
-    }
         ?>
     </table>
+<?php
+} else if (isset($_GET["productall"]) == "") {
+    $i = 1;
+    $path = "../assets/images/product/";
 
+    $sql = "SELECT * FROM tb_product LEFT JOIN tb_product_type
+    ON tb_product.product_type_id = tb_product_type.product_type_id;";
+    $result = mysqli_query($connection, $sql);
+?>
+    <table border="1">
+        <tr>
+            <td>No</td>
+            <td>Product Image </td>
+            <td>Product Name</td>
+            <td>Product Description</td>
+            <td>Product Detail</td>
+            <td>Produt Type</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        <?php
+        while ($row = mysqli_fetch_array($result)) {
+        ?>
+            <tr>
+                <td hidden><?php echo $row["product_id"] ?></td>
+                <td><?php echo $i; ?></td>
+                <td><img height="100" src="<?php echo $path . $row["product_image"]; ?>"></td>
+                <td><?php echo $row["product_name_en"]; ?></td>
+                <td><?php echo $row["product_description_en"]; ?></td>
+                <td><?php echo $row["product_detail_en"]; ?></td>
+                <td><?php echo $row["product_type_name"]; ?></td>
+                <td><a href="productedit.php?edit_id=<?php echo $row["product_id"]; ?>">แก้ไข </a></td>
+                <td><a href="productdelete.php?delete_id=<?php echo $row["product_id"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">ลบ</a></td>
+            </tr>
+    <?php
+            $i++;
+        }
+    }
+    ?>
+</table>

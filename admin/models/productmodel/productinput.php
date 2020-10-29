@@ -3,7 +3,7 @@
 $date = date("Y-m-d H:i:s");
 $time = date("dmyHis");
 
-$path = "../../../assets/images/product";
+$path = "../../../assets/images/product/";
 $tmp  = $_FILES["product_image"]["tmp_name"];
 $name = $_FILES["product_image"]["name"];
 

@@ -17,6 +17,7 @@ date_default_timezone_set("Asia/Bangkok");
 	<?php //include("views/herounder.php"); ?>
 	<?php //include("views/product.php"); ?>
 	<?php include("views/product.php"); ?>
+
 </body>
 
 </html>
