@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;800&display=swap");
+@import url("./product.css");
 
 /* Reset */
 * {
@@ -361,7 +362,7 @@ section {
   margin-bottom: 5rem;
 }
 .footer-content-brand .logo-image {
-  max-width: 30rem;
+  max-width: 25rem;
 }
 .footer .paragraph {
   color: inherit;
