@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 24, 2020 at 06:56 AM
--- Server version: 8.0.17
--- PHP Version: 7.3.10
+-- Host: 127.0.0.1
+-- Generation Time: Nov 01, 2020 at 02:10 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tb_hero` (
   `hero_id` int(11) NOT NULL,
-  `hero_images` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `hero_images` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `list_no` int(11) NOT NULL,
   `addby` int(11) NOT NULL,
   `updateby` int(11) NOT NULL,
@@ -43,8 +42,12 @@ CREATE TABLE `tb_hero` (
 --
 
 INSERT INTO `tb_hero` (`hero_id`, `hero_images`, `list_no`, `addby`, `updateby`, `adddate`, `lastupdate`) VALUES
-(15, '221020190158.jpg', 0, 0, 0, '2020-10-22 19:01:58', '0000-00-00 00:00:00'),
-(16, '221020190208.jpg', 0, 0, 0, '2020-10-22 19:02:08', '0000-00-00 00:00:00');
+(23, '2410202150385f945456ee6a4.jpg', 0, 0, 0, '2020-10-24 21:50:38', '0000-00-00 00:00:00'),
+(24, '2410202150395f94545702000.jpg', 0, 0, 0, '2020-10-24 21:50:39', '0000-00-00 00:00:00'),
+(46, '0111201338175f9e6cf1d19d3.jpg', 1, 0, 0, '2020-11-01 13:38:17', '0000-00-00 00:00:00'),
+(47, '0111201338175f9e6cf1e601d.jpg', 0, 0, 0, '2020-11-01 13:38:17', '0000-00-00 00:00:00'),
+(48, '0111201338185f9e6cf2083fc.jpg', 1, 0, 0, '2020-11-01 13:38:18', '0000-00-00 00:00:00'),
+(49, '0111201338185f9e6cf224129.jpg', 0, 0, 0, '2020-11-01 13:38:18', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -54,7 +57,7 @@ INSERT INTO `tb_hero` (`hero_id`, `hero_images`, `list_no`, `addby`, `updateby`,
 
 CREATE TABLE `tb_herounder` (
   `herounder_id` int(11) NOT NULL,
-  `herounder_images` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `herounder_images` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `list_no` int(11) NOT NULL,
   `addby` int(11) NOT NULL,
   `updateby` int(11) NOT NULL,
@@ -78,11 +81,11 @@ INSERT INTO `tb_herounder` (`herounder_id`, `herounder_images`, `list_no`, `addb
 
 CREATE TABLE `tb_news` (
   `news_id` int(11) NOT NULL,
-  `news_image` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `news_description_th` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `news_description_en` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `new_detail_th` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `new_detail_en` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `news_image` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `news_description_th` text COLLATE utf8_unicode_ci NOT NULL,
+  `news_description_en` text COLLATE utf8_unicode_ci NOT NULL,
+  `new_detail_th` text COLLATE utf8_unicode_ci NOT NULL,
+  `new_detail_en` text COLLATE utf8_unicode_ci NOT NULL,
   `list_no` int(11) NOT NULL,
   `addby` int(11) NOT NULL,
   `adddate` datetime NOT NULL,
@@ -98,14 +101,14 @@ CREATE TABLE `tb_news` (
 
 CREATE TABLE `tb_product` (
   `product_id` int(11) NOT NULL,
-  `product_name_th` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `product_name_en` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `product_brand` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `product_description_th` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `product_description_en` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `product_detail_th` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `product_detail_en` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `product_image` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `product_name_th` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `product_name_en` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `product_type_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `product_description_th` text COLLATE utf8_unicode_ci NOT NULL,
+  `product_description_en` text COLLATE utf8_unicode_ci NOT NULL,
+  `product_detail_th` text COLLATE utf8_unicode_ci NOT NULL,
+  `product_detail_en` text COLLATE utf8_unicode_ci NOT NULL,
+  `product_image` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `product_price` int(11) NOT NULL,
   `list_no` int(11) NOT NULL,
   `addby` int(11) NOT NULL,
@@ -113,6 +116,37 @@ CREATE TABLE `tb_product` (
   `updateby` int(11) NOT NULL,
   `lastupdate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tb_product`
+--
+
+INSERT INTO `tb_product` (`product_id`, `product_name_th`, `product_name_en`, `product_type_id`, `product_description_th`, `product_description_en`, `product_detail_th`, `product_detail_en`, `product_image`, `product_price`, `list_no`, `addby`, `adddate`, `updateby`, `lastupdate`) VALUES
+(9, '', 'asd', '2', '', 'asd', '', 'asd', '3010200008085f9b0c103adab.jpg', 0, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+(12, '', 'ฟหก', '2', '', 'ฟหก', '', 'ฟหก', '0111201230155f9e5cff7c9e0.jpg', 0, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_product_type`
+--
+
+CREATE TABLE `tb_product_type` (
+  `product_type_id` int(11) NOT NULL,
+  `product_type_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tb_product_type`
+--
+
+INSERT INTO `tb_product_type` (`product_type_id`, `product_type_name`) VALUES
+(1, 'IT/IP Platform'),
+(2, 'PTZ Camera Systems'),
+(3, 'System Cameras'),
+(4, 'Live Switchers'),
+(5, 'Cinema Cameras'),
+(6, 'Professional Camera Recorders');
 
 -- --------------------------------------------------------
 
@@ -122,8 +156,8 @@ CREATE TABLE `tb_product` (
 
 CREATE TABLE `tb_user` (
   `user_id` int(11) NOT NULL,
-  `user_username` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `user_password` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `user_username` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `user_password` varchar(45) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -131,8 +165,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`user_id`, `user_username`, `user_password`) VALUES
-(1, 'admin', '12345'),
-(2, 'user', '12345');
+(1, 'admin', '12345');
 
 --
 -- Indexes for dumped tables
@@ -163,6 +196,12 @@ ALTER TABLE `tb_product`
   ADD PRIMARY KEY (`product_id`);
 
 --
+-- Indexes for table `tb_product_type`
+--
+ALTER TABLE `tb_product_type`
+  ADD PRIMARY KEY (`product_type_id`);
+
+--
 -- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
@@ -176,13 +215,13 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_hero`
 --
 ALTER TABLE `tb_hero`
-  MODIFY `hero_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `hero_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `tb_herounder`
 --
 ALTER TABLE `tb_herounder`
-  MODIFY `herounder_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `herounder_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_news`
@@ -194,13 +233,19 @@ ALTER TABLE `tb_news`
 -- AUTO_INCREMENT for table `tb_product`
 --
 ALTER TABLE `tb_product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `tb_product_type`
+--
+ALTER TABLE `tb_product_type`
+  MODIFY `product_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
