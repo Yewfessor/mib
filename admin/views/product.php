@@ -85,8 +85,8 @@ if (isset($_GET["productall"]) != "") {
                 <td><?php echo $row["product_description_en"]; ?></td>
                 <td><?php echo $row["product_detail_en"]; ?></td>
                 <td><?php echo $row["product_id"]; ?></td>
-                <td><a href="productedit.php?edit_id=<?php echo $row["product_id"]; ?>">แก้ไข </a></td>
-                <td><a href="productdelete.php?delete_id=<?php echo $row["product_id"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">ลบ</a></td>
+                <td><a href="/admin/models/productmodel/productedit.php?edit_id=<?php echo $row["product_id"]; ?>">แก้ไข </a></td>
+                <td><a href="models/productmodel/productdelete.php?delete_id=<?php echo $row["product_id"]; ?>&delete_img=<?php echo $row["product_image"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">ลบ</a></td>
             </tr>
         <?php
             $i++;
@@ -125,7 +125,7 @@ if (isset($_GET["productall"]) != "") {
                 <td><?php echo $row["product_detail_en"]; ?></td>
                 <td><?php echo $row["product_type_name"]; ?></td>
                 <td><a href="productedit.php?edit_id=<?php echo $row["product_id"]; ?>">แก้ไข </a></td>
-                <td><a href="productdelete.php?delete_id=<?php echo $row["product_id"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">ลบ</a></td>
+                <td><a href="models/productmodel/productdelete.php?delete_id=<?php echo $row["product_id"]; ?>&delete_img=<?php echo $row["product_image"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">ลบ</a></td>
             </tr>
     <?php
             $i++;

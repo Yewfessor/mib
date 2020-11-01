@@ -13,9 +13,11 @@ date_default_timezone_set("Asia/Bangkok");
 
 <body>
 	<a href="models/accountmodel/logout.php">Log out</a><br>
-	<?php //include("views/hero.php"); ?>
-	<?php //include("views/herounder.php"); ?>
-	<?php //include("views/product.php"); ?>
+	<h1>Hero</h1>
+	<?php include("views/hero.php"); ?>
+	<h1>Hero Under</h1>
+	<?php include("views/herounder.php"); ?>
+	<h1>Product</h1>
 	<?php include("views/product.php"); ?>
 
 </body>

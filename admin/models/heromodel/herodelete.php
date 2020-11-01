@@ -1,16 +1,16 @@
 <?php
+
+$hero_id = $_GET['delete_id'];
+$hero_image = $_GET['delete_img'];
+
 include("../BaseModel.php");
-$checks = implode("','", $_POST['checkbox']);
+$sql = "DELETE FROM tb_hero WHERE hero_id='$hero_id'";
+@unlink ("../../../assets/images/hero/$hero_image");
+$result = mysqli_query($connection,$sql);
 
-$sql = "SELECT * FROM tb_hero WHERE hero_images in ('$checks')";
-$result = mysqli_query($connection, $sql);
-
-$sql1 = "UPDATE tb_hero set list_no = '1' where hero_images in ('$checks') ";
-$result1 = mysqli_query($connection, $sql1);
 
 mysqli_close($connection);
-
-if ($result1) {
+if ($result) {
 	echo "<script type='text/javascript'> ";
 	echo "alert('delete Successfully'); ";
 	echo "window.location='../../index.php'; ";
