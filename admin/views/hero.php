@@ -24,7 +24,7 @@
 
         <table width="500" border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
             <tr>
-                <td align="center" bgcolor="#FFFFFF" colspan="4"><strong>Hero-Image</strong></td>
+                <td align="center" bgcolor="#FFFFFF" colspan="6"><strong>Hero-Image</strong></td>
             </tr>
             <tr>
                 <td align="center" bgcolor="#FFFFFF"><strong>Show/Hidden</td>
