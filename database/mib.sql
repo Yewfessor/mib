@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2020 at 02:10 PM
+-- Generation Time: Nov 02, 2020 at 10:31 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -43,11 +43,8 @@ CREATE TABLE `tb_hero` (
 
 INSERT INTO `tb_hero` (`hero_id`, `hero_images`, `list_no`, `addby`, `updateby`, `adddate`, `lastupdate`) VALUES
 (23, '2410202150385f945456ee6a4.jpg', 0, 0, 0, '2020-10-24 21:50:38', '0000-00-00 00:00:00'),
-(24, '2410202150395f94545702000.jpg', 0, 0, 0, '2020-10-24 21:50:39', '0000-00-00 00:00:00'),
 (46, '0111201338175f9e6cf1d19d3.jpg', 1, 0, 0, '2020-11-01 13:38:17', '0000-00-00 00:00:00'),
-(47, '0111201338175f9e6cf1e601d.jpg', 0, 0, 0, '2020-11-01 13:38:17', '0000-00-00 00:00:00'),
-(48, '0111201338185f9e6cf2083fc.jpg', 1, 0, 0, '2020-11-01 13:38:18', '0000-00-00 00:00:00'),
-(49, '0111201338185f9e6cf224129.jpg', 0, 0, 0, '2020-11-01 13:38:18', '0000-00-00 00:00:00');
+(50, '0211202219575fa038b5442cc.jpg', 1, 0, 0, '2020-11-02 22:19:57', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -215,7 +212,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_hero`
 --
 ALTER TABLE `tb_hero`
-  MODIFY `hero_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `hero_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `tb_herounder`

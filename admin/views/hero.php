@@ -16,9 +16,6 @@
 
 
 
-
-
-
 <form name="show_hero" method="post" action="models/heromodel/heroshow.php">
     <div style=" width:550px; height:425px; overflow: auto;">
 
@@ -37,7 +34,7 @@
 
             <?php
             include("models/BaseModel.php");
-            $sql = "SELECT * FROM tb_hero";
+            $sql = "SELECT * FROM tb_hero ORDER BY adddate DESC";
             $result = mysqli_query($connection, $sql);
             while ($row = mysqli_fetch_array($result)) {
             ?>

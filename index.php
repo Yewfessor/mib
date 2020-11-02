@@ -51,12 +51,24 @@
         <div class="hero">
             <div class="swiper-container hero-slide">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background: url(./assets/images/hero01.jpg);background-size: cover;background-position: center;">
-                    </div>
-                    <div class="swiper-slide" style="background: url(https://via.placeholder.com/1280x720/90a4ae/000?text=pic2);background-size: cover;background-position: center;">
-                    </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+                    <?php
+                    include("admin/models/BaseModel.php");
+                    $sql = "SELECT * FROM tb_hero WHERE list_no ='1' ORDER BY adddate DESC";
+                    $result = mysqli_query($connection, $sql);
+                    $num = mysqli_num_rows($result);
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <div class="swiper-slide" style="background: url(./assets/images/hero/<?php echo $row["hero_images"]; ?>);background-size: cover;background-position: center;">
+                        </div>
+                    <?php
+                        }
+                    ?>
+                    <?php if($num > 1){ ?>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    <?php } else { ?>
+                        
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -85,8 +97,7 @@
                 <div class="swiper-wrapper">
 
                     <div class="swiper-slide">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?controls=0&autoplay=1&mute=1&amp;list=PLSpi5Z-cqKs27A8JMw66uEkmDsC339q7J" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?controls=0&autoplay=1&mute=1&amp;list=PLSpi5Z-cqKs27A8JMw66uEkmDsC339q7J" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
