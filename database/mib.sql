@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2020 at 10:31 PM
+-- Generation Time: Nov 02, 2020 at 10:47 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -120,7 +120,11 @@ CREATE TABLE `tb_product` (
 
 INSERT INTO `tb_product` (`product_id`, `product_name_th`, `product_name_en`, `product_type_id`, `product_description_th`, `product_description_en`, `product_detail_th`, `product_detail_en`, `product_image`, `product_price`, `list_no`, `addby`, `adddate`, `updateby`, `lastupdate`) VALUES
 (9, '', 'asd', '2', '', 'asd', '', 'asd', '3010200008085f9b0c103adab.jpg', 0, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
-(12, '', 'ฟหก', '2', '', 'ฟหก', '', 'ฟหก', '0111201230155f9e5cff7c9e0.jpg', 0, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00');
+(12, '', 'ฟหก', '2', '', 'ฟหก', '', 'ฟหก', '0111201230155f9e5cff7c9e0.jpg', 0, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+(13, '', 'asdas', '1', '', 'asdasd', '', 'asdasd', '0211202244535fa03e8d8e65a.jpg', 0, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+(14, '', 'asd', '1', '', 'asd', '', 'asd', '0211202245515fa03ec76e0d1.jpg', 0, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+(15, '', 'zxczxc', '1', '', 'zxczxc', '', 'asd', '0211202246015fa03ed19bb4c.jpg', 0, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+(16, '', 'asdasd', '1', '', 'asdasd', '', 'zxczxc', '0211202246375fa03ef558a76.jpg', 0, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -230,7 +234,7 @@ ALTER TABLE `tb_news`
 -- AUTO_INCREMENT for table `tb_product`
 --
 ALTER TABLE `tb_product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_product_type`

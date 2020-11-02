@@ -59,8 +59,7 @@ if (isset($_GET["productall"]) != "") {
     $i = 1;
     $path = "../assets/images/product/";
     //include("../models/BaseModel.php");
-    $sql = "SELECT * FROM tb_product
-        WHERE product_id = '" . $_GET["productall"] . "'";
+    $sql = "SELECT * FROM tb_product WHERE product_id = '" . $_GET["productall"] . "'";
     $result = mysqli_query($connection, $sql);
 ?>
     <form>
@@ -100,7 +99,7 @@ if (isset($_GET["productall"]) != "") {
     $path = "../assets/images/product/";
 
     $sql = "SELECT * FROM tb_product LEFT JOIN tb_product_type
-    ON tb_product.product_type_id = tb_product_type.product_type_id;";
+    ON tb_product.product_type_id = tb_product_type.product_type_id";
     $result = mysqli_query($connection, $sql);
 ?>
     <form>

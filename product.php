@@ -48,7 +48,7 @@
     </header>
 
     <main>
-        <div class="product-hero" >
+        <div class="product-hero">
             <div class="swiper-container hero-slide">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" style="background: url(./assets/images/hero01.jpg);background-size: cover;background-position: center;">
@@ -63,15 +63,27 @@
         <div class="product-items">
             <h5 class="product-subtype-heading">sub-type-heading</h5>
             <div class="grid">
-                <div class="grid-item product-item">
-                    <div class="img-box">
-                        <img src="./assets/images/Product/007.jpg" class="product-img" alt="">
+
+                <?php
+                include("admin/models/BaseModel.php");
+                $sql = "SELECT * FROM tb_product LEFT JOIN tb_product_type ON tb_product.product_type_id = tb_product_type.product_type_id where tb_product.product_type_id = '1'";
+                $result = mysqli_query($connection, $sql);
+                while ($row = mysqli_fetch_array($result)) {
+                ?>
+
+                    <div class="grid-item product-item">
+                        <div class="img-box">
+                            <img src="./assets/images/Product/<?php echo $row["product_image"]; ?>" class="product-img" alt="">
+                        </div>
+                        <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
+                        <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
+                        <span class="details-product"><?php echo $row["product_detail_en"]; ?></span>
+                        <p class="price">35,000 THB</p>
+                        <div class="view-info">View Info</div>
                     </div>
-                    <h5 class="product-name">God Camera</h5>
-                    <span class="sub-product-name">L142H3</span>
-                    <p class="price">35,000 THB</p>
-                    <div class="view-info">View Info</div>
-                </div>
+
+                <?php } ?>
+
                 <div class="grid-item product-item">
                     <div class="img-box">
                         <img src="./assets/images/Product/005.jpg" class="product-img" alt="">
