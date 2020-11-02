@@ -111,7 +111,7 @@
                     <span class="sub-heading">check out our product</span>
                 </h5>
                 <div class="grid product-type-items">
-                    <div class="grid-item product-type" onclick="window.location.href='product.html'">
+                    <div class="grid-item product-type" onclick="window.location.href='product.php'">
                         <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" alt="" class="product-type-image">
                         <h5 class="product-type-name">IT/IP Platform</h5>
                     </div>
