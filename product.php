@@ -16,7 +16,7 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="logo">
+                <a href="index.php" class="logo">
                     <img src="./assets/images/Logo/mib-logo-icon.png" alt="">
                 </a>
                 <div class="hamburger-menu">
@@ -78,7 +78,7 @@
                         <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
                         <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
                         <span class="details-product"><?php echo $row["product_detail_en"]; ?></span>
-                        <p class="price">35,000 THB</p>
+                        <span class="price"><?php echo $row["product_price"]; ?> THB</span>
                         <div class="view-info">View Info</div>
                     </div>
 

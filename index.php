@@ -16,7 +16,7 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="logo">
+                <a href="index.php" class="logo">
                     <img src="./assets/images/Logo/mib-logo-icon.png" alt="">
                 </a>
                 <div class="hamburger-menu">
