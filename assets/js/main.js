@@ -3,7 +3,7 @@ let header = document.querySelector('.header');
 let hamburgerMenu = document.querySelector('.hamburger-menu');
 
 window.addEventListener('scroll', function () {
-    let windowPosition = window.scrollY > 400;
+    let windowPosition = window.scrollY > 200;
     header.classList.toggle('active', windowPosition)
 })
 
@@ -11,8 +11,6 @@ window.addEventListener('scroll', function () {
 hamburgerMenu.onclick = () => {
     header.classList.toggle('menu-open')
 }
-
-
 
 
 //Swiper Slide
