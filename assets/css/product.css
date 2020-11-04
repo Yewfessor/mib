@@ -48,9 +48,11 @@
     margin-left: 2rem;
 }
 .img-box {
+    display: flex;
     width: 100%;
-    max-height: auto;
+    height: 100%;
     overflow: hidden;
+    margin-bottom: .7rem;
 }
 .img-box img {
     width: 100%;
