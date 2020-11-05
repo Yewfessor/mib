@@ -16,7 +16,7 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="logo">
+                <a href="index.php" class="logo">
                     <img src="./assets/images/Logo/mib-logo-icon.png" alt="">
                 </a>
                 <div class="hamburger-menu">
@@ -37,7 +37,7 @@
                         <a href="#news" class="nav-link">News</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Software</a>
+                        <a href="software.html" class="nav-link">Software</a>
                     </li>
                     <li class="nav-item">
                         <a href="#footer" class="nav-link">Contact</a>
@@ -218,7 +218,7 @@
                 <div class="grid news">
                     <div class="grid-item news-card">
                         <div class="news-img">
-                            <img src="./assets/images/slide_img7.jpg" alt="">
+                            <img src="./assets/images/slide_img4.jpg" alt="">
                         </div>
                         <div class="news-info">
                             <div class="news-date">
@@ -234,7 +234,7 @@
                     </div>
                     <div class="grid-item news-card">
                         <div class="news-img">
-                            <img src="https://via.placeholder.com/1920x1080?text=News+Image" alt="">
+                            <img src="https://via.placeholder.com/1080x1080?text=News+Image" alt="">
                         </div>
                         <div class="news-info">
                             <div class="news-date">
