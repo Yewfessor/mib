@@ -62,7 +62,7 @@
 
         <div class="product-items">
             <h5 class="product-subtype-heading">sub-type-heading</h5>
-            <div class="grid">
+            <div class="grid product-grid">
 
                 <?php
                 include("admin/models/BaseModel.php");
@@ -95,7 +95,43 @@
                 </div>
                 <div class="grid-item product-item">
                     <div class="img-box">
+                        <img src="./assets/images/Product/002.jpg" class="product-img" alt="">
+                    </div>
+                    <h5 class="product-name">God Camera</h5>
+                    <span class="sub-product-name">L142H3</span>
+                    <p class="price">35,000 THB</p>
+                    <div class="view-info">View Info</div>
+                </div>
+                <div class="grid-item product-item">
+                    <div class="img-box">
+                        <img src="./assets/images/Product/004.jpg" class="product-img" alt="">
+                    </div>
+                    <h5 class="product-name">God Camera</h5>
+                    <span class="sub-product-name">L142H3</span>
+                    <p class="price">35,000 THB</p>
+                    <div class="view-info">View Info</div>
+                </div>
+                <div class="grid-item product-item">
+                    <div class="img-box">
                         <img src="./assets/images/Product/001.jpg" class="product-img" alt="">
+                    </div>
+                    <h5 class="product-name">God Camera</h5>
+                    <span class="sub-product-name">L142H3</span>
+                    <p class="price">35,000 THB</p>
+                    <div class="view-info">View Info</div>
+                </div>
+                <div class="grid-item product-item">
+                    <div class="img-box">
+                        <img src="./assets/images/Product/007.jpg" class="product-img" alt="">
+                    </div>
+                    <h5 class="product-name">God Camera</h5>
+                    <span class="sub-product-name">L142H3</span>
+                    <p class="price">35,000 THB</p>
+                    <div class="view-info">View Info</div>
+                </div>
+                <div class="grid-item product-item">
+                    <div class="img-box">
+                        <img src="./assets/images/Product/008.jpg" class="product-img" alt="">
                     </div>
                     <h5 class="product-name">God Camera</h5>
                     <span class="sub-product-name">L142H3</span>

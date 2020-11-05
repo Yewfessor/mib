@@ -1,0 +1,60 @@
+:root {
+  --dark-color: #1a1a1a;
+  --solid-color: #464646;
+  --light-color: #c4c4c4;
+  --dark-transparent: rgba(170, 170, 170, 0.7);
+  --light-transparent: rgba(170, 170, 170, 0.5);
+}
+
+.software-hero {
+  width: 100%;
+  height: 30vh;
+}
+
+.software-heading {
+  font-size: 2.2rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.software-content {
+  margin-top: 0rem;
+  padding: 0rem 1rem;
+}
+.software-container {
+    margin: 5rem 0;
+}
+.software-product-heading {
+  color: var(--dark-color);
+  font-size: 1.6rem;
+  border-left: 6px solid grey;
+  padding: 0rem 0.5rem;
+  margin-bottom: 1rem;
+}
+.software-table,
+td,
+th {
+  border: 1px solid rgb(196, 196, 196);
+}
+.software-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto;
+}
+.software-table thead tr {
+  background-color: var(--solid-color);
+  color: white;
+}
+.software-table th,
+.software-table td {
+  font-size: 1.3rem;
+  padding: 1.5rem 0.5rem;
+}
+.software-table td:nth-child(2),
+.software-table td:nth-child(3) {
+  text-align: center;
+}
+.btn-download {
+  color: rgb(0, 162, 255);
+  font-size: 1.8rem;
+}
