@@ -15,7 +15,6 @@
 </div>
 
 
-
 <form name="show_hero" method="post" action="models/heromodel/heroshow.php">
     <div style=" width:550px; height:425px; overflow: auto;">
 
@@ -25,7 +24,7 @@
             </tr>
             <tr>
                 <td align="center" bgcolor="#FFFFFF"><strong>Show/Hidden</td>
-                <td align="center" bgcolor="#FFFFFF"><strong>Link Youtube</td>
+                <td align="center" bgcolor="#FFFFFF"><strong>Images</td>
                 <td align="center" bgcolor="#FFFFFF" width="150px"><strong>Add-Date</strong></td>
                 <td align="center" bgcolor="#FFFFFF" width="150px"><strong>Delete</strong></td>
                 <td align="center" bgcolor="#FFFFFF">Show</td>
@@ -34,7 +33,7 @@
 
             <?php
             include("models/BaseModel.php");
-            $sql = "SELECT * FROM tb_link ORDER BY adddate DESC";
+            $sql = "SELECT * FROM tb_hero ORDER BY adddate DESC";
             $result = mysqli_query($connection, $sql);
             while ($row = mysqli_fetch_array($result)) {
             ?>
@@ -45,7 +44,7 @@
                         <?php echo $row["list_no"]; ?>
                     </td>
                     <td align="center" bgcolor="#FFFFFF">
-                        <?php echo $row["link_name"]; ?>
+                        <img width="200" src="../assets/images/hero/<?php echo $row["hero_images"]; ?>">
                     </td>
                     <td align="center" bgcolor="#FFFFFF">
                         <?php echo $row["adddate"]; ?>
