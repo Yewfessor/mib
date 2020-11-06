@@ -22,7 +22,7 @@
   padding: 0rem 1rem;
 }
 .software-container {
-    margin: 5rem 0;
+  margin: 5rem 0;
 }
 .software-product-heading {
   color: var(--dark-color);
@@ -47,7 +47,7 @@ th {
 }
 .software-table th,
 .software-table td {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   padding: 1.5rem 0.5rem;
 }
 .software-table td:nth-child(2),
@@ -57,4 +57,60 @@ th {
 .btn-download {
   color: rgb(0, 162, 255);
   font-size: 1.8rem;
+  transition: .3s;
+}
+.software-table tbody tr:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+  .software-table th:nth-child(1) {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .software-container {
+    padding: 0 10rem;
+  }
+  .software-table th,
+  .software-table td {
+    font-size: 1.3rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .software-heading {
+    font-size: 2.5rem;
+  }
+  .software-product-heading {
+    font-size: 1.8rem;
+    border-left: 10px solid grey;
+  }
+  .software-container {
+    padding: 0 20rem;
+  }
+  .software-table th,
+  .software-table td {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .software-heading {
+    font-size: 2.8rem;
+  }
+  .software-product-heading {
+    font-size: 2rem;
+    border-left: 10px solid grey;
+  }
+  .software-container {
+    padding: 0 30rem;
+  }
+  .software-table th,
+  .software-table td {
+    font-size: 1.7rem;
+  }
+  .btn-download {
+    color: rgb(0, 162, 255);
+    font-size: 2.2rem;
+  }
 }
