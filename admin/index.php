@@ -62,7 +62,7 @@ date_default_timezone_set("Asia/Bangkok");
 	</header>
 
 
-	<main>
+	<main >
 		<div class="product-hero">
 			<div class="swiper-container hero-slide">
 				<div class="swiper-wrapper">
@@ -90,6 +90,11 @@ date_default_timezone_set("Asia/Bangkok");
 			<h1>Product</h1>
 			<?php include("views/product.php"); ?>
 		</div>
+		<div id="product">
+			<h1>News</h1>
+			<?php include("views/news.php"); ?>
+		</div>
+
 
 
 	</main>

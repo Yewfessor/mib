@@ -61,13 +61,13 @@
                         <div class="swiper-slide" style="background: url(./assets/images/hero/<?php echo $row["hero_images"]; ?>);background-size: cover;background-position: center;">
                         </div>
                     <?php
-                        }
+                    }
                     ?>
-                    <?php if($num > 1){ ?>
+                    <?php if ($num > 1) { ?>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     <?php } else { ?>
-                        
+
                     <?php } ?>
                 </div>
             </div>
@@ -97,7 +97,17 @@
                 <div class="swiper-wrapper">
 
                     <div class="swiper-slide">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?controls=0&autoplay=1&mute=1&amp;list=PLSpi5Z-cqKs27A8JMw66uEkmDsC339q7J" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <?php
+                        include("admin/models/BaseModel.php");
+                        $sql = "SELECT * FROM tb_link WHERE list_no ='1' ORDER BY adddate DESC";
+                        $result = mysqli_query($connection, $sql);
+                        $num = mysqli_num_rows($result);
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                            <iframe width="100%" height="100%" src="<?php echo $row["link_name"]; ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -216,22 +226,35 @@
                     <span class="sub-heading">all news here</span>
                 </h5>
                 <div class="grid news">
-                    <div class="grid-item news-card">
-                        <div class="news-img">
-                            <img src="./assets/images/slide_img4.jpg" alt="">
-                        </div>
-                        <div class="news-info">
-                            <div class="news-date">
-                                <span>Thursday</span>
-                                <span>October 22 2019</span>
+                    <?php
+                    $path_imagenews ="assets/images/news/";
+                    include("admin/models/BaseModel.php");
+                    $sql = "SELECT * FROM tb_news ORDER BY adddate DESC";
+                    $result = mysqli_query($connection, $sql);
+                    $num = mysqli_num_rows($result);
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <div class="grid-item news-card">
+                            <div class="news-img">
+                                <img src="<?php echo $path_imagenews.$row["news_image"]; ?>" alt="">
                             </div>
-                            <h1 class="news-title">Title Here</h1>
-                            <p class="news-text">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                            <a href="#" class="read-more">Read more</a>
+                            <div class="news-info">
+                                <div class="news-date">
+                                    <span><?php echo $row["adddate"]; ?></span>
+                                </div>
+                                <h1 class="news-title"><?php echo $row["news_name"]; ?></h1>
+                                <p class="news-text">
+                                    <?php echo $row["news_description_th"]; ?>
+                                </p>
+                                <p class="news-text">
+                                    <?php echo $row["news_detail_th"]; ?>
+                                </p>
+                                <a href="#" class="read-more">Read more</a>
+                            </div>
                         </div>
-                    </div>
+                    <?php
+                    }
+                    ?>
                     <div class="grid-item news-card">
                         <div class="news-img">
                             <img src="https://via.placeholder.com/1080x1080?text=News+Image" alt="">

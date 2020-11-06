@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2020 at 10:51 AM
+-- Generation Time: Nov 07, 2020 at 12:09 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -73,22 +73,58 @@ INSERT INTO `tb_herounder` (`herounder_id`, `herounder_images`, `list_no`, `addb
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_link`
+--
+
+CREATE TABLE `tb_link` (
+  `link_id` int(11) NOT NULL,
+  `link_name` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `list_no` int(11) NOT NULL,
+  `addby` int(11) NOT NULL,
+  `updateby` int(11) NOT NULL,
+  `adddate` datetime NOT NULL,
+  `lastupdate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tb_link`
+--
+
+INSERT INTO `tb_link` (`link_id`, `link_name`, `list_no`, `addby`, `updateby`, `adddate`, `lastupdate`) VALUES
+(3, 'https://www.youtube.com/embed/MyiFSgxDbWo/videoseries?controls=0&autoplay=1&mute=1&amp;list=PLSpi5Z-cqKs27A8JMw66uEkmDsC339q7J', 1, 0, 0, '2020-11-06 17:47:54', '0000-00-00 00:00:00'),
+(4, 'https://www.youtube.com/embed/videoseries?controls=0&autoplay=1&mute=1&amp;list=PLSpi5Z-cqKs27A8JMw66uEkmDsC339q7J', 0, 0, 0, '2020-11-06 17:52:14', '0000-00-00 00:00:00'),
+(5, 'https://www.youtube.com/embed/7-9vmtZ2uxE/videoseries?controls=0&autoplay=1&mute=1&amp;list=PLSpi5Z-cqKs27A8JMw66uEkmDsC339q7J', 0, 0, 0, '2020-11-06 18:54:37', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_news`
 --
 
 CREATE TABLE `tb_news` (
   `news_id` int(11) NOT NULL,
+  `news_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `news_image` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `news_description_th` text COLLATE utf8_unicode_ci NOT NULL,
   `news_description_en` text COLLATE utf8_unicode_ci NOT NULL,
-  `new_detail_th` text COLLATE utf8_unicode_ci NOT NULL,
-  `new_detail_en` text COLLATE utf8_unicode_ci NOT NULL,
+  `news_detail_th` text COLLATE utf8_unicode_ci NOT NULL,
+  `news_detail_en` text COLLATE utf8_unicode_ci NOT NULL,
   `list_no` int(11) NOT NULL,
   `addby` int(11) NOT NULL,
   `adddate` datetime NOT NULL,
   `lastupdate` datetime NOT NULL,
   `updateby` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tb_news`
+--
+
+INSERT INTO `tb_news` (`news_id`, `news_name`, `news_image`, `news_description_th`, `news_description_en`, `news_detail_th`, `news_detail_en`, `list_no`, `addby`, `adddate`, `lastupdate`, `updateby`) VALUES
+(1, 'asd', '0611202206075fa57b7764be9.jpg', 'asd', '', 'asd', '', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(2, 'ฟหกฟหก', '0611202347045fa5932021fa2.jpg', 'ฟหกฟหก', '', 'ฟหกฟหก', '', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(3, 'aseasd', '0611202347155fa5932b458c0.jpg', 'asdzc', '', 'zczxc', '', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(5, 'asdasd', '0611202354035fa594c3e7dd8.jpg', 'asdasdasd', '', 'asdasd', '', 0, 0, '2020-11-06 23:54:03', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -159,6 +195,35 @@ INSERT INTO `tb_product_type` (`product_type_id`, `product_type_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_software`
+--
+
+CREATE TABLE `tb_software` (
+  `software_id` int(11) NOT NULL,
+  `software_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `software_file` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `software_type_id` int(11) NOT NULL,
+  `list_no` int(11) NOT NULL,
+  `addby` int(11) NOT NULL,
+  `adddate` datetime NOT NULL,
+  `updateby` int(11) NOT NULL,
+  `lastupdate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_software_type`
+--
+
+CREATE TABLE `tb_software_type` (
+  `software_type_id` int(11) NOT NULL,
+  `software_type_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_user`
 --
 
@@ -192,6 +257,12 @@ ALTER TABLE `tb_herounder`
   ADD PRIMARY KEY (`herounder_id`);
 
 --
+-- Indexes for table `tb_link`
+--
+ALTER TABLE `tb_link`
+  ADD PRIMARY KEY (`link_id`);
+
+--
 -- Indexes for table `tb_news`
 --
 ALTER TABLE `tb_news`
@@ -208,6 +279,18 @@ ALTER TABLE `tb_product`
 --
 ALTER TABLE `tb_product_type`
   ADD PRIMARY KEY (`product_type_id`);
+
+--
+-- Indexes for table `tb_software`
+--
+ALTER TABLE `tb_software`
+  ADD PRIMARY KEY (`software_id`);
+
+--
+-- Indexes for table `tb_software_type`
+--
+ALTER TABLE `tb_software_type`
+  ADD PRIMARY KEY (`software_type_id`);
 
 --
 -- Indexes for table `tb_user`
@@ -232,10 +315,16 @@ ALTER TABLE `tb_herounder`
   MODIFY `herounder_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `tb_link`
+--
+ALTER TABLE `tb_link`
+  MODIFY `link_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `tb_news`
 --
 ALTER TABLE `tb_news`
-  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_product`
@@ -248,6 +337,18 @@ ALTER TABLE `tb_product`
 --
 ALTER TABLE `tb_product_type`
   MODIFY `product_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tb_software`
+--
+ALTER TABLE `tb_software`
+  MODIFY `software_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tb_software_type`
+--
+ALTER TABLE `tb_software_type`
+  MODIFY `software_type_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
