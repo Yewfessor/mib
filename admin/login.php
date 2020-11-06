@@ -24,7 +24,7 @@
     <div id="page-center">
         <div>
             <div>
-                <form name="login" method="post" action="models/accountmodel/session_login.php" autocomplete="off">
+                <form name="login" method="post" action="./models/accountmodel/session_login.php" autocomplete="off">
                     <h1><span>MIB Controller</span></h1>
                     <div>
                         <h3><span>Username </span><input type="text" id="user_username" required name="user_username" placeholder="Username"></h3>

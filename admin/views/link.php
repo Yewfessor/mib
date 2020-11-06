@@ -16,8 +16,8 @@
 
 
 
-<form name="show_hero" method="post" action="models/heromodel/heroshow.php">
-    <div style=" width:550px; height:425px; overflow: auto;">
+<form name="show_link" method="post" action="models/heromodel/heroshow.php">
+    <div style=" width:100%; height:425px; overflow: auto;">
 
         <table width="500" border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
             <tr>
@@ -45,19 +45,21 @@
                         <?php echo $row["list_no"]; ?>
                     </td>
                     <td align="center" bgcolor="#FFFFFF">
-                        <?php echo $row["link_name"]; ?>
+                    <iframe width="400" height="200" src="<?php echo $row["link_name"]; ?>" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        
                     </td>
                     <td align="center" bgcolor="#FFFFFF">
                         <?php echo $row["adddate"]; ?>
                     </td>
                     <td align="center" bgcolor="#FFFFFF">
-                        <a href="models/heromodel/herodelete.php?delete_id=<?php echo $row["hero_id"]; ?>&delete_img=<?php echo $row["hero_images"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">ลบ</a>
+                        <a href="models/heromodel/herodelete.php?delete_id=<?php echo $row["link_id"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">ลบ</a>
                     </td>
                     <td align="center" bgcolor="#FFFFFF">
-                        <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&show_list=1">show</a>
+                        <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["link_id"]; ?>&show_list=1">show</a>
                     </td>
                     <td align="center" bgcolor="#FFFFFF">
-                        <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&hidden_list=0">hidden</a>
+                        <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["link_id"]; ?>&hidden_list=0">hidden</a>
                     </td>
                 </tr>
             <?php
@@ -66,21 +68,3 @@
         </table>
     </div>
 </form>
-
-
-<div>
-    <form action="models/heromodel/heroupload.php" method="post" enctype="multipart/form-data" name="upload_hero">
-        <table width="400" border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
-            <tr align="center" bgcolor="#FFFFFF">
-                <td align="center" colspan="2" bgcolor="#FFFFFF">
-                    <p>Input Hero</p>
-                </td>
-            </tr>
-            <tr>
-                <td align="center" bgcolor="#FFFFFF"><input type="file" name="fileupload[]" id="fileupload" multiple></td>
-                <td align="center" bgcolor="#FFFFFF"><input type="submit" name="Submit" value="Upload"></td>
-            </tr>
-        </table>
-    </form>
-</div>
-

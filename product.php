@@ -68,12 +68,13 @@
                 include("admin/models/BaseModel.php");
                 $sql = "SELECT * FROM tb_product LEFT JOIN tb_product_type ON tb_product.product_type_id = tb_product_type.product_type_id where tb_product.product_type_id = '1'";
                 $result = mysqli_query($connection, $sql);
+                $path = "assets/images/product/";
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
 
                     <div class="grid-item product-item">
                         <div class="img-box">
-                            <img src="./assets/images/Product/<?php echo $row["product_image"]; ?>" class="product-img" alt="">
+                            <img src="<?php echo $path.$row["product_image"]; ?>" class="product-img" alt="">
                         </div>
                         <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
                         <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
@@ -86,7 +87,7 @@
 
                 <div class="grid-item product-item">
                     <div class="img-box">
-                        <img src="./assets/images/Product/005.jpg" class="product-img" alt="">
+                        <img src="./assets/images/hero/0211202219575fa038b5442cc.jpg" class="product-img" alt="">
                     </div>
                     <h5 class="product-name">God Camera</h5>
                     <span class="sub-product-name">L142H3</span>
