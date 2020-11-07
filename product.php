@@ -37,7 +37,7 @@
                         <a href="#news" class="nav-link">News</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Software</a>
+                        <a href="software.html" class="nav-link">Software</a>
                     </li>
                     <li class="nav-item">
                         <a href="#footer" class="nav-link">Contact</a>
@@ -160,7 +160,7 @@
                     <h4 class="footer-heading">Follow us</h4>
                     <div class="social-media">
                         <a href="#" class="sm-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="sm-link"><i class="fab fa-line"></i></a>
+                        <a href="https://line.me/R/ti/p/%40zwm2906e" class="sm-link" target="_blank"><i class="fab fa-line"></i></a>
                         <a href="#" class="sm-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>

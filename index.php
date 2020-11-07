@@ -308,7 +308,7 @@
                     <h4 class="footer-heading">Follow us</h4>
                     <div class="social-media">
                         <a href="#" class="sm-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="sm-link"><i class="fab fa-line"></i></a>
+                        <a href="https://line.me/R/ti/p/%40zwm2906e" class="sm-link" target="_blank"><i class="fab fa-line"></i></a>
                         <a href="#" class="sm-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
