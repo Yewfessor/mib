@@ -77,22 +77,26 @@ date_default_timezone_set("Asia/Bangkok");
 		<div id="hero">
 			<h1>Hero</h1>
 			<?php include("views/hero.php"); ?>
-		</div>
+		</div><br>
 		<div id="hero-under">
 			<h1>Hero Under</h1>
 			<?php include("views/herounder.php"); ?>
-		</div>
+		</div><br>
 		<div id="link">
 			<h1>link</h1>
 			<?php include("views/link.php"); ?>
-		</div>
+		</div><br>
 		<div id="product">
 			<h1>Product</h1>
 			<?php include("views/product.php"); ?>
-		</div>
-		<div id="product">
+		</div><br>
+		<div id="news">
 			<h1>News</h1>
 			<?php include("views/news.php"); ?>
+		</div><br>
+		<div id="software">
+			<h2>software</h2>
+			<?php include("views/software.php"); ?>
 		</div>
 
 
