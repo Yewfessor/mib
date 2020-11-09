@@ -133,7 +133,7 @@ section {
   display: block;
   color: #fff;
   font-size: 3rem;
-  font-weight: bold;
+  /* font-weight: bold; */
   text-transform: uppercase;
   letter-spacing: 2px;
   padding: 1rem;
@@ -365,22 +365,33 @@ section {
 
 /* Footer Section Style */
 .footer {
-  padding: 5rem 0;
+  padding: 4rem 0;
   background-color: var(--dark-color);
   color: #fff;
 }
 .footer-content-brand {
   margin-bottom: 5rem;
 }
+.footer-content-brand .logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .footer-content-brand .logo-image {
-  max-width: 25rem;
+  max-width: 10rem;
+  
 }
 .footer .paragraph {
   color: inherit;
 }
 .footer-heading {
   text-transform: uppercase;
-  margin-bottom: 2.5rem;
+}
+.contact-detail {
+  margin: 2rem 0;
+}
+.contact-detail i{
+  padding-right: 1.5rem;
 }
 .social-media {
   display: flex;
@@ -449,14 +460,14 @@ section {
     display: flex;
   }
   .footer-content-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 0;
     flex: 0 0 60%;
   }
   .footer .paragraph {
-    margin-top: 2.5rem;
-  }
-  .footer-heading {
-    margin-bottom: 5rem;
+    margin: 0;
   }
   .social-media-wrap {
     flex: 0 0 40%;
@@ -507,6 +518,9 @@ section {
   }
   .underhero {
     height: 28vh;
+  }
+  .footer .paragraph {
+    margin-right: 5rem;
   }
 }
 @media screen and (min-width: 1600px) {
