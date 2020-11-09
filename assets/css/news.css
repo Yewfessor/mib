@@ -1,50 +1,123 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;800&display=swap");
 :root {
-    --dark-color: #1a1a1a;
-    --solid-color: #464646;
-    --light-color: #c4c4c4;
-    --dark-transparent: rgba(170, 170, 170, 0.7);
-    --light-transparent: rgba(170, 170, 170, 0.5);
-  }
-  .news-container {
-      position: relative;
-      margin: 6rem 0;
-  }
-  .news-heading {
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
-  .news-date {
+  --dark-color: #1a1a1a;
+  --solid-color: #464646;
+  --light-color: #c4c4c4;
+  --dark-transparent: rgba(170, 170, 170, 0.7);
+  --light-transparent: rgba(170, 170, 170, 0.5);
+}
+.news-container {
+  position: relative;
+  margin: 6rem 0 6rem 0;
+}
+.news-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.news-date {
+  color: var(--solid-color);
+  font-size: 1.4rem;
+}
+.news-img {
+  display: flex;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+.news-text {
+  text-indent: 1.5rem;
+  font-size: 1.6rem;
+}
+.news-text,
+.news-heading,
+.news-date,
+.news-more {
+  padding: 0 1rem;
+}
+
+.news-more {
+  margin-top: 2.5rem;
+}
+.news-more-heading {
+  font-size: 1.7rem;
+}
+.news-more-lists {
+  list-style: "• ";
+  padding-left: 2rem;
+}
+.news-more-lists a {
+  text-decoration: underline;
+}
+.news-more-lists a:hover {
     color: var(--solid-color);
   }
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+  .news-container {
+    margin: 10rem 0 6rem 0;
+  }
   .news-img {
-    display: flex;
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-    margin: 1.5rem 0;
+    margin: 2rem auto;
+    width: 90vw;
   }
-  .news-text {
-      text-indent: 1.5rem;
-      font-size: 1.7rem;
-  }
+}
+@media screen and (min-width: 1000px) {
   .news-text,
   .news-heading,
   .news-date,
   .news-more {
-      padding: 0 1rem;
+    padding: 0 5rem;
   }
-
-.news-more {
-    margin: 2rem 0;
 }
-.news-more-heading {
-    font-size: 1.7rem;
+@media screen and (min-width: 1200px) {
+    .news-heading {
+        font-size: 3.2rem;
+      }
+      .news-date {
+        font-size: 1.6rem;
+      }
+      .news-img {
+        margin: 2rem auto;
+        width: 70vw;
+      }
+      .news-text,
+      .news-more-lists a {
+          font-size: 1.8rem;
+      }
+      .news-more-heading {
+          font-size: 2rem;
+      }
+      .news-more {
+          margin-top: 6rem;
+      }
 }
-  .news-more-lists {
-      list-style: '• ';
-      padding-left: 2rem;
+@media screen and (min-width: 1600px) {
+    .news-container {
+        margin: 12rem 0 6rem 0;
+      }
+    .news-text,
+  .news-heading,
+  .news-date,
+  .news-more {
+    padding: 0 30rem;
   }
-  .news-more-lists a {
-      text-decoration: underline;
-  }
+    .news-heading {
+        font-size: 4rem;
+      }
+      .news-date {
+          font-size: 1.8rem;
+      }
+    .news-img {
+        margin: 5rem auto;
+        width: 60vw;
+      }
+      .news-text,
+      .news-more-lists a {
+          font-size: 2rem;
+      }
+      .news-more-heading {
+        font-size: 2.4rem;
+    }
+}
