@@ -20,9 +20,14 @@
   --light-transparent: rgba(170, 170, 170, 0.5);
 }
 
+::selection {
+  color: white;
+  background: var(--dark-color);
+}
 /* Global Style */
 html {
   font-size: 10px;
+  
 }
 
 body {

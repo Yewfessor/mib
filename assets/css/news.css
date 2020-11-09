@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;800&display=swap");
+:root {
+    --dark-color: #1a1a1a;
+    --solid-color: #464646;
+    --light-color: #c4c4c4;
+    --dark-transparent: rgba(170, 170, 170, 0.7);
+    --light-transparent: rgba(170, 170, 170, 0.5);
+  }
+  .news-container {
+      position: relative;
+      margin: 6rem 0;
+  }
+  .news-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  .news-date {
+    color: var(--solid-color);
+  }
+  .news-img {
+    display: flex;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 1.5rem 0;
+  }
+  .news-text {
+      text-indent: 1.5rem;
+      font-size: 1.7rem;
+  }
+  .news-text,
+  .news-heading,
+  .news-date,
+  .news-more {
+      padding: 0 1rem;
+  }
+
+.news-more {
+    margin: 2rem 0;
+}
+.news-more-heading {
+    font-size: 1.7rem;
+}
+  .news-more-lists {
+      list-style: '• ';
+      padding-left: 2rem;
+  }
+  .news-more-lists a {
+      text-decoration: underline;
+  }
