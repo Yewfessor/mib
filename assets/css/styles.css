@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;800&display=swap");
 @import url("./product.css");
 @import url("./software.css");
+@import url("./news.css");
 
 /* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Kanit", sans-serif;
 }
 
 /* Custom properties */
@@ -25,7 +26,6 @@ html {
 }
 
 body {
-  font-family: "Kanit", sans-serif;
   font-size: 1.6rem;
   color: black;
   background-color: white;
@@ -323,27 +323,27 @@ section {
   padding: 2.5rem 2rem;
   border-radius: 1.2rem;
 }
-.news-img {
+.news-card-img {
   display: flex;
   overflow: hidden;
   height: 100%;
   width: 100%;
   margin-bottom: .8rem;
 }
-.news-img img {
+.news-card-img img {
   border-radius: 1.2rem;
   width: 100%;
   height: 100%;
 }
-.news-date {
+.news-card-date {
   color: var(--light-color);
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
-.news-title {
+.news-card-title {
   color: #fff;
 }
-.news-text {
+.news-card-text {
   color: rgba(255, 255, 255, 0.8);
 }
 .read-more {
