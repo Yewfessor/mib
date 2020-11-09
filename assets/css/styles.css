@@ -154,6 +154,8 @@ section {
   flex-direction: row;
   height: 10vh;
 }
+
+/*  Product Type Section Style */
 .section-head {
   text-align: center;
   margin-bottom: 5rem;
@@ -170,7 +172,7 @@ section {
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   grid-gap: 2.5rem;
 }
 .grid-item {
@@ -181,7 +183,7 @@ section {
   text-align: center;
 }
 .product-type {
-  height: 35rem;
+  height: 15rem;
   color: #fff;
   padding: 1rem;
   position: relative;
@@ -207,8 +209,7 @@ section {
   z-index: -2;
 }
 .product-type-name {
-  font-size: 2.6rem;
-  
+  font-size: 2rem;
   transition: all .5s ;
 }
 
@@ -225,70 +226,6 @@ section {
   background-color: transparent;
   
 }
-
-/* Modal Product Section */
-.product-modal {
-  position: fixed;
-  z-index: 400;
-  top: 3rem;
-  bottom: 3rem;
-  left: 2rem;
-  right: 2rem;
-  background: #fff;
-  box-shadow: 0 0 0 6rem rgba(26, 16, 16, 0.5);
-  overflow-y: scroll;
-  overflow-x: hidden;
-  
-  display: none;
-}
-.product-modal.is-open {
-  display: block;
-}
-.modal-close {
-  background-color: #fff;
-  position: fixed;
-  left: .5rem;
-  top: 1.5rem;
-  width: 4rem;
-  height: 4rem;
-  padding: .5rem;
-  border-radius: 50%;
-  border: 0;
-  box-shadow: 0 0 20px 1px rgba(26, 16, 16, 0.5);
-  cursor: pointer;
-  transition: background .4s;
-}
-.modal-header {
-  text-align: left;
-  padding: 7rem 0;
-  margin-bottom: 3rem;
-}
-.modal-header:nth-of-type(1) {
-  background-image: url(../images/slide_img1.jpg);
-  background-size: cover;
-  background-position: center;
-}
-.modal-title-box {
-  background: var(--dark-transparent);
-  padding: 3rem;
-  color: #fff;
-  width: 70%;
-}
-.modal-title {
-  font-size: 3rem;
-}
-
-.modal-content {
-  text-align: left;
-  width: 85%;
-  margin: 0 auto;
-  padding-bottom: 3rem;
-}
-
-.modal-close:hover {
-  background-color: rgb(255, 165, 165);
-}
-
 
 
 
@@ -452,6 +389,14 @@ section {
   .underhero {
     height: 19vh;
   }
+  /* Product Type Section Style */
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 2.5rem;
+  }
+  .product-type {
+    height: 20rem;
+  }
   /* Footer Section Style */
   .footer {
     overflow-x: hidden;
@@ -510,6 +455,17 @@ section {
   .underhero {
     height: 25vh;
   }
+  /* Product Type Section Style */
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-gap: 2.5rem;
+  }
+  .product-type {
+    height: 25rem;
+  }
+  .product-type-name {
+    font-size: 2.6rem;
+  }
 }
 @media screen and (min-width: 1200px) {
   /* Hero & Under Section Style */
@@ -522,6 +478,14 @@ section {
   .footer .paragraph {
     margin-right: 5rem;
   }
+  /* Product Type Section Style */
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 2.5rem;
+  }
+  .product-type {
+    height: 25rem;
+  }
 }
 @media screen and (min-width: 1600px) {
   /* Hero & Under Section Style */
@@ -530,6 +494,17 @@ section {
   }
   .underhero {
     height: 37vh;
+  }
+  /* Product Type Section Style */
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    grid-gap: 2.5rem;
+  }
+  .product-type {
+    height: 30rem;
+  }
+  .product-type-name {
+    font-size: 2.8rem;
   }
 }
 
