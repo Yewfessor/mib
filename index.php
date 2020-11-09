@@ -235,53 +235,53 @@
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                         <div class="grid-item news-card">
-                            <div class="news-img">
+                            <div class="news-card-img">
                                 <img src="<?php echo $path_imagenews.$row["news_image"]; ?>" alt="">
                             </div>
-                            <div class="news-info">
-                                <div class="news-date">
+                            <div class="news-card-info">
+                                <div class="news-card-date">
                                     <span><?php echo $row["adddate"]; ?></span>
                                 </div>
-                                <h1 class="news-title"><?php echo $row["news_name"]; ?></h1>
-                                <p class="news-text">
+                                <h1 class="news-card-title"><?php echo $row["news_name"]; ?></h1>
+                                <p class="news-card-text">
                                     <?php echo $row["news_description_th"]; ?>
                                 </p>
-                                <p class="news-text">
+                                <p class="news-card-text">
                                     <?php echo $row["news_detail_th"]; ?>
                                 </p>
-                                <a href="#" class="read-more">Read more</a>
+                                <a href="news.html" class="read-more">Read more</a>
                             </div>
                         </div>
                     <?php
                     }
                     ?>
                     <div class="grid-item news-card">
-                        <div class="news-img">
+                        <div class="news-card-img">
                             <img src="https://via.placeholder.com/1080x1080?text=News+Image" alt="">
                         </div>
-                        <div class="news-info">
-                            <div class="news-date">
+                        <div class="news-card-info">
+                            <div class="news-card-date">
                                 <span>Thursday</span>
                                 <span>October 22 2019</span>
                             </div>
-                            <h1 class="news-title">Title Here</h1>
-                            <p class="news-text">
+                            <h1 class="news-card-title">Title Here</h1>
+                            <p class="news-card-text">
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                             </p>
                             <a href="#" class="read-more">Read more</a>
                         </div>
                     </div>
                     <div class="grid-item news-card">
-                        <div class="news-img">
+                        <div class="news-card-img">
                             <img src="https://via.placeholder.com/1920x1080?text=News+Image" alt="">
                         </div>
-                        <div class="news-info">
-                            <div class="news-date">
+                        <div class="news-card-info">
+                            <div class="news-card-date">
                                 <span>Thursday</span>
                                 <span>October 22 2019</span>
                             </div>
-                            <h1 class="news-title">Title Here</h1>
-                            <p class="news-text">
+                            <h1 class="news-card-title">Title Here</h1>
+                            <p class="news-card-text">
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                             </p>
                             <a href="#" class="read-more">Read more</a>
