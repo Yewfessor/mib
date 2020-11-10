@@ -121,31 +121,31 @@
                     <span class="sub-heading">check out our product</span>
                 </h5>
                 <div class="grid product-type-items">
-                    <div class="grid-item product-type" onclick="window.location.href='product.php'">
+                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=1'">
                         <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" alt="" class="product-type-image">
                         <h5 class="product-type-name">IT/IP Platform</h5>
                     </div>
-                    <div class="grid-item product-type">
+                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=2'">
                         <img src="https://www.fullcompass.com/common/products/lgr/281819.jpg" alt="" class="product-type-image">
                         <h5 class="product-type-name">PTZ Camera Systems</h5>
                     </div>
-                    <div class="grid-item product-type">
+                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=3'">
                         <img src="https://pro-av.panasonic.net/en/products/img/lineup/system_cameras/lineup_ak_uc4000.png" alt="" class="product-type-image">
                         <h5 class="product-type-name">System Cameras</h5>
                     </div>
-                    <div class="grid-item product-type">
+                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=4'">
                         <img src="https://pro-av.panasonic.net/en/products/img/lineup/live_switchers/lineup_av_uhs500.png" alt="" class="product-type-image">
                         <h5 class="product-type-name">Live Switchers</h5>
                     </div>
-                    <div class="grid-item product-type">
+                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=5'">
                         <img src="https://pro-av.panasonic.net/en/products/img/lineup/cinema_cameras/lineup_varicam_35.png" alt="" class="product-type-image">
                         <h5 class="product-type-name">Cinema Cameras</h5>
                     </div>
-                    <div class="grid-item product-type">
+                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=6'">
                         <img src="https://pro-av.panasonic.net/en/products/img/lineup/professional_camera_recorders/lineup_ag_cx350.png" alt="" class="product-type-image">
                         <h5 class="product-type-name">Professional Camera Recorders</h5>
                     </div>
-                    <div class="grid-item product-type">
+                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=7'">
                         <img src="https://pro-av.panasonic.net/en/products/img/accessories/cable.png" alt="" class="product-type-image">
                         <h5 class="product-type-name">Accessories</h5>
                     </div>

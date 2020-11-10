@@ -109,7 +109,6 @@ $path_productmodel_delete   = "models/softwaremodel/softwaredelete.php";
 if (isset($_GET["productall"]) != "") {
     $i = 1;
     $path = "../assets/images/product/";
-    //include("../models/BaseModel.php");
     $sql = "SELECT * FROM tb_product LEFT JOIN tb_product_type
     ON tb_product.product_type_id = tb_product_type.product_type_id WHERE product_id = '" . $_GET["productall"] . "' ";
     $result = mysqli_query($connection, $sql);
@@ -153,24 +152,28 @@ if (isset($_GET["productall"]) != "") {
 <?php
 
 } else if (isset($_GET["productall"]) == "") {
-    $i = 1;
     $path = "../assets/images/product/";
     include $path_basemodel;
-    $sql = "SELECT * FROM tb_product LEFT JOIN tb_product_type
-    ON tb_product.product_type_id = tb_product_type.product_type_id";
+    $sql = "SELECT * FROM 
+    tb_product 
+    LEFT JOIN tb_product_type
+    ON tb_product.product_type_id = tb_product_type.product_type_id
+    LEFT JOIN tb_product_line_up
+    ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id";
     $result = mysqli_query($connection, $sql);
 ?>
     <div style=" width:1000px; height:425px; overflow: auto;">
         <form>
             <table border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
                 <tr align="center" bgcolor="#FFFFFF">
-                    <td>No</td>
-                    <td>Product Image </td>
-                    <td>Product Name</td>
-                    <td>Product Description</td>
-                    <td>Product Detail</td>
-                    <td>Product Price</td>
-                    <td>Produt Type</td>
+                    <td>Id</td>
+                    <td>Image </td>
+                    <td>Name</td>
+                    <td>Description</td>
+                    <td>Detail</td>
+                    <td>Price</td>
+                    <td>Category</td>
+                    <td>Type</td>
                     <td>Edit</td>
                     <td>Delete</td>
                 </tr>
@@ -178,21 +181,20 @@ if (isset($_GET["productall"]) != "") {
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
                     <tr align="center" bgcolor="#FFFFFF">
-                        <td hidden><?php echo $row["product_id"] ?></td>
-                        <td><?php echo $i; ?></td>
+                        <td><?php echo $row["product_id"] ?></td>
                         <td><img height="100" src="<?php echo $path . $row["product_image"]; ?>"></td>
                         <td><?php echo $row["product_name_en"]; ?></td>
                         <td><?php echo $row["product_description_en"]; ?></td>
                         <td><?php echo $row["product_detail_en"]; ?></td>
                         <td><?php echo $row["product_price"]; ?></td>
                         <td><?php echo $row["product_type_name"]; ?></td>
+                        <td><?php echo $row["product_line_up_name"]; ?></td>
                         <td><a href="views/productedit.php?edit_id=<?php echo $row["product_id"]; ?>">แก้ไข </a></td>
                         <td><a href="models/productmodel/productdelete.php?delete_id=<?php echo $row["product_id"]; ?>&delete_img=<?php echo $row["product_image"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">ลบ</a></td>
                     </tr>
             <?php
-                    $i++;
                 }
-            }
+            } mysqli_close($connection);
             ?>
             </table>
         </form>

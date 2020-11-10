@@ -1,3 +1,10 @@
+<?php
+$path_basemodel = "admin/models/BaseModel.php";
+$product_type_id = $_GET["product_type_id"];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,91 +63,129 @@
                 </div>
             </div>
             <div class="heading-box">
-                <h1 class="heading">IT/IP Platform</h1>
+                <?php
+                
+                include  $path_basemodel;
+                $sql1 = "SELECT * FROM 
+                tb_product_type
+                where product_type_id = '" . $product_type_id . "' 
+                ";
+                $result1 = mysqli_query($connection, $sql1);
+                
+                while ($row1 = mysqli_fetch_array($result1)) {
+                    $product_type_name = $row1["product_type_name"];
+                ?>
+                    <h1 class="heading"><?php echo $product_type_name; ?></h1>
+                <?php
+                }
+                mysqli_close($connection);
+                ?>
             </div>
         </div>
 
-        <div class="product-items">
-            <h5 class="product-subtype-heading">sub-type-heading</h5>
-            <div class="grid product-grid">
 
-                <?php
-                include("admin/models/BaseModel.php");
-                $sql = "SELECT * FROM tb_product LEFT JOIN tb_product_type ON tb_product.product_type_id = tb_product_type.product_type_id where tb_product.product_type_id = '1'";
-                $result = mysqli_query($connection, $sql);
-                $path = "assets/images/product/";
-                while ($row = mysqli_fetch_array($result)) {
-                ?>
+        <?php
+        include  $path_basemodel;
+        $sql2 = "SELECT * FROM 
+                tb_product_line_up
+                LEFT JOIN tb_product_type 
+                ON tb_product_line_up.product_type_id = tb_product_type.product_type_id
+                where tb_product_line_up.product_type_id = '" . $product_type_id . "' 
+                ";
+        $result2 = mysqli_query($connection, $sql2);
+        while ($row2 = mysqli_fetch_array($result2)) {
+            $product_line_up_id = $row2["product_line_up_id"];
+            $product_line_up_name = $row2["product_line_up_name"];
+
+        ?>
+            <div class="product-items">
+
+                <h5 class="product-subtype-heading"><?php echo $product_line_up_name; ?></h5>
+                <div class="grid product-grid">
+                    <?php
+                    $sql = "SELECT * FROM 
+                        tb_product 
+
+                        LEFT JOIN tb_product_type 
+                        ON tb_product.product_type_id = tb_product_type.product_type_id
+
+                        LEFT JOIN tb_product_line_up 
+                        ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id
+                        WHERE tb_product.product_line_up_id = '" . $product_line_up_id . "' 
+                        AND tb_product.product_type_id = '" . $product_type_id . "'
+                        
+                       
+                        ";
+                    $result = mysqli_query($connection, $sql);
+                    $path = "assets/images/product/";
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+
+                        <div class="grid-item product-item">
+                            <div class="img-box">
+                                <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
+                            </div>
+                            <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
+                            <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
+                            <span class="price"><?php echo $row["product_price"]; ?> THB</span>
+                            <div class="view-info">View Info</div>
+                        </div>
+
+                    <?php
+                    }
+                    ?>
 
                     <div class="grid-item product-item">
                         <div class="img-box">
-                            <img src="<?php echo $path.$row["product_image"]; ?>" class="product-img" alt="">
+                            <img src="./assets/images/hero/0211202219575fa038b5442cc.jpg" class="product-img" alt="">
                         </div>
-                        <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
-                        <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
-                        <span class="details-product"><?php echo $row["product_detail_en"]; ?></span>
-                        <span class="price"><?php echo $row["product_price"]; ?> THB</span>
+                        <h5 class="product-name">God Camera</h5>
+                        <span class="sub-product-name">L142H3</span>
+                        <p class="price">35,000 THB</p>
                         <div class="view-info">View Info</div>
                     </div>
-
-                <?php } ?>
-
-                <div class="grid-item product-item">
-                    <div class="img-box">
-                        <img src="./assets/images/hero/0211202219575fa038b5442cc.jpg" class="product-img" alt="">
+                    <div class="grid-item product-item">
+                        <div class="img-box">
+                            <img src="./assets/images/product/002.jpg" class="product-img" alt="">
+                        </div>
+                        <h5 class="product-name">God Camera</h5>
+                        <span class="sub-product-name">L142H3</span>
+                        <p class="price">35,000 THB</p>
+                        <div class="view-info">View Info</div>
                     </div>
-                    <h5 class="product-name">God Camera</h5>
-                    <span class="sub-product-name">L142H3</span>
-                    <p class="price">35,000 THB</p>
-                    <div class="view-info">View Info</div>
-                </div>
-                <div class="grid-item product-item">
-                    <div class="img-box">
-                        <img src="./assets/images/Product/002.jpg" class="product-img" alt="">
+                    <div class="grid-item product-item">
+                        <div class="img-box">
+                            <img src="./assets/images/product/004.jpg" class="product-img" alt="">
+                        </div>
+                        <h5 class="product-name">God Camera</h5>
+                        <span class="sub-product-name">L142H3</span>
+                        <p class="price">35,000 THB</p>
+                        <div class="view-info">View Info</div>
                     </div>
-                    <h5 class="product-name">God Camera</h5>
-                    <span class="sub-product-name">L142H3</span>
-                    <p class="price">35,000 THB</p>
-                    <div class="view-info">View Info</div>
-                </div>
-                <div class="grid-item product-item">
-                    <div class="img-box">
-                        <img src="./assets/images/Product/004.jpg" class="product-img" alt="">
+                    <div class="grid-item product-item">
+                        <div class="img-box">
+                            <img src="./assets/images/product/001.jpg" class="product-img" alt="">
+                        </div>
+                        <h5 class="product-name">God Camera</h5>
+                        <span class="sub-product-name">L142H3</span>
+                        <p class="price">35,000 THB</p>
+                        <div class="view-info">View Info</div>
                     </div>
-                    <h5 class="product-name">God Camera</h5>
-                    <span class="sub-product-name">L142H3</span>
-                    <p class="price">35,000 THB</p>
-                    <div class="view-info">View Info</div>
-                </div>
-                <div class="grid-item product-item">
-                    <div class="img-box">
-                        <img src="./assets/images/Product/001.jpg" class="product-img" alt="">
+                    <div class="grid-item product-item">
+                        <div class="img-box">
+                            <img src="./assets/images/product/007.jpg" class="product-img" alt="">
+                        </div>
+                        <h5 class="product-name">God Camera</h5>
+                        <span class="sub-product-name">L142H3</span>
+                        <p class="price">35,000 THB</p>
+                        <div class="view-info">View Info</div>
                     </div>
-                    <h5 class="product-name">God Camera</h5>
-                    <span class="sub-product-name">L142H3</span>
-                    <p class="price">35,000 THB</p>
-                    <div class="view-info">View Info</div>
-                </div>
-                <div class="grid-item product-item">
-                    <div class="img-box">
-                        <img src="./assets/images/Product/007.jpg" class="product-img" alt="">
-                    </div>
-                    <h5 class="product-name">God Camera</h5>
-                    <span class="sub-product-name">L142H3</span>
-                    <p class="price">35,000 THB</p>
-                    <div class="view-info">View Info</div>
-                </div>
-                <div class="grid-item product-item">
-                    <div class="img-box">
-                        <img src="./assets/images/Product/008.jpg" class="product-img" alt="">
-                    </div>
-                    <h5 class="product-name">God Camera</h5>
-                    <span class="sub-product-name">L142H3</span>
-                    <p class="price">35,000 THB</p>
-                    <div class="view-info">View Info</div>
                 </div>
             </div>
-        </div>
+        <?php }
+        mysqli_close($connection);
+        ?>
+
 
 
     </main>
@@ -155,7 +200,7 @@
                         </a>
                     </div>
                     <div class="paragraph">
-                    Multi Innovation Broadcast (MIB.) provided support, service and supply the right products to the television industry in the Thailand                    </div>
+                        Multi Innovation Broadcast (MIB.) provided support, service and supply the right products to the television industry in the Thailand </div>
                 </div>
                 <div class="social-media-wrap">
                     <h4 class="footer-heading">Contact Us</h4>

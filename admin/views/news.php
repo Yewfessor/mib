@@ -79,8 +79,8 @@ if (isset($_GET["newsall"]) != "") {
 } else if (isset($_GET["productall"]) == "") {
     $i = 1;
     $path = "../assets/images/news/";
-
-    $sql = "SELECT * FROM tb_news";
+    include("models/BaseModel.php");
+    $sql = "SELECT * FROM tb_news ";
     $result = mysqli_query($connection, $sql);
 ?>
     <form>
