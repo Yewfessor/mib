@@ -303,6 +303,16 @@ section {
   background: var(--light-color);
   border-radius: 0.8rem;
 }
+.read-all-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem ;
+}
+.read-all-text {
+  color: var(--dark-color);
+  font-size: 2rem;
+}
 
 /* Footer Section Style */
 .footer {
@@ -426,6 +436,12 @@ section {
   }
   .news-card-title {
     font-size: 1.5rem;
+  }
+  .read-all-container {
+    margin-top: 3rem ;
+  }
+  .read-all-text {
+    font-size: 2.2rem;
   }
   /* Footer Section Style */
   .footer {
@@ -570,6 +586,9 @@ section {
     letter-spacing: 2px;
     font-size: 1rem;
     border-radius: 0.8rem;
+  }
+  .read-all-text {
+    font-size: 2.5rem;
   }
 }
 

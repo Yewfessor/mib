@@ -150,6 +150,10 @@
                         <img src="https://pro-av.panasonic.net/en/products/img/accessories/cable.png" alt="" class="product-type-image">
                         <h5 class="product-type-name">Accessories</h5>
                     </div>
+                    <div class="grid-item product-type" onclick="window.location.href='software.php'">
+                        <img src="https://pro-av.panasonic.net/en/products/img/accessories/cable.png" alt="" class="product-type-image">
+                        <h5 class="product-type-name">Software</h5>
+                    </div>
                 </div>
             </div>
 
@@ -271,6 +275,9 @@
                             <a href="#" class="read-more">Read more</a>
                         </div>
                     </div> -->
+                </div>
+                <div class="read-all-container">
+                    <a href="allnews.html"><h1 class="read-all-text">See more news <i class="fa fa-arrow-right" aria-hidden="true"></i></h1></a>
                 </div>
             </div>
         </section>
