@@ -27,7 +27,6 @@
 /* Global Style */
 html {
   font-size: 10px;
-  
 }
 
 body {
@@ -197,7 +196,7 @@ section {
   height: 100%;
   background-color: var(--light-transparent);
   z-index: -1;
-  transition: background .4s ;
+  transition: background 0.4s;
 }
 .product-type-image {
   width: 100%;
@@ -210,25 +209,21 @@ section {
 }
 .product-type-name {
   font-size: 2rem;
-  transition: all .5s ;
+  transition: all 0.5s;
 }
 
 .product-type:hover {
   cursor: pointer;
 }
-.product-type:hover .product-type-name{
+.product-type:hover .product-type-name {
   background-color: rgba(0, 0, 0, 0.6);
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
 }
 .product-type .product-type-name:hover {
 }
 .product-type:hover::before {
   background-color: transparent;
-  
 }
-
-
-
 
 /* About Us Style */
 .about {
@@ -259,22 +254,28 @@ section {
 }
 
 /* News Section Style */
+.grid.news {
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-gap: 2.5rem;
+}
 .news-card {
   background: var(--dark-color);
   box-shadow: 10px 10px 20px -13px rgba(0, 0, 0, 0.75);
   padding: 2.5rem 2rem;
   border-radius: 1.2rem;
+  height: 40rem;
 }
 .news-card-img {
   display: flex;
   overflow: hidden;
   height: 100%;
   width: 100%;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
 }
 .news-card-img img {
   border-radius: 1.2rem;
-  width: 100%;
+  margin-left: 50%;
+  transform: translateX(-50%);
   height: 100%;
 }
 .news-card-date {
@@ -284,20 +285,33 @@ section {
 }
 .news-card-title {
   color: #fff;
+  font-size: 1.8rem;
 }
 .news-card-text {
   color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
 }
 .read-more {
   display: inline-block;
-  padding: 1.5rem 2rem;
+  padding: 1rem 1.5rem;
   margin-top: 2rem;
   letter-spacing: 1px;
   font-size: 0.9rem;
+  font-weight: bold;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--solid-color);
   background: var(--light-color);
   border-radius: 0.8rem;
+}
+.read-all-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem ;
+}
+.read-all-text {
+  color: var(--dark-color);
+  font-size: 2rem;
 }
 
 /* Footer Section Style */
@@ -316,7 +330,6 @@ section {
 }
 .footer-content-brand .logo-image {
   max-width: 10rem;
-  
 }
 .footer .paragraph {
   color: inherit;
@@ -327,7 +340,7 @@ section {
 .contact-detail {
   margin: 2rem 0;
 }
-.contact-detail i{
+.contact-detail i {
   padding-right: 1.5rem;
 }
 .social-media {
@@ -372,6 +385,21 @@ section {
   -webkit-align-items: center;
   align-items: center;
 }
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: white;
+}
+/* .swiper-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+} */
+/* .swiper-pagination{
+  width: 100%;
+  display: flex;
+  align-self: flex-end;
+  margin: 0 10rem;
+} */
 
 /* Media Queries */
 @media screen and (min-width: 768px) {
@@ -396,6 +424,24 @@ section {
   }
   .product-type {
     height: 20rem;
+  }
+  /* News Section Style */
+  .grid.news {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 1.2rem;
+  }
+  .news-card {
+    padding: 2.5rem 2rem;
+    height: 35rem;
+  }
+  .news-card-title {
+    font-size: 1.5rem;
+  }
+  .read-all-container {
+    margin-top: 3rem ;
+  }
+  .read-all-text {
+    font-size: 2.2rem;
   }
   /* Footer Section Style */
   .footer {
@@ -466,6 +512,18 @@ section {
   .product-type-name {
     font-size: 2.6rem;
   }
+  /* News Section Style */
+  .grid.news {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 2rem;
+  }
+  .news-card {
+    padding: 2.5rem 2rem;
+    height: 40rem;
+  }
+  .news-card-title {
+    font-size: 2rem;
+  }
 }
 @media screen and (min-width: 1200px) {
   /* Hero & Under Section Style */
@@ -485,6 +543,18 @@ section {
   }
   .product-type {
     height: 25rem;
+  }
+  /* News Section Style */
+  .grid.news {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 3rem;
+  }
+  .news-card {
+    padding: 2.5rem 2rem;
+    height: 45rem;
+  }
+  .news-card-title {
+    font-size: 2rem;
   }
 }
 @media screen and (min-width: 1600px) {
@@ -506,14 +576,35 @@ section {
   .product-type-name {
     font-size: 2.8rem;
   }
+  /* News Section Style */
+  .news-card-title {
+    font-size: 2.2rem;
+  }
+  .read-more {
+    padding: 1rem 2.5rem;
+    margin-top: 2rem;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    border-radius: 0.8rem;
+  }
+  .read-all-text {
+    font-size: 2.5rem;
+  }
 }
-
 
 @keyframes modalIn {
-  0% { opacity: 0;}
-  100% { opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @keyframes modalOut {
-  0% { opacity: 1;}
-  100% { opacity: 0;}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
