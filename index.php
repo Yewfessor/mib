@@ -37,7 +37,7 @@
                         <a href="#news" class="nav-link">News</a>
                     </li>
                     <li class="nav-item">
-                        <a href="software.html" class="nav-link">Software</a>
+                        <a href="software.php" class="nav-link">Software</a>
                     </li>
                     <li class="nav-item">
                         <a href="#footer" class="nav-link">Contact</a>

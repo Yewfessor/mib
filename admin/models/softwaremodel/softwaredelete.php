@@ -1,4 +1,7 @@
 <?php
+$path_basemodel = "../BaseModel.php";
+$path_software  = "../../../assets/software/";
+
 $software_id = $_GET['delete_id'];
 $software_file = $_GET['delete_file'];
 

@@ -86,6 +86,10 @@ date_default_timezone_set("Asia/Bangkok");
 			<h1>link</h1>
 			<?php include("views/link.php"); ?>
 		</div><br>
+		<div id="line-up">
+			<h1>line-up</h1>
+			<?php include("views/productline.php"); ?>
+		</div><br>
 		<div id="product">
 			<h1>Product</h1>
 			<?php include("views/product.php"); ?>

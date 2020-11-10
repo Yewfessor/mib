@@ -5,25 +5,6 @@ $path_productmodel_input    = "models/productmodel/productinput.php";
 $path_productmodel_delete   = "models/softwaremodel/softwaredelete.php";
 ?>
 
-<script src="jquery-1.11.1.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#categories').change(function() {
-            $.ajax({
-                type: 'POST',
-                data: {
-                    categories: $(this).val()
-                },
-                url: 'select_product.php',
-                success: function(data) {
-                    $('#products').html(data);
-                }
-            });
-            return false;
-        });
-    });
-</script>
-
 <!--Upload Detail Product-->
 <form action="<?php echo $path_productmodel_input; ?>" id="productinput" enctype="multipart/form-data" name="productinput" method="post">
     <table border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">

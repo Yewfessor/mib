@@ -1,10 +1,8 @@
 <?php
-$product_id = $_GET['delete_id'];
-$product_image = $_GET['delete_img'];
+$product_line_id = $_GET['delete_id'];
 
 include("../BaseModel.php");
-$sql="DELETE FROM tb_product WHERE product_id='$product_id'";
-@unlink ("../../../assets/images/product/$product_image");
+$sql="DELETE FROM tb_product_line_up WHERE product_line_up_id='$product_line_id'";
 $result = mysqli_query($connection,$sql);
 
 mysqli_close($connection);

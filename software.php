@@ -1,3 +1,7 @@
+<!--Show On Index-->
+<?php
+$path_basemodel = "admin/models/BaseModel.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multi Innovation Broadcast</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
@@ -39,7 +41,7 @@
                         <a href="index.php#news" class="nav-link">News</a>
                     </li>
                     <li class="nav-item">
-                        <a href="software.html" class="nav-link">Software</a>
+                        <a href="software.php#software" class="nav-link">Software</a>
                     </li>
                     <li class="nav-item">
                         <a href="index.php#footer" class="nav-link">Contact</a>
@@ -51,62 +53,59 @@
     <div class="software-hero">
         <div class="swiper-container hero-slide">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"
-                    style="background: url(./assets/images/slide_img3.jpg);background-size: cover;background-position: center;">
+                <div class="swiper-slide" style="background: url(./assets/images/slide_img3.jpg);background-size: cover;background-position: center;">
                 </div>
             </div>
         </div>
     </div>
     <div class="software-content">
         <h1 class="software-heading">Software Download</h1>
-        <div class="software-container">
-            <h3 class="software-product-heading">For PTZ Camera Systems</h3>
-            <table class="software-table">
-                <thead>
-                    <tr>
-                        <th>Software</th>
-                        <th>Type</th>
-                        <th>Download</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>PTZ Control Center</td>
-                        <td>Free</td>
-                        <td><a href="#" class="btn-download"><i class="fa fa-download" aria-hidden="true"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>PTZ Virtual USB Driver</td>
-                        <td>Chargeable</td>
-                        <td><a href="#" class="btn-download"><i class="fa fa-download" aria-hidden="true"></i></a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="software-container">
-            <h3 class="software-product-heading">For System Cameras</h3>
-            <table class="software-table">
-                <thead>
-                    <tr>
-                        <th>Software</th>
-                        <th>Type</th>
-                        <th>Download</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>CAC File for System Camera</td>
-                        <td>Free</td>
-                        <td><a href="#" class="btn-download"><i class="fa fa-download" aria-hidden="true"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>Software Key (for Framing Control Software) AK-SFC101</td>
-                        <td>Chargeable</td>
-                        <td><a href="#" class="btn-download"><i class="fa fa-download" aria-hidden="true"></i></a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <?php
+        include $path_basemodel;
+        $sql2 = "SELECT * FROM tb_product_type";
+        $result2 = mysqli_query($connection, $sql2);
+        while ($row2 = mysqli_fetch_array($result2)) {
+        $product_type_id = $row2["product_type_id"];
+        ?>
+            <div class="software-container">
+                <h3 class="software-product-heading">For <?php echo $row2["product_type_name"]; ?></h3>
+                <table class="software-table">
+                    <thead>
+                        <tr>
+                            <th>Software</th>
+                            <th>Type</th>
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT * FROM 
+                        tb_software 
+                        LEFT JOIN tb_product_type 
+                        ON tb_software.product_type_id = tb_product_type.product_type_id 
+                        LEFT JOIN tb_software_type
+                        ON tb_software.software_type_id = tb_software_type.software_type_id
+                        WHERE tb_software.product_type_id = '" . $product_type_id . "' 
+                        ";
+                        $result = mysqli_query($connection, $sql);
+                        $numrow = mysqli_num_rows($result);
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                            <tr>
+                                <td><?php echo $row["software_name"]; ?></td>
+                                <td><?php echo $row["software_type_name"]; ?></td>
+                                <td><a href="#" class="btn-download"><i class="fa fa-download" aria-hidden="true"></i></a></td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php
+        }
+        mysqli_close($connection);
+        ?>
     </div>
 
 
@@ -120,7 +119,7 @@
                         </a>
                     </div>
                     <div class="paragraph">
-                    Multi Innovation Broadcast (MIB.) provided support, service and supply the right products to the television industry in the Thailand                    </div>
+                        Multi Innovation Broadcast (MIB.) provided support, service and supply the right products to the television industry in the Thailand </div>
                 </div>
                 <div class="social-media-wrap">
                     <h4 class="footer-heading">Contact Us</h4>

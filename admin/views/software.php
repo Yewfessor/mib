@@ -1,8 +1,10 @@
 <!--Show On Index-->
 <?php
-$path_basemodel             = "models/BaseModel.php";
-$path_sofwaremodel_upload   = "models/softwaremodel/softwareupload.php";
-$path_sofwaremodel_delete   = "models/softwaremodel/softwaredelete.php";
+$path_basemodel                 = "models/BaseModel.php";
+$path_sofwaremodel_upload       = "models/softwaremodel/softwareupload.php";
+$path_sofwaremodel_delete       = "models/softwaremodel/softwaredelete.php";
+$path_sofwaremodel_download     = "models/softwaremodel/softwaredownload.php";
+
 ?>
 
 <!--Upload Detail Software-->
@@ -23,7 +25,7 @@ $path_sofwaremodel_delete   = "models/softwaremodel/softwaredelete.php";
                     <select name="software_type_id" id="software_type_id" required>
                         <option value="">---------------Select---------------</option>
                         <?php
-                        include("../models/BaseModel.php");
+                        include $path_basemodel;
                         $sql = "SELECT * FROM tb_software_type";
                         $result = mysqli_query($connection, $sql);
                         while ($row = mysqli_fetch_array($result)) {
@@ -42,7 +44,7 @@ $path_sofwaremodel_delete   = "models/softwaremodel/softwaredelete.php";
                     <select name="product_type_id" id="product_type_id" required>
                         <option value="">---------------Select---------------</option>
                         <?php
-                        include("../models/BaseModel.php");
+                        include $path_basemodel;
                         $sql = "SELECT * FROM tb_product_type";
                         $result = mysqli_query($connection, $sql);
                         while ($row = mysqli_fetch_array($result)) {
@@ -56,7 +58,7 @@ $path_sofwaremodel_delete   = "models/softwaremodel/softwaredelete.php";
                 </td>
             </tr>
             <tr>
-                <td colspan="2" bgcolor="#FFFFFF"><input type="file" name="fileupload[]" id="fileupload" multiple><input type="submit" name="Submit" value="Upload"></td>
+                <td colspan="2" bgcolor="#FFFFFF"><input type="file" name="fileupload" id="fileupload" multiple><input type="submit" name="Submit" value="Upload"></td>
             </tr>
         </table>
     </form><br>
@@ -95,8 +97,7 @@ $path_sofwaremodel_delete   = "models/softwaremodel/softwaredelete.php";
                     <td align="center" bgcolor="#FFFFFF"><?php echo $row["software_type_name"]; ?></td>
                     <td align="center" bgcolor="#FFFFFF"><?php echo $row["product_type_name"]; ?></td>
                     <td align="center" bgcolor="#FFFFFF">
-                        <a href="<?php echo $path_sofwaremodel; ?>heroshow.php?list_no=<?php echo $row["software_id"]; ?>&show_list=1">Download</a>
-                        <a href="<?php echo $path_sofwaremodel; ?>download.php?download=<?php echo $row["software_file"]; ?>" title="Download File">
+                        <a href="<?php echo $path_sofwaremodel_download; ?>?download_id=<?php echo $row["software_id"]; ?>">Download</a>
                     </td>
                     <td align="center" bgcolor="#FFFFFF">
                         <a href="<?php echo $path_sofwaremodel_delete; ?>?delete_id=<?php echo $row["software_id"]; ?>&delete_file=<?php echo $row["software_file"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">ลบ</a>
