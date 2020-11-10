@@ -20,7 +20,8 @@ if (strlen($name)) {
         product_description_en,
         product_detail_en,
         product_price,
-        product_type_id
+        product_type_id,
+        product_line_up_id
     ) 
     VALUES 
     (
@@ -29,7 +30,8 @@ if (strlen($name)) {
         '" . $_POST["product_description_en"] . "',
         '" . $_POST["product_detail_en"] . "',
         '" . $_POST["product_price"] . "',
-        '" . $_POST["product_type_id"] . "'
+        '" . $_POST["product_type_id"] . "',
+        '" . $_POST["product_line_up_id"] . "'
     )";
     $result = mysqli_query($connection, $sql) or die("error : " . mysqli_error($connection));
     if ($result) {

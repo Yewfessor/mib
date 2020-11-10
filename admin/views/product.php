@@ -42,7 +42,6 @@ $path_productmodel_delete   = "models/softwaremodel/softwaredelete.php";
                         <option value="<?php echo $row["product_type_id"]; ?>"><?php echo $row["product_type_name"]; ?></option>
                     <?php
                     }
-                    mysqli_close($connection);
                     ?>
                 </select>
             </td>
@@ -54,11 +53,14 @@ $path_productmodel_delete   = "models/softwaremodel/softwaredelete.php";
                     <option center value="">-----------Select-----------</option>
                     <?php
                     include $path_basemodel;
-                    $sql = "SELECT * FROM tb_product_line_up WHERE product_type_id='2'";
+                    $sql = "SELECT * FROM tb_product_line_up 
+                    LEFT JOIN tb_product_type
+                    ON tb_product_line_up.product_type_id = tb_product_type.product_type_id
+                    ";
                     $result = mysqli_query($connection, $sql);
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
-                        <option value="<?php echo $row["product_line_up_id"]; ?>"><?php echo $row["product_line_up_name"]; ?></option>
+                        <option value="<?php echo $row["product_line_up_id"]; ?>"><?php echo $row["product_type_name"]." | ".$row["product_line_up_name"]; ?></option>
                     <?php
                     }
                     mysqli_close($connection);
@@ -110,15 +112,16 @@ if (isset($_GET["productall"]) != "") {
                     <td>Delete</td>
                 </tr>
                 <?php
-                while ($row = mysqli_fetch_array($result)) { ?>
+                while ($row = mysqli_fetch_array($result)) { 
+                    ?>
                     <tr align="center" bgcolor="#FFFFFF">
-                        <td hidden><?php echo $row["product_id"] ?></td>
+                        <td hidden><?php echo $row["product_id"]; ?></td>
                         <td><?php echo $i; ?></td>
                         <td><img height="100" src="<?php echo $path . $row["product_image"]; ?>"></td>
                         <td><?php echo $row["product_name_en"]; ?></td>
                         <td><?php echo $row["product_description_en"]; ?></td>
                         <td><?php echo $row["product_detail_en"]; ?></td>
-                        <td><?php echo $row["product_price"]; ?></td>
+                        <td><?php echo number_format($row["product_price"]); ?></td>
                         <td><?php echo $row["product_type_name"]; ?></td>
                         <td><a href="views/productedit.php?edit_id=<?php echo $row["product_id"]; ?>">แก้ไข </a></td>
                         <td><a href="models/productmodel/productdelete.php?delete_id=<?php echo $row["product_id"]; ?>&delete_img=<?php echo $row["product_image"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">ลบ</a></td>
@@ -167,7 +170,7 @@ if (isset($_GET["productall"]) != "") {
                         <td><?php echo $row["product_name_en"]; ?></td>
                         <td><?php echo $row["product_description_en"]; ?></td>
                         <td><?php echo $row["product_detail_en"]; ?></td>
-                        <td><?php echo $row["product_price"]; ?></td>
+                        <td><?php echo number_format($row["product_price"]); ?></td>
                         <td><?php echo $row["product_type_name"]; ?></td>
                         <td><?php echo $row["product_line_up_name"]; ?></td>
                         <td><a href="views/productedit.php?edit_id=<?php echo $row["product_id"]; ?>">แก้ไข </a></td>

@@ -88,9 +88,7 @@
             <div class="swiper-container underhero-slide2vdo">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <video width="100%" height="100%" loop autoplay>
-                            <source src="./banner.webm" type="video/webm">
-                        </video>
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ZkGmqj7nWsA/videoseries?controls=0&autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -289,7 +287,7 @@
             <div class="footer-content">
                 <div class="footer-content-brand">
                     <div class="logo-container">
-                        <a href="index.html">
+                        <a href="index.php">
                             <img src="./assets/images/Logo/mib-logo-icon-white.png" alt="" class="logo-image">
                         </a>
                     </div>

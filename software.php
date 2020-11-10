@@ -62,7 +62,7 @@ $path_basemodel = "admin/models/BaseModel.php";
         <h1 class="software-heading">Software Download</h1>
         <?php
         include $path_basemodel;
-        $sql2 = "SELECT * FROM tb_product_type";
+        $sql2 = "SELECT * FROM tb_product_type ";
         $result2 = mysqli_query($connection, $sql2);
         while ($row2 = mysqli_fetch_array($result2)) {
         $product_type_id = $row2["product_type_id"];

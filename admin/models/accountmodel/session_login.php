@@ -13,7 +13,6 @@ session_start();
             $_SESSION["user_id"] = $row["user_id"];
             $_SESSION["user_username"] = $row["user_username"];
             Header("Location: ../../index.php");
- 
         } else {
             session_destroy();  
             echo "<script>";
@@ -25,5 +24,4 @@ session_start();
         Header("Location: ../../login.php"); //user & password incorrect back to login again
         
     }
-    ob_end_flush();
     ?>

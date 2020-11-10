@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <?php
 include_once("models/accountmodel/checklogin.php");
 date_default_timezone_set("Asia/Bangkok");
 ?>
-
+<!DOCTYPE html>
 <html>
 
 <head>

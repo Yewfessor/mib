@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2020 at 03:09 PM
+-- Generation Time: Nov 10, 2020 at 09:51 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -91,9 +91,10 @@ CREATE TABLE `tb_link` (
 --
 
 INSERT INTO `tb_link` (`link_id`, `link_name`, `list_no`, `addby`, `updateby`, `adddate`, `lastupdate`) VALUES
-(3, 'https://www.youtube.com/embed/MyiFSgxDbWo/videoseries?controls=0&autoplay=1&mute=1&amp;list=PLSpi5Z-cqKs27A8JMw66uEkmDsC339q7J', 1, 0, 0, '2020-11-06 17:47:54', '0000-00-00 00:00:00'),
-(4, 'https://www.youtube.com/embed/videoseries?controls=0&autoplay=1&mute=1&amp;list=PLSpi5Z-cqKs27A8JMw66uEkmDsC339q7J', 0, 0, 0, '2020-11-06 17:52:14', '0000-00-00 00:00:00'),
-(5, 'https://www.youtube.com/embed/7-9vmtZ2uxE/videoseries?controls=0&autoplay=1&mute=1&amp;list=PLSpi5Z-cqKs27A8JMw66uEkmDsC339q7J', 0, 0, 0, '2020-11-06 18:54:37', '0000-00-00 00:00:00');
+(3, 'https://www.youtube.com/embed/JH8cjnbizqA/videoseries?controls=0&autoplay=1&mute=1', 0, 0, 0, '2020-11-06 17:47:54', '0000-00-00 00:00:00'),
+(4, 'https://www.youtube.com/embed/ZkGmqj7nWsA/videoseries?controls=0&autoplay=1&mute=1', 0, 0, 0, '2020-11-06 17:52:14', '0000-00-00 00:00:00'),
+(5, 'https://www.youtube.com/embed/7-9vmtZ2uxE/videoseries?controls=0&autoplay=1&mute=1', 0, 0, 0, '2020-11-06 18:54:37', '0000-00-00 00:00:00'),
+(6, 'https://www.youtube.com/embed/5oSKhTcG1oM/videoseries?controls=0&autoplay=1&mute=1', 1, 0, 0, '2020-11-10 19:14:51', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -168,7 +169,9 @@ INSERT INTO `tb_product` (`product_id`, `product_name_th`, `product_name_en`, `p
 (20, '', 'asd', 1, 46, '', 'asd', '', 'asd', '0411201104475fa23d77a4a62.jpg', 1000, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 (21, '', 'asdasd', 1, 46, '', 'asdasd', '', 'asdasd', '0411201105035fa23d870af67.jpg', 0, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 (23, '', 'หกฟห', 1, 46, '', 'ฟหกฟหก', '', 'ฟหกฟหก', '0411201111295fa23f094a4b3.jpg', 1000, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
-(24, '', 'ฟหกฟห', 1, 46, '', 'ฟหกฟหก', '', 'ฟหกฟหก', '0411201111465fa23f1a36f39.jpg', 1000, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00');
+(24, '', 'ฟหกฟห', 1, 46, '', 'ฟหกฟหก', '', 'ฟหกฟหก', '0411201111465fa23f1a36f39.jpg', 1000, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+(25, '', 'AW-HE130W/K', 2, 1, '', 'Panasonic', '', 'HD Integrated Camera\r\n\r\n', '1011202117265faab60e2e2c4.png', 10000, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+(26, '', 'AW-UE150W/K', 2, 1, '', 'Panasonic', '', '-', '1011202127435faab8772b6c7.png', 10000, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -255,7 +258,8 @@ INSERT INTO `tb_product_type` (`product_type_id`, `product_type_name`) VALUES
 (3, 'System Cameras'),
 (4, 'Live Switchers'),
 (5, 'Cinema Cameras'),
-(6, 'Professional Camera Recorders');
+(6, 'Professional Camera Recorders'),
+(7, 'Accessories');
 
 -- --------------------------------------------------------
 
@@ -283,7 +287,8 @@ CREATE TABLE `tb_software` (
 
 INSERT INTO `tb_software` (`software_id`, `software_name`, `software_file`, `software_description_en`, `software_type_id`, `product_type_id`, `list_no`, `addby`, `adddate`, `updateby`, `lastupdate`) VALUES
 (1, 'Auto Tracking Software Key', '', '90-day Free Trial', 1, 2, 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
-(3, 'PTZ Control Center', 'screencapture-localhost-mib-software-html-2020-11-06-11_45_45.png', '', 1, 2, 0, 0, '2020-11-08 23:09:18', 0, '0000-00-00 00:00:00');
+(3, 'PTZ Control Center', 'screencapture-localhost-mib-software-html-2020-11-06-11_45_45.png', '', 1, 2, 0, 0, '2020-11-08 23:09:18', 0, '0000-00-00 00:00:00'),
+(7, 'CAC File for System Camera	', 'mib 7-11-2020.sql', '', 1, 3, 0, 0, '2020-11-10 20:51:00', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -407,7 +412,7 @@ ALTER TABLE `tb_herounder`
 -- AUTO_INCREMENT for table `tb_link`
 --
 ALTER TABLE `tb_link`
-  MODIFY `link_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `link_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_news`
@@ -419,25 +424,25 @@ ALTER TABLE `tb_news`
 -- AUTO_INCREMENT for table `tb_product`
 --
 ALTER TABLE `tb_product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tb_product_line_up`
 --
 ALTER TABLE `tb_product_line_up`
-  MODIFY `product_line_up_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `product_line_up_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `tb_product_type`
 --
 ALTER TABLE `tb_product_type`
-  MODIFY `product_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `product_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_software`
 --
 ALTER TABLE `tb_software`
-  MODIFY `software_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `software_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_software_type`

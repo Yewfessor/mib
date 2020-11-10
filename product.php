@@ -127,7 +127,7 @@ $product_type_id = $_GET["product_type_id"];
                             </div>
                             <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
                             <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
-                            <span class="price"><?php echo $row["product_price"]; ?> THB</span>
+                            <span class="price"><?php echo number_format($row["product_price"]); ?> THB</span>
                             <div class="view-info">View Info</div>
                         </div>
 
