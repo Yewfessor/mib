@@ -63,10 +63,11 @@
                     <?php
                     }
                     ?>
+                    
                     <?php if ($num > 1) { ?>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
-                    <?php } else { ?>
+                        <?php } else { ?>
 
                     <?php } ?>
                 </div>
@@ -229,7 +230,8 @@
                     <?php
                     $path_imagenews ="assets/images/news/";
                     include("admin/models/BaseModel.php");
-                    $sql = "SELECT * FROM tb_news ORDER BY adddate DESC";
+                    $sql = "SELECT news_id, CONCAT(SUBSTRING(news_name, 1, 30),'') as news_name, news_image, news_description_th, CONCAT(SUBSTRING(news_detail_th, 1, 70),' . . .') as news_detail_th, adddate 
+                    FROM tb_news ORDER BY adddate DESC LIMIT 3";
                     $result = mysqli_query($connection, $sql);
                     $num = mysqli_num_rows($result);
                     while ($row = mysqli_fetch_array($result)) {
@@ -242,10 +244,8 @@
                                 <div class="news-card-date">
                                     <span><?php echo $row["adddate"]; ?></span>
                                 </div>
-                                <h1 class="news-card-title"><?php echo $row["news_name"]; ?></h1>
-                                <p class="news-card-text">
-                                    <?php echo $row["news_description_th"]; ?>
-                                </p>
+                                <!-- หัวข้อข่าวควรไม่เกิน 30 ตัวอักษร จะได้ 1 บรรทัดสวยๆพอดี -->
+                                <h1 class="news-card-title"><?php echo $row["news_name"]; ?></h1> 
                                 <p class="news-card-text">
                                     <?php echo $row["news_detail_th"]; ?>
                                 </p>
@@ -255,23 +255,7 @@
                     <?php
                     }
                     ?>
-                    <div class="grid-item news-card">
-                        <div class="news-card-img">
-                            <img src="https://via.placeholder.com/1080x1080?text=News+Image" alt="">
-                        </div>
-                        <div class="news-card-info">
-                            <div class="news-card-date">
-                                <span>Thursday</span>
-                                <span>October 22 2019</span>
-                            </div>
-                            <h1 class="news-card-title">Title Here</h1>
-                            <p class="news-card-text">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                            <a href="#" class="read-more">Read more</a>
-                        </div>
-                    </div>
-                    <div class="grid-item news-card">
+                    <!-- <div class="grid-item news-card">
                         <div class="news-card-img">
                             <img src="https://via.placeholder.com/1920x1080?text=News+Image" alt="">
                         </div>
@@ -286,7 +270,7 @@
                             </p>
                             <a href="#" class="read-more">Read more</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
