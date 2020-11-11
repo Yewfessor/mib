@@ -14,7 +14,9 @@ $product_type_id = $_GET["product_type_id"];
     <title>Multi Innovation Broadcast</title>
     <!-- <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;500;600;700;800&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
@@ -58,7 +60,8 @@ $product_type_id = $_GET["product_type_id"];
         <div class="product-hero">
             <div class="swiper-container hero-slide">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background: url(./assets/images/hero01.jpg);background-size: cover;background-position: center;">
+                    <div class="swiper-slide"
+                        style="background: url(./assets/images/hero01.jpg);background-size: cover;background-position: center;">
                     </div>
                 </div>
             </div>
@@ -75,7 +78,7 @@ $product_type_id = $_GET["product_type_id"];
                 while ($row1 = mysqli_fetch_array($result1)) {
                     $product_type_name = $row1["product_type_name"];
                 ?>
-                    <h1 class="heading"><?php echo $product_type_name; ?></h1>
+                <h1 class="heading"><?php echo $product_type_name; ?></h1>
                 <?php
                 }
                 mysqli_close($connection);
@@ -98,6 +101,59 @@ $product_type_id = $_GET["product_type_id"];
             $product_line_up_name = $row2["product_line_up_name"];
 
         ?>
+
+        <div class="product-content">
+            <div class="catogory-container">
+                <li class="catagory-item"><a href="#/" class="btn-list">IT/IP Platform</a></li>
+                <li class="catagory-item">
+                    <a href="#/" class="btn-list">PTZ Camera Systems </a>
+                    <div>
+                        <ul class="catagory-item-sub">
+                            <li><a href="#/">High-end Model</a></li>
+                            <li><a href="#/">Standard Model</a></li>
+                            <li><a href="#/">Entry Model</a></li>
+                            <li><a href="#/">Outdoor Model</a></li>
+                            <li><a href="#/">Remote Camera Controller</a></li>
+                            <li><a href="#/">360-degree Live Camera</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="catagory-item">
+                    <a href="#/" class="btn-list">System Cameras </a>
+                    <ul class="catagory-item-sub">
+                        <li><a href="#/">Studio Camera</a></li>
+                        <li><a href="#/">Multi Purpose Camera</a></li>
+                        <li><a href="#/">Camera Control Unit (CCU)</a></li>
+                    </ul>
+                </li>
+                <li class="catagory-item">
+                    <a href="#/" class="btn-list">Live Switchers </a>
+                    <ul class="catagory-item-sub">
+                        <li><a href="#/">2ME or Larger Switcher Model</a></li>
+                        <li><a href="#/">1ME Switcher Model</a></li>
+                    </ul>
+                </li>
+                <li class="catagory-item">
+                    <a href="#/" class="btn-list">Cinema Cameras </a>
+                    <ul class="catagory-item-sub">
+                        <li><a href="#/">VariCam</a></li>
+                        <li><a href="#/">EVA1</a></li>
+                    </ul>
+                </li>
+                <li class="catagory-item">
+                    <a href="#/" class="btn-list">Professional Camera Recorder </a>
+                    <ul class="catagory-item-sub">
+                        <li><a href="#/">CX Series</a></li>
+                        <li><a href="#/">P2HD Series</a></li>
+                        <li><a href="#/">Camcorder</a></li>
+                        <li><a href="#/">POVCAM</a></li>
+                        <li><a href="#/">Memory Card Recorder</a></li>
+                    </ul>
+                </li>
+                <li class="catagory-item"><a href="#/" class="btn-list">Accessories</a></li>
+            </div>
+
+
             <div class="product-items">
 
                 <h5 class="product-subtype-heading"><?php echo $product_line_up_name; ?></h5>
@@ -121,15 +177,15 @@ $product_type_id = $_GET["product_type_id"];
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
 
-                        <div class="grid-item product-item">
-                            <div class="img-box">
-                                <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
-                            </div>
-                            <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
-                            <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
-                            <span class="price"><?php echo number_format($row["product_price"]); ?> THB</span>
-                            <div class="view-info">View Info</div>
+                    <div class="grid-item product-item">
+                        <div class="img-box">
+                            <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
                         </div>
+                        <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
+                        <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
+                        <span class="price"><?php echo $row["product_price"]; ?> THB</span>
+                        <div class="view-info">View Info</div>
+                    </div>
 
                     <?php
                     }
@@ -182,10 +238,12 @@ $product_type_id = $_GET["product_type_id"];
                     </div>
                 </div>
             </div>
-        <?php }
+            <?php }
         mysqli_close($connection);
         ?>
 
+
+        </div>
 
 
     </main>
@@ -200,18 +258,22 @@ $product_type_id = $_GET["product_type_id"];
                         </a>
                     </div>
                     <div class="paragraph">
-                        Multi Innovation Broadcast (MIB.) provided support, service and supply the right products to the television industry in the Thailand </div>
+                        Multi Innovation Broadcast (MIB.) provided support, service and supply the right products to the
+                        television industry in the Thailand </div>
                 </div>
                 <div class="social-media-wrap">
                     <h4 class="footer-heading">Contact Us</h4>
                     <div class="contact-detail">
-                        <p class="contact-email"><i class="fa fa-envelope" aria-hidden="true"></i>online@mib-thailand.com</p>
+                        <p class="contact-email"><i class="fa fa-envelope"
+                                aria-hidden="true"></i>online@mib-thailand.com</p>
                         <p class="contact-phone"><i class="fa fa-phone" aria-hidden="true"></i>099-8765432</p>
                     </div>
                     <div class="social-media">
-                        <a href="https://www.facebook.com/MultiInnovationBroadcast/" class="sm-link" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://line.me/R/ti/p/%40zwm2906e" class="sm-link" target="_blank"><i class="fab fa-line"></i></a>
-                        <a href="#" class="sm-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/MultiInnovationBroadcast/" class="sm-link" target="_blank"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://line.me/R/ti/p/%40zwm2906e" class="sm-link" target="_blank"><i
+                                class="fab fa-line"></i></a>
+                        <a href="#/" class="sm-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
