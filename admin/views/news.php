@@ -10,7 +10,7 @@
         </tr>
         <tr bgcolor="#FFFFFF">
             <td>News Description : </td>
-            <td><input type="text" name="news_description_th" id="news_description_th" value="" required></td>
+            <td><input type="text" name="news_description_th" id="news_description_th" value=""></td>
         </tr>
         <tr bgcolor="#FFFFFF">
             <td>News Detail : </td>
