@@ -275,7 +275,7 @@
                     </div> -->
                 </div>
                 <div class="read-all-container">
-                    <a href="allnews.html"><h1 class="read-all-text">See more news <i class="fa fa-arrow-right" aria-hidden="true"></i></h1></a>
+                    <a href="newsAll.html"><h1 class="read-all-text">See more news <i class="fa fa-arrow-right" aria-hidden="true"></i></h1></a>
                 </div>
             </div>
         </section>
