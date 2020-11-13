@@ -16,11 +16,9 @@ if (strlen($name)) {
     include("../BaseModel.php");
     
     $news_name = $_POST["news_name"];
-    $news_description_th = $_POST["news_description_th"];
     $news_detail_th = $_POST["news_detail_th"];
     
     $news_name_string = mysqli_real_escape_string($connection, $news_name);
-    $news_description_th_string = mysqli_real_escape_string($connection, $news_description_th);
     $news_detail_th_string = mysqli_real_escape_string($connection, $news_detail_th);
 
 
@@ -28,7 +26,6 @@ if (strlen($name)) {
     (
         news_image,
         news_name,
-        news_description_th,
         news_detail_th,
         adddate
     ) 
@@ -36,7 +33,6 @@ if (strlen($name)) {
     (
         '" . $new_file_name . "',
         '" . $news_name_string . "',
-        '" . $news_description_th_string . "',
         '" . $news_detail_th_string . "',
         '" . $date . "'
     )";

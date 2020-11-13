@@ -1,56 +1,58 @@
 <?php
+//path
+    $path_basemodel = "../BaseModel.php";
+    $path_images    = "../../../assets/images/product/";
 
-$date = date("Y-m-d H:i:s");
-$time = date("dmyHis");
+//name & date
+    $date = date("Y-m-d H:i:s");
+    $time = date("dmyHis");
 
-$path = "../../../assets/images/product/";
-$tmp  = $_FILES["product_image"]["tmp_name"];
-$name = $_FILES["product_image"]["name"];
+//sql
+    include $path_basemodel;
+    $product_id             = $_POST['product_id'];
+    $product_image          = $_POST['product_image'];
+    $product_name_en        = $_POST['product_name_en'];
+    $product_description_en = $_POST['product_description_en'];
+    $product_detail_en      = $_POST['product_detail_en'];
+    $product_price          = $_POST['product_price'];
+    $product_type_id        = $_POST['product_type_id'];
+    $product_line_up_id     = $_POST["product_line_up_id"];
 
-if (strlen($name)) {
+//text '' "" :: 
+    $product_name_en_str        = mysqli_real_escape_string($connection, $product_name_en);
+    $product_description_en_str = mysqli_real_escape_string($connection, $product_description_en);
+    $product_detail_en_str      = mysqli_real_escape_string($connection, $product_detail_en);
 
+//image
+    $tmp  = $_FILES["product_image_new"]["tmp_name"];
+    $name = $_FILES["product_image_new"]["name"];
 
-    if (!empty($name)){
-
+    if ($name !=''){
+        @unlink ("../../../assets/images/product/$product_image");
         list($txt, $ext) = explode(".", $name);
         $new_file_name = uniqid($time) . "." . $ext;
-        move_uploaded_file($tmp, $path . $new_file_name);
-        
-        include("BaseModel.php");
-        $sql = "UPDATE tb_product SET
-        product_image = '" . $_POST['product_image'] . "',
-        product_name_en = '" . $_POST['product_name_en'] . "',
-        product_description_en = '" . $_POST['product_description_en'] . "',
-        product_detail_en = '" . $_POST['product_detail_en'] . "',
-        product_price = '" . $_POST['product_price'] . "',
-        product_type_id = '" . $_POST['product_type_id'] . "'
-        WHERE product_id = '" . $_POST['product_id'] . "'";
+        move_uploaded_file($tmp, $path_images . $new_file_name); 
     } else {
-
+        $new_file_name = $product_image;
     }
 
+    $sql = "UPDATE tb_product SET
+            product_image = '" . $new_file_name . "',
+            product_name_en = '" . $product_name_en_str . "',
+            product_description_en = '" . $product_description_en_str . "',
+            product_detail_en = '" . $product_detail_en_str . "',
+            product_price = '" . $product_price . "',
+            product_type_id = '" . $product_type_id . "',
+            product_line_up_id = '" . $product_line_up_id . "',
+            lastupdate = '" . $date . "'
+            WHERE product_id = '" . $product_id . "'";
+
     $result = mysqli_query($connection, $sql) or die("Error in query: $sql " . mysqli_error($connection));
+    mysqli_close($connection);
 
     if ($result) {
         echo "<script type='text/javascript'>alert('แก้ไขข้อมูลเรียบร้อยแล้ว')</script>";
-        echo "<meta http-equiv ='refresh'content='0;URL=index.php'>";
+        echo "<meta http-equiv ='refresh'content='0;URL=../../index.php'>";
     } else {
         echo "<script type='text/javascript'>alert('ไม่สามารถแก้ไขข้อมูลได้');window.history.go(-1);</script>";
     }
-}
-?>
-
-if( ! empty($_FILES['strategy_file']['name']))
-$updateSQL = sprintf("UPDATE strategy SET strategy_img=%s, strategy_cap=%s, strategy_file=%s, strategy_link=%s WHERE id=%s",
-GetSQLValueString(Upload($_FILES['strategy_img']), "text"),
-GetSQLValueString($_POST['strategy_cap'], "text"),
-GetSQLValueString(Uploadfile($_FILES['strategy_file']), "text"),
-GetSQLValueString($_POST['strategy_link'], "text"),
-GetSQLValueString($_POST['id'], "int"));
-} else {
-$updateSQL = sprintf("UPDATE strategy SET strategy_img=%s, strategy_cap=%s, strategy_link=%s WHERE id=%s",
-GetSQLValueString(Upload($_FILES['strategy_img']), "text"),
-GetSQLValueString($_POST['strategy_cap'], "text"),
-GetSQLValueString($_POST['strategy_link'], "text"),
-GetSQLValueString($_POST['id'], "int"));
-}

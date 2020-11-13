@@ -32,11 +32,12 @@ $path_productlinemodel_delete   = "models/productlinemodel/productlinedelete.php
             </td>
         </tr>
         <tr align="right" bgcolor="#FFFFFF">
-            <td></td>
-            <td><input type="submit" name="productlinesubmit" value="Save"></td>
+            <td colspan="2"><input type="submit" name="productlinesubmit" value="Create"></td>
         </tr>
     </table>
 </form>
+
+<br>
 
 <?php
     $path = "../assets/images/product/";
@@ -47,7 +48,7 @@ $path_productlinemodel_delete   = "models/productlinemodel/productlinedelete.php
     ON tb_product_line_up.product_type_id = tb_product_type.product_type_id";
     $result = mysqli_query($connection, $sql);
 ?>
-<div style=" width:1000px; height:425px; overflow: auto;">
+<div style=" width:500px; height:425px; overflow: auto;">
     <form>
         <table border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
             <tr align="center" bgcolor="#FFFFFF">

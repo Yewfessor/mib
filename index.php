@@ -1,3 +1,20 @@
+<?php
+function changeDate($date)
+{
+    $get_date = explode("-", $date);
+    $month = array("01" => "ม.ค.", "02" => "ก.พ", "03" => "มี.ค.", "04" => "เม.ย.", "05" => "พ.ค.", "06" => "มิ.ย.", "07" => "ก.ค.", "08" => "ส.ค.", "09" => "ก.ย.", "10" => "ต.ค.", "11" => "พ.ย.", "12" => "ธ.ค.");
+    $get_month = $get_date["1"];
+    $year = $get_date["0"] + 543;
+    return $get_date["2"] . " " . $month[$get_month] . " " . $year;
+}
+function dateTime($date_time)
+{
+    $get_date_time = explode(' ', $date_time);
+    $date = changeDate($get_date_time['0']);
+    $time = substr($get_date_time['1'], 0, -3);
+    return $date . " เวลา " . $time;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,11 +80,11 @@
                     <?php
                     }
                     ?>
-                    
+
                     <?php if ($num > 1) { ?>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
-                        <?php } else { ?>
+                    <?php } else { ?>
 
                     <?php } ?>
                 </div>
@@ -230,7 +247,7 @@
                 </h5>
                 <div class="grid news">
                     <?php
-                    $path_imagenews ="assets/images/news/";
+                    $path_imagenews = "assets/images/news/";
                     include("admin/models/BaseModel.php");
                     $sql = "SELECT news_id, CONCAT(SUBSTRING(news_name, 1, 30),'') as news_name, news_image, news_description_th, CONCAT(SUBSTRING(news_detail_th, 1, 70),' . . .') as news_detail_th, adddate 
                     FROM tb_news ORDER BY adddate DESC LIMIT 3";
@@ -240,18 +257,18 @@
                     ?>
                         <div class="grid-item news-card">
                             <div class="news-card-img">
-                                <img src="<?php echo $path_imagenews.$row["news_image"]; ?>" alt="">
+                                <img src="<?php echo $path_imagenews . $row["news_image"]; ?>" alt="">
                             </div>
                             <div class="news-card-info">
                                 <div class="news-card-date">
-                                    <span><?php echo $row["adddate"]; ?></span>
+                                    <span><?php echo dateTime($row["adddate"]); ?></span>
                                 </div>
                                 <!-- หัวข้อข่าวควรไม่เกิน 30 ตัวอักษร จะได้ 1 บรรทัดสวยๆพอดี -->
-                                <h1 class="news-card-title"><?php echo $row["news_name"]; ?></h1> 
+                                <h1 class="news-card-title"><?php echo $row["news_name"]; ?></h1>
                                 <p class="news-card-text">
                                     <?php echo $row["news_detail_th"]; ?>
                                 </p>
-                                <a href="news.html" class="read-more">Read more</a>
+                                <a href="news.php<?php echo "?news_id=" . $row["news_id"]; ?>" class="read-more">Read more</a>
                             </div>
                         </div>
                     <?php
@@ -275,7 +292,9 @@
                     </div> -->
                 </div>
                 <div class="read-all-container">
-                    <a href="newsAll.html"><h1 class="read-all-text">See more news <i class="fa fa-arrow-right" aria-hidden="true"></i></h1></a>
+                    <a href="newsAll.php">
+                        <h1 class="read-all-text">See more news <i class="fa fa-arrow-right" aria-hidden="true"></i></h1>
+                    </a>
                 </div>
             </div>
         </section>
@@ -292,7 +311,7 @@
                         </a>
                     </div>
                     <div class="paragraph">
-                    Multi Innovation Broadcast (MIB.) provided support, service and supply the right products to the television industry in the Thailand                    </div>
+                        Multi Innovation Broadcast (MIB.) provided support, service and supply the right products to the television industry in the Thailand </div>
                 </div>
                 <div class="social-media-wrap">
                     <h4 class="footer-heading">Contact Us</h4>

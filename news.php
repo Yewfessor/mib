@@ -1,17 +1,38 @@
+<?php
+//get
+$news_id = $_GET['news_id'];
+
+//path
+$path_basemodel     = "admin/models/BaseModel.php";
+$path_images        = "assets/images/news/";
+
+include $path_basemodel;
+$sql    = "SELECT * FROM tb_news WHERE news_id = '" . $news_id . "'";
+$result = mysqli_query($connection, $sql);
+$row    = mysqli_fetch_assoc($result);
+
+//row
+$news_id                = $row["news_id"];
+$news_image             = $row["news_image"];
+$news_name              = $row["news_name"];
+$news_detail_th         = $row["news_detail_th"];
+$news_lastupdate        = $row["lastupdate"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Multi Innovation Broadcast</title>
-        <link rel="stylesheet" href="./assets/css/styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-            integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-            crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Innovation Broadcast</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+</head>
+
 <body>
     <header class="header">
         <div class="container">
@@ -49,10 +70,10 @@
 
     <div class="news-container">
         <div class="news-content">
-            <h1 class="news-heading">สรุปข่าวต่างประเทศ 'ไบเดน' ขึ้นแท่นว่าที่ประธานาธิบดีสหรัฐฯ</h1>
-            <span class="news-date">8 พ.ย. 2563 15:14 น.</span>
-            <img src="https://www.thairath.co.th/media/dFQROr7oWzulq5FZUH5zT5b9BQ2CLZKOof185aIhedwzCqkhoYTqyKiqm9dRnEvHqOk.jpg" alt="" class="news-img">
-            <p class="news-text">ลุ้นกันมาหลายวันสำหรับผลการนับคะแนนประธานาธิบดีสหรัฐฯ 2020 ล่าสุดสื่อหลายสำนักประกาศให้ นายโจ ไบเดน เป็นว่าที่ประธานาธิบดีสหรัฐฯ คนที่ 46 หลังจากกวาดคะแนนเสียงในรัฐเพนซิลเวเนีย ซึ่งมีคะแนนคณะผู้เลือกตั้ง 20 เสียง ทำให้นายไบเดนมีคะแนนรวม 290 เสียง นำหน้านายโดนัลด์ ทรัมป์ ที่มีคะแนนอยู่ที่ 214 เสียง</p>
+            <h1 class="news-heading"><?php echo $news_name; ?></h1>
+            <span class="news-date"><?php echo $news_lastupdate; ?></span>
+            <img src="<?php echo $path_images.$news_image; ?>" alt="" class="news-img">
+            <p class="news-text"><?php echo $news_detail_th; ?></p>
             <div class="news-more">
                 <h3 class="news-more-heading">อ่านข่าวอื่นๆ</h3>
                 <ul class="news-more-lists">
@@ -83,7 +104,7 @@
                         </a>
                     </div>
                     <div class="paragraph">
-                    Multi Innovation Broadcast (MIB.) provided support, service and supply the right products to the television industry in the Thailand                    </div>
+                        Multi Innovation Broadcast (MIB.) provided support, service and supply the right products to the television industry in the Thailand </div>
                 </div>
                 <div class="social-media-wrap">
                     <h4 class="footer-heading">Contact Us</h4>
@@ -107,4 +128,5 @@
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/modal.js"></script>
 </body>
+
 </html>
