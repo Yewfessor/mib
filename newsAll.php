@@ -6,9 +6,9 @@ $path_images    = "assets/images/news/";
 function changeDate($date)
 {
     $get_date = explode("-", $date);
-    $month = array("01" => "ม.ค.", "02" => "ก.พ", "03" => "มี.ค.", "04" => "เม.ย.", "05" => "พ.ค.", "06" => "มิ.ย.", "07" => "ก.ค.", "08" => "ส.ค.", "09" => "ก.ย.", "10" => "ต.ค.", "11" => "พ.ย.", "12" => "ธ.ค.");
+    $month = array("01" => "January", "02" => "February", "03" => "March", "04" => "April", "05" => "May", "06" => "June", "07" => "July", "08" => "August", "09" => "September", "10" => "October", "11" => "November", "12" => "December");
     $get_month = $get_date["1"];
-    $year = $get_date["0"] + 543;
+    $year = $get_date["0"];
     return $get_date["2"] . " " . $month[$get_month] . " " . $year;
 }
 function dateTime($date_time)
@@ -16,7 +16,7 @@ function dateTime($date_time)
     $get_date_time = explode(' ', $date_time);
     $date = changeDate($get_date_time['0']);
     $time = substr($get_date_time['1'], 0, -3);
-    return $date . " เวลา " . $time;
+    return $date . " | " . $time;
 }
 ?>
 
@@ -59,7 +59,7 @@ function dateTime($date_time)
                         <a href="index.php#news" class="nav-link">News</a>
                     </li>
                     <li class="nav-item">
-                        <a href="software.html" class="nav-link">Software</a>
+                        <a href="software.php" class="nav-link">Software</a>
                     </li>
                     <li class="nav-item">
                         <a href="index.php#footer" class="nav-link">Contact</a>

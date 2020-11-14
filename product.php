@@ -37,19 +37,19 @@ $product_type_id = $_GET["product_type_id"];
                         <a href="index.php" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#product" class="nav-link">Product</a>
+                        <a href="index.php#product" class="nav-link">Product</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#about" class="nav-link">About</a>
+                        <a href="index.php#about" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#news" class="nav-link">News</a>
+                        <a href="index.php#news" class="nav-link">News</a>
                     </li>
                     <li class="nav-item">
-                        <a href="software.html" class="nav-link">Software</a>
+                        <a href="software.php" class="nav-link">Software</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#footer" class="nav-link">Contact</a>
+                        <a href="index.php#footer" class="nav-link">Contact</a>
                     </li>
                 </ul>
             </nav>
