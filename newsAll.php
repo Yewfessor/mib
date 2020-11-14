@@ -3,6 +3,7 @@
 $path_basemodel = "admin/models/BaseModel.php";
 $path_images    = "assets/images/news/";
 
+//date
 function changeDate($date)
 {
     $get_date = explode("-", $date);

@@ -2,6 +2,23 @@
 //get
 $news_id = $_GET['news_id'];
 
+//date
+function changeDate($date)
+{
+    $get_date = explode("-", $date);
+    $month = array("01" => "January", "02" => "February", "03" => "March", "04" => "April", "05" => "May", "06" => "June", "07" => "July", "08" => "August", "09" => "September", "10" => "October", "11" => "November", "12" => "December");
+    $get_month = $get_date["1"];
+    $year = $get_date["0"];
+    return $get_date["2"] . " " . $month[$get_month] . " " . $year;
+}
+function dateTime($date_time)
+{
+    $get_date_time = explode(' ', $date_time);
+    $date = changeDate($get_date_time['0']);
+    $time = substr($get_date_time['1'], 0, -3);
+    return $date . " | " . $time;
+}
+
 //path
 $path_basemodel     = "admin/models/BaseModel.php";
 $path_images        = "assets/images/news/";
@@ -16,7 +33,9 @@ $news_id                = $row["news_id"];
 $news_image             = $row["news_image"];
 $news_name              = $row["news_name"];
 $news_detail_th         = $row["news_detail_th"];
-$news_lastupdate        = $row["lastupdate"];
+$news_lastupdate        = dateTime($row["lastupdate"]);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -72,14 +91,21 @@ $news_lastupdate        = $row["lastupdate"];
         <div class="news-content">
             <h1 class="news-heading"><?php echo $news_name; ?></h1>
             <span class="news-date"><?php echo $news_lastupdate; ?></span>
-            <img src="<?php echo $path_images.$news_image; ?>" alt="" class="news-img">
+            <img src="<?php echo $path_images . $news_image; ?>" alt="" class="news-img">
             <p class="news-text"><?php echo $news_detail_th; ?></p>
             <div class="news-more">
                 <h3 class="news-more-heading">อ่านข่าวอื่นๆ</h3>
                 <ul class="news-more-lists">
-                    <li><a href="#">เปิดตัว IPHONE 12 รุ่นล่าสุด !</a></li>
-                    <li><a href="#">อเมริกา โควิดระบาดหนักกว่าแสนรายต่อวัน</a></li>
-                    <li><a href="#">เปิดตัว IPHONE 12 รุ่นล่าสุด !</a></li>
+                    <?php
+                    $sql_more = "SELECT * FROM tb_news ORDER BY lastupdate DESC LIMIT 3";
+                    $result_more = mysqli_query($connection, $sql_more);
+                    while ($row_more = mysqli_fetch_array($result_more)) {
+                    ?>
+                        <li><a href="news.php<?php echo "?news_id=" . $row_more["news_id"]; ?>"><?php echo $row_more["news_name"]; ?></a></li>
+                    <?php
+                    }
+                    mysqli_close($connection);
+                    ?>
                 </ul>
             </div>
         </div>
