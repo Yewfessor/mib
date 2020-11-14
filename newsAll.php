@@ -75,61 +75,33 @@ function dateTime($date_time)
 
     <div class="news-all-content">
         <h1 class="news-all-heading">All News</h1>
-
-        <?php
-            include $path_basemodel;
-            $sql = "SELECT DISTINCT lastupdate FROM tb_news";
-            $result_y = mysqli_query($connection, $sql);
-            while ($row_y = mysqli_fetch_array($result)) {
-                $ddate = $row_y["lastupdate"];
-                list($y, $m, $d) = explode('-', $ddate);
-        ?>
-
         <table class="news-all-table">
-            <tr>
-                <th colspan="2"><?php echo $ddate; ?></th>
-            </tr>
             <?php
-                $sql = "SELECT * FROM tb_news ORDER BY adddate DESC";
+            include $path_basemodel;
+            $sql_y = "SELECT DISTINCT YEAR(lastupdate) FROM tb_news ORDER BY lastupdate DESC";
+            $result_y = mysqli_query($connection, $sql_y);
+            while ($row_y = mysqli_fetch_array($result_y)) {
+                $year = $row_y["YEAR(lastupdate)"];
+            ?>
+                <tr>
+                    <th colspan="2"><?php echo $year; ?></th>
+                </tr>
+                <?php
+                $sql = "SELECT * FROM tb_news WHERE year(lastupdate)='$year' ORDER BY lastupdate DESC";
                 $result = mysqli_query($connection, $sql);
                 while ($row = mysqli_fetch_array($result)) {
-            ?>
-            <tr>
-                <td><?php echo dateTime($row["adddate"]); ?></td>
-                <td><a href="news.php<?php echo "?news_id=" . $row["news_id"]; ?>"><?php echo $row["news_name"]; ?></a></td>
-            </tr>
-            <?php 
+                ?>
+                    <tr>
+                        <td><?php echo dateTime($row["lastupdate"]); ?></td>
+                        <td><a href="news.php<?php echo "?news_id=" . $row["news_id"]; ?>"><?php echo $row["news_name"]; ?></a></td>
+                    </tr>
+            <?php
                 }
             }
-                mysqli_close($connection);
+            mysqli_close($connection);
             ?>
-            <tr>
-                <th colspan="2">2019</th>
-            </tr>
-            <tr>
-                <td>October 30, 2019</td>
-                <td><a href="#">Live Switcher AV-UHS500 Product Information was updated.</a></td>
-            </tr>
-            <tr>
-                <td>October 30, 2019</td>
-                <td><a href="#">Firmware for the Live Switcher AV-UHS500 was updated to ver. 1.20.</a></td>
-            </tr>
-            <tr>
-                <td>October 29, 2019</td>
-                <td><a href="#">The P2 Viewer Plus software was updated to Ver.2.3.29.</a></td>
-            </tr>
-  
         </table>
     </div>
-
-
-
-
-
-
-
-
-
 
     <footer class="footer" id="footer">
         <div class="container">

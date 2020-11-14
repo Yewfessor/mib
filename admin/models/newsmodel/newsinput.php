@@ -27,14 +27,17 @@ if (strlen($name)) {
         news_image,
         news_name,
         news_detail_th,
-        adddate
+        adddate,
+        lastupdate
     ) 
     VALUES 
     (
         '" . $new_file_name . "',
         '" . $news_name_string . "',
         '" . $news_detail_th_string . "',
+        '" . $date . "',
         '" . $date . "'
+
     )";
     $result = mysqli_query($connection, $sql) or die("error : " . mysqli_error($connection));
     if ($result) {
