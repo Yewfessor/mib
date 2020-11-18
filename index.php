@@ -94,24 +94,39 @@ function dateTime($date_time)
         <div class="underhero">
             <div class="swiper-container underhero-slide1">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background: url(./assets/images/slide_img1.jpg);background-size: cover;background-position: center;">
-                    </div>
-                    <div class="swiper-slide" style="background: url(./assets/images/slide_img2.jpg);background-size: cover;background-position: center;">
-                    </div>
-                    <div class="swiper-slide" style="background: url(./assets/images/slide_img3.jpg);background-size: cover;background-position: center;">
-                    </div>
+                    <?php
+                    include("admin/models/BaseModel.php");
+                    $sql = "SELECT * FROM tb_hero WHERE list_no_2 ='1' ORDER BY adddate DESC";
+                    $result = mysqli_query($connection, $sql);
+                    $num = mysqli_num_rows($result);
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <div class="swiper-slide" style="background: url(./assets/images/hero/<?php echo $row["hero_images"]; ?>);background-size: cover;background-position: center;">
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
             <div class="swiper-container underhero-slide2vdo">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ZkGmqj7nWsA/videoseries?controls=0&autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="swiper-slide">
+                        <?php
+                        include("admin/models/BaseModel.php");
+                        $sql = "SELECT * FROM tb_link WHERE list_no_2 ='1' ORDER BY adddate DESC";
+                        $result = mysqli_query($connection, $sql);
+                        $num = mysqli_num_rows($result);
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                            <iframe width="100%" height="100%" src="<?php echo $row["link_name"]; ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
             <div class="swiper-container underhero-slide3vdo">
                 <div class="swiper-wrapper">
-
                     <div class="swiper-slide">
                         <?php
                         include("admin/models/BaseModel.php");

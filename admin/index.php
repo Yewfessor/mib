@@ -36,9 +36,6 @@ date_default_timezone_set("Asia/Bangkok");
 						<a href="#hero" class="nav-link">Hero</a>
 					</li>
 					<li class="nav-item">
-						<a href="#hero-under" class="nav-link">Hero Under</a>
-					</li>
-					<li class="nav-item">
 						<a href="#youtube" class="nav-link">Youtube</a>
 					</li>
 					<li class="nav-item">
@@ -76,10 +73,6 @@ date_default_timezone_set("Asia/Bangkok");
 		<div id="hero">
 			<h1>Hero</h1>
 			<?php include("views/hero.php"); ?>
-		</div><br>
-		<div id="hero-under">
-			<h1>Hero Under</h1>
-			<?php include("views/herounder.php"); ?>
 		</div><br>
 		<div id="link">
 			<h1>link</h1>
