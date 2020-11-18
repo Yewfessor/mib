@@ -152,11 +152,11 @@
   }
   .table-data th{
     font-size: 1.4rem;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
   }
   .table-data td{
     font-size: 1.2rem;
-    border: 1px solid black;
+    border: 0px solid black;
   }
   .table-data td a i {
     font-size: 1.6rem;
