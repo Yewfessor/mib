@@ -103,8 +103,9 @@ if (isset($_GET["newsall"]) != "") {
                         <td><img height="100" src="<?php echo $path_images . $row["news_image"]; ?>"></td>
                         <td><?php echo $row["news_name"]; ?></td>
                         <td><?php echo $row["news_detail_th"]; ?><br><?php echo "วันที่ :".$row["adddate"]." แก้ไข : ".$row["lastupdate"]; ?></td>
-                        <td><a href="<?php echo $path_edit . "?edit_id=" . $row["news_id"]; ?>">แก้ไข </a></td>
-                        <td><a href="<?php echo $path_delete . "?delete_id=" . $row["news_id"]; ?>&delete_img=<?php echo $row["news_image"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">ลบ</a></td>
+                        <td><a href="<?php echo $path_edit . "?edit_id=" . $row["news_id"]; ?>">แก้ไข</a></td> 
+
+                        <td><a href="<?php echo $path_delete . "?delete_id=" . $row["news_id"]; ?>&delete_img=<?php echo $row["news_image"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                     </tr>
             <?php
                     $i++;

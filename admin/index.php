@@ -2,103 +2,121 @@
 include_once("models/accountmodel/checklogin.php");
 date_default_timezone_set("Asia/Bangkok");
 ?>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Multi Innovation Broadcast</title>
-	<!-- <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;500;600;700;800&display=swap" rel="stylesheet"> -->
-	<link rel="stylesheet" href="../assets/css/styles.css">
+	<title>M.I.B ADMIN</title>
+	<link rel="stylesheet" href="../assets/css/admin.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+	<script>
+		const openSlideMenu = () => {
+			document.getElementById('menu').style.width = '250px';
+			document.getElementById('content').style.marginLeft = '250px';
+			document.getElementById('main-content').style.opacity = '0.3';
+			document.getElementById('main-content').style.pointerEvents = 'none';
+		}
+		const closeSlideMenu = () => {
+			document.getElementById('menu').style.width = '0';
+			document.getElementById('content').style.marginLeft = '0';
+			document.getElementById('main-content').style.opacity = '1';
+			document.getElementById('main-content').style.pointerEvents = 'auto';
+		}
+	</script>
 </head>
 
 
 <body>
-	<header class="header">
-		<div class="container">
-			<nav class="nav">
-				<a href="index.html" class="logo">
-					<img src="./assets/images/Logo/mib-logo-icon.png" alt="">
-				</a>
-				<div class="hamburger-menu">
-					<i class="fas fa-bars"></i>
-					<i class="fas fa-times"></i>
-				</div>
-				<ul class="nav-list">
-					<li class="nav-item">
-						<a href="index.php" class="nav-link">admin</a>
-					</li>
-					<li class="nav-item">
-						<a href="#hero" class="nav-link">Hero</a>
-					</li>
-					<li class="nav-item">
-						<a href="#youtube" class="nav-link">Youtube</a>
-					</li>
-					<li class="nav-item">
-						<a href="#product" class="nav-link">Product</a>
-					</li>
-					<li class="nav-item">
-						<a href="#news" class="nav-link">News</a>
-					</li>
-					<li class="nav-item">
-						<a href="#software" class="nav-link">Software</a>
-					</li>
-
-					<li class="nav-item">
-						<a href="models/accountmodel/logout.php" class="nav-link">Log out</a>
-					</li>
-
-				</ul>
-			</nav>
-		</div>
-	</header>
 
 
-	<main >
-		<div class="product-hero">
-			<div class="swiper-container hero-slide">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide" style="background: url(../assets/images/hero01.jpg);background-size: cover;background-position: center;">
-					</div>
-				</div>
+	<div id="content">
+		<span class="slide">
+			<a href="#" onclick="openSlideMenu()">
+				<i class="fas fa-bars"></i>
+			</a>
+		</span>
+
+
+
+		<div class="nav" id="menu">
+			<div class="logo-container">
+				<img width="100px" src="../assets/images/Logo/mib-logo-icon-white.png" alt="" class="logo-image">
 			</div>
-			<div class="heading-box">
-				<h1 class="heading">MIB Controler</h1>
+			<a href="#" class="close" onclick="closeSlideMenu()">
+				<i class="fas fa-times"></i>
+			</a>
+			<a href="#slide" class="menu-link">Slide</a>
+			<div class="sub-menu">
+				<a href="#images" class="menu-link">Big Slide</a>
+				<a href="#links" class="menu-link">Youtube Links</a>
 			</div>
-		</div>
-		<div id="hero">
-			<h1>Hero</h1>
-			<?php include("views/hero.php"); ?>
-		</div><br>
-		<div id="link">
-			<h1>link</h1>
-			<?php include("views/link.php"); ?>
-		</div><br>
-		<div id="line-up">
-			<h1>line-up</h1>
-			<?php include("views/productline.php"); ?>
-		</div><br>
-		<div id="product">
-			<h1>Product</h1>
-			<?php include("views/product.php"); ?>
-		</div><br>
-		<div id="news">
-			<h1>News</h1>
-			<?php include("views/news.php"); ?>
-		</div><br>
-		<div id="software">
-			<h2>software</h2>
-			<?php include("views/software.php"); ?>
+			<a href="#slide" class="menu-link">Product</a>
+			<div class="sub-menu">
+				<a href="#product" class="menu-link">Product List</a>
+				<a href="#product-type" class="menu-link">Product Type</a>
+				<a href="#product-category" class="menu-link">Product Sub-Type</a>
+			</div>
+			<a href="#software" class="menu-link">Software</a>
+			<a href="#news" class="menu-link">News</a>
+			<a href="models/accountmodel/logout.php" class="nav-link">Log out</a>
+
 		</div>
 
+		<div id="main-content">
+			<div id="slide" class="section-container">
+				<h1 class="section-heading">Manage Website</h1>
+				<div id="images">
+					<?php include("views/hero.php"); ?>
+				</div>
+
+				<div id="links">
+					<?php include("views/link.php"); ?>
+				</div>
+				<div id="product">
+					<h1>Product</h1>
+					<?php include("views/product.php"); ?>
+				</div><br>
+				<div id="line-up">
+					<h1>Type</h1>
+					<?php include("views/producttype.php"); ?>
+				</div><br>
+				<div id="line-up">
+					<h1>Sub-Type</h1>
+					<?php include("views/productline.php"); ?>
+				</div><br>
+				<div id="software">
+					<h2>software</h2>
+					<?php include("views/software.php"); ?>
+				</div><br>
+				<div id="news">
+					<h1>News</h1>
+					<?php include("views/news.php"); ?>
+				</div><br>
+
+			</div>
 
 
-	</main>
-
+		</div>
 </body>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+	const mediaQuery = window.matchMedia('(max-width: 1000px)')
+	if (mediaQuery.matches) {
+		$('.menu-link').on("click", function() {
+			console.log('menu-link is clicked')
+			document.getElementById('menu').style.width = '0';
+			document.getElementById('content').style.marginLeft = '0';
+			document.getElementById('main-content').style.opacity = '1';
+			document.getElementById('main-content').style.pointerEvents = 'auto';
+		});
+	}
+</script>
 
 </html>
