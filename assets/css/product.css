@@ -96,6 +96,7 @@
 .grid.product-grid {
     grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
     grid-gap: 2rem;
+    margin-bottom: 5rem;
 }
 .product-items {
     padding: 0rem;
