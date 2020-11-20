@@ -9,74 +9,79 @@ $path_image         = "../assets/images/product/";
 ?>
 
 <!--Upload Detail Product-->
+
 <form action="<?php echo $path_modelinput; ?>" id="productinput" enctype="multipart/form-data" name="productinput" method="post">
-    <table border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
-        <tr bgcolor="#FFFFFF">
-            <td>Image</td>
-            <td><input type="file" name="product_image" id="product_image" required></td>
-        </tr>
-        <tr bgcolor="#FFFFFF">
-            <td>Name</td>
-            <td><input type="text" name="product_name_en" id="product_name_en" value="" required></td>
-        </tr>
-        <tr bgcolor="#FFFFFF">
-            <td>Description</td>
-            <td><input type="text" name="product_description_en" id="product_description_en" value=""></td>
-        </tr>
-        <tr bgcolor="#FFFFFF">
-            <td>Detail</td>
-            <td><textarea name="product_detail_en" id="product_detail_en"></textarea></td>
-        </tr>
-        <tr bgcolor="#FFFFFF">
-            <td>Price</td>
-            <td><input type="text" name="product_price" id="product_price" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" value="" required></td>
-        </tr>
-        <tr bgcolor="#FFFFFF">
-            <td>Category</td>
-            <td>
-                <select name="product_type_id" id="product_type_id" required>
-                    <option center value="">-----------Select-----------</option>
-                    <?php
-                    include $path_basemodel;
-                    $sql = "SELECT * FROM tb_product_type";
-                    $result = mysqli_query($connection, $sql);
-                    while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                        <option value="<?php echo $row["product_type_id"]; ?>"><?php echo $row["product_type_name"]; ?></option>
-                    <?php
-                    }
-                    mysqli_close($connection);
-                    ?>
-                </select>
-            </td>
-        </tr>
-        <tr bgcolor="#FFFFFF">
-            <td>Type</td>
-            <td>
-                <select name="product_line_up_id" id="product_line_up_id" required>
-                    <option center value="">-----------Select-----------</option>
-                    <?php
-                    include $path_basemodel;
-                    $sql = "SELECT * FROM tb_product_line_up 
-                            LEFT JOIN tb_product_type
-                            ON tb_product_line_up.product_type_id = tb_product_type.product_type_id
-                    ";
-                    $result = mysqli_query($connection, $sql);
-                    while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                        <option value="<?php echo $row["product_line_up_id"]; ?>"><?php echo $row["product_type_name"] . " | " . $row["product_line_up_name"]; ?></option>
-                    <?php
-                    }
-                    mysqli_close($connection);
-                    ?>
-                </select>
-            </td>
-        </tr>
-        <tr align="right" bgcolor="#FFFFFF">
-            <td></td>
-            <td><input type="submit" name="productsubmit" value="Save"></td>
-        </tr>
-    </table>
+    <div class="form-container">
+        <table class="product-form-table">
+            <tr>
+                <td>Image</td>
+                <td><input type="file" name="product_image" id="product_image" required></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="product_name_en" id="product_name_en" value="" required></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><input type="text" name="product_description_en" id="product_description_en" value=""></td>
+            </tr>
+            <tr>
+                <td>Detail</td>
+                <td><textarea name="product_detail_en" id="product_detail_en"></textarea></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><input type="text" name="product_price" id="product_price" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" value="" required></td>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td>
+                    <select name="product_type_id" id="product_type_id" required>
+                        <option center value="">-Select-</option>
+                        <?php
+                        include $path_basemodel;
+                        $sql = "SELECT * FROM tb_product_type";
+                        $result = mysqli_query($connection, $sql);
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                            <option value="<?php echo $row["product_type_id"]; ?>"><?php echo $row["product_type_name"]; ?></option>
+                        <?php
+                        }
+                        mysqli_close($connection);
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Type</td>
+                <td>
+                    <select name="product_line_up_id" id="product_line_up_id" required>
+                        <option center value="">-Select-</option>
+                        <?php
+                        include $path_basemodel;
+                        $sql = "SELECT * FROM tb_product_line_up 
+                                LEFT JOIN tb_product_type
+                                ON tb_product_line_up.product_type_id = tb_product_type.product_type_id
+                        ";
+                        $result = mysqli_query($connection, $sql);
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                            <option value="<?php echo $row["product_line_up_id"]; ?>"><?php echo $row["product_type_name"] . " | " . $row["product_line_up_name"]; ?></option>
+                        <?php
+                        }
+                        mysqli_close($connection);
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="submit-btn"><input type="submit" name="productsubmit" class="save-btn" value="Save"></td>
+            </tr>
+        </table>
+    </div>
 </form>
 
 <br>

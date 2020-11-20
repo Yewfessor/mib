@@ -176,7 +176,55 @@
   }
 
 
+  /* Product Input Form */
+  .form-container {
+    max-width: 90vw;
+    margin: 0 auto;
+  }
+  .product-form-table {
+    width: 100%;
+    background-color: var(--dark-color);
+    padding: 2rem;
+    border-radius: 2rem;
+  }
+  .product-form-table td{
+    color: white;
+    padding: .2rem 0;
+  }
+  .product-form-table td:first-child{
+    padding-right: 1rem;
+  }
+
+  .product-form-table td input,
+  .product-form-table td textarea,
+  .product-form-table td select {
+    width: 100%;
+  }
+
+  .submit-btn {
+    border-top: 1px solid white;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .submit-btn .save-btn{
+    font-size: 1.6rem;
+    width: 10rem;
+    border: 2px solid white;
+    border-radius: 1rem;
+    padding: .4rem 0rem;
+    margin-top: 1rem;
+    color: white;
+    background-color:  rgb(0, 132, 255);
+    transition: .3s;
+  }
+  .submit-btn input:hover {
+    border: 2px solid rgb(0, 132, 255);
+    color:rgb(0, 132, 255);
+    background-color:  white;
+    cursor: pointer;
+  }
   
+
 
 
 
@@ -214,6 +262,11 @@
   }
   .date-column {
     width: 10rem;
+  }
+
+  /* Product Input Form */
+  .product-form-table td{
+    padding: .5rem 0;
   }
 }
 @media screen and (min-width: 1000px) {
@@ -263,7 +316,10 @@
   
 }
 @media screen and (min-width: 1200px) {
-
+  /* Product Input Form */
+  .form-container {
+    max-width: 65vw;
+  }
 }
 @media screen and (min-width: 1600px) {
   #content {
@@ -279,5 +335,12 @@
   }
   .table-data td .image-data{
     max-width: 300px;
+  }
+  /* Product Input Form */
+  .form-container {
+    max-width: 50vw;
+  }
+  .product-form-table td{
+    padding: 1rem 0;
   }
 }
