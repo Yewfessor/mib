@@ -62,7 +62,12 @@ $path_basemodel = "admin/models/BaseModel.php";
         <h1 class="software-heading">Software Download</h1>
         <?php
         include $path_basemodel;
-        $sql2 = "SELECT * FROM tb_product_type ";
+        $sql2 = "SELECT DISTINCT product_type_name,tb_software.product_type_id  FROM 
+        tb_software 
+        LEFT JOIN tb_product_type 
+        ON tb_software.product_type_id = tb_product_type.product_type_id 
+        LEFT JOIN tb_software_type
+        ON tb_software.software_type_id = tb_software_type.software_type_id";
         $result2 = mysqli_query($connection, $sql2);
         while ($row2 = mysqli_fetch_array($result2)) {
         $product_type_id = $row2["product_type_id"];
