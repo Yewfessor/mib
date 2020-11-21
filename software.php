@@ -99,7 +99,7 @@ $path_basemodel = "admin/models/BaseModel.php";
                             <tr>
                                 <td><?php echo $row["software_name"]; ?></td>
                                 <td><?php echo $row["software_type_name"]; ?></td>
-                                <td><a href="#" class="btn-download"><i class="fa fa-download" aria-hidden="true"></i></a></td>
+                                <td><a href="admin/models/softwaremodel/softwaredownload.php?download_id=<?php echo $row["software_id"]; ?>" class="btn-download"><i class="fa fa-download" aria-hidden="true"></i></a></td>
                             </tr>
                         <?php
                         }
