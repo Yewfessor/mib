@@ -38,6 +38,14 @@
     color: inherit;
   }
   
+
+
+
+  /* Sidebar Menu */
+  .logo-container {
+    display: flex;
+    justify-content: center;
+  }
   .nav {
     height: 100%;
     width: 0;
@@ -279,7 +287,7 @@
     left: 0;
     background-color: var(--dark-color);
     overflow-x: hidden;
-    padding-top: 8rem;
+    padding-top: 4rem;
     transition: .5s;
   }
   .sub-menu a {
