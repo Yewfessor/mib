@@ -255,7 +255,7 @@ function dateTime($date_time)
         </section>
 
         <section class="news" id="news">
-            <div class="container">
+            <div class="container news-container">
                 <h5 class="section-head">
                     <span class="heading">What's New</span>
                     <span class="sub-heading">all news here</span>
