@@ -18,6 +18,7 @@ $product_linebar_id = $_GET["product_linebar_id"];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
 </head>
 
 <body>
@@ -87,8 +88,10 @@ $product_linebar_id = $_GET["product_linebar_id"];
                     while ($row_typebar = mysqli_fetch_array($result_typebar)) {
                         $product_type_bar = $row_typebar["product_type_id"];
                     ?>
-                        <a href="#/" class="btn-list"><?php echo $row_typebar["product_type_name"]; ?></a>
-                            <ul class="catagory-item-sub">
+                        <a href="#/" class="btn-list" onclick="showList(<?php echo $row_typebar["product_type_id"]; ?>)">
+                        <?php echo $row_typebar["product_type_name"]; ?><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                            <ul class="catagory-item-sub <?php if($row_typebar["product_type_id"] == 2){echo 'active';} ?>"
+                            id="pt<?php echo $row_typebar["product_type_id"]; ?>">
                                 <?php
                                 $sql_linebar = "SELECT * FROM tb_product_line_up WHERE product_type_id='".$product_type_bar."'";
                                 $result_linebar = mysqli_query($connection, $sql_linebar);
@@ -203,6 +206,21 @@ $product_linebar_id = $_GET["product_linebar_id"];
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/modal.js"></script>
-</body>
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
 
+</body>
+<script>
+
+const subMenu = document.querySelector('.catagory-item-sub')
+//  const test = 
+
+const showList = (id) => {
+    console.log('eiei id:',id)
+    document.querySelector('#pt'+id).classList.toggle('active')
+}
+
+</script>
 </html>

@@ -60,11 +60,19 @@
     background: var(--dark-color);
     color: white;
     position: relative;
+    border-bottom: 1px solid white;
+  }
+  .btn-list i {
+      padding: 0 1rem;
   }
   .catagory-item-sub {
       background: white;
     overflow: hidden;
-  }
+    display: none;
+}
+.catagory-item-sub.active{
+    display: block;
+}
   .catagory-item-sub a {
     display: block;
     padding: 1rem 1.6rem;
@@ -202,9 +210,16 @@
     .btn-list {
         font-size: 1.8rem;
     }
+    .btn-list i{
+        display: none;
+    }
+    .catagory-item-sub {
+      display: block;
+  }
     .catagory-item-sub a {
         font-size: 1.4rem;
     }
+    
 
     /* product */
     .heading-box {
