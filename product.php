@@ -2,10 +2,7 @@
 $path_basemodel = "admin/models/BaseModel.php";
 $product_type_id = $_GET["product_type_id"];
 $product_linebar_id = $_GET["product_linebar_id"];
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,19 +12,51 @@ $product_linebar_id = $_GET["product_linebar_id"];
     <title>Multi Innovation Broadcast</title>
     <!-- <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;500;600;700;800&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script>
+        let menuCheck = 0;
+        const openSlideMenu = () => {
+            if (menuCheck == 1) {
+                menuCheck = 0;
+                document.getElementById('menu').style.width = '0';
+                document.getElementById('content').style.marginLeft = '0';
+                document.getElementById('main-content').style.opacity = '1';
+                document.getElementById('main-content').style.pointerEvents = 'auto';
+            } else {
+                menuCheck = 1;
+                document.getElementById('menu').style.width = '250px';
+                document.getElementById('content').style.marginLeft = '250px';
+                document.getElementById('main-content').style.opacity = '0.3';
+                document.getElementById('main-content').style.pointerEvents = 'none';
+            }
+        }
+        const closeSlideMenu = () => {
+            document.getElementById('menu').style.width = '0';
+            document.getElementById('content').style.marginLeft = '0';
+            document.getElementById('main-content').style.opacity = '1';
+            document.getElementById('main-content').style.pointerEvents = 'auto';
+        }
 
+    </script>
 </head>
 
 <body>
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.php" class="logo">
-                    <img src="./assets/images/Logo/mib-logo-icon.png" alt="">
-                </a>
+                <div class="sub-container">
+                    <a href="index.php" class="logo">
+                        <img src="./assets/images/Logo/mib-logo-icon.png" alt="">
+                    </a>
+                    <a class="list-btn" onclick="openSlideMenu()">
+                        <i class="fa fa-suitcase" aria-hidden="true"></i>
+                        <span>Product List</span>
+                    </a>
+                </div>
                 <div class="hamburger-menu">
                     <i class="fas fa-bars"></i>
                     <i class="fas fa-times"></i>
@@ -56,11 +85,44 @@ $product_linebar_id = $_GET["product_linebar_id"];
         </div>
     </header>
 
+    <div class="nav-menu-list" id="menu">
+        <div class="logo-container">
+            <h1 style="color: white;">Product List</h1>
+        </div>
+        <a href="#" class="close" onclick="closeSlideMenu()">
+            <i class="fas fa-times"></i>
+        </a>
+        <a href="#slide" class="menu-link">IT/IP Platform</a>
+        <div class="sub-menu">
+            <a href="#/" class="menu-link">Hardware</a>
+        </div>
+        <a href="#slide" class="menu-link">PTZ Camera Systems</a>
+        <div class="sub-menu">
+            <a href="#/" class="menu-link">High-end Model</a>
+            <a href="#/" class="menu-link">Standard Model</a>
+            <a href="#/" class="menu-link">Entry Model</a>
+        </div>
+        <a href="#software" class="menu-link">Accessories</a>
+        <div class="sub-menu">
+            <a href="#/" class="menu-link">High-end Model</a>
+            <a href="#/" class="menu-link">Standard Model</a>
+            <a href="#/" class="menu-link">Entry Model</a>
+            <a href="#/" class="menu-link">Entry Model</a>
+            <a href="#/" class="menu-link">Entry Model</a>
+            <a href="#/" class="menu-link">Entry Model</a>
+            <a href="#/" class="menu-link">Entry Model</a>
+            <a href="#/" class="menu-link">Entry Model</a>
+            <a href="#/" class="menu-link">Entry Model</a>
+        </div>
+
+    </div>
+
     <main>
         <div class="product-hero">
             <div class="swiper-container hero-slide">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background: url(./assets/images/hero01.jpg);background-size: cover;background-position: center;">
+                    <div class="swiper-slide"
+                        style="background: url(./assets/images/hero01.jpg);background-size: cover;background-position: center;">
                     </div>
                 </div>
             </div>
@@ -80,8 +142,8 @@ $product_linebar_id = $_GET["product_linebar_id"];
         </div>
 
         <div class="product-content">
-            <div class="catogory-container">
-                <li class="catagory-item">
+            <div class="catagory-container">
+            <li class="catagory-item">
                     <?php
                     $sql_typebar = "SELECT * FROM tb_product_type ";
                     $result_typebar = mysqli_query($connection, $sql_typebar);
@@ -90,6 +152,7 @@ $product_linebar_id = $_GET["product_linebar_id"];
                     ?>
                         <a href="#/" class="btn-list" onclick="showList(<?php echo $row_typebar["product_type_id"]; ?>)">
                         <?php echo $row_typebar["product_type_name"]; ?><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+
                             <ul class="catagory-item-sub <?php if($row_typebar["product_type_id"] == 2){echo 'active';} ?>"
                             id="pt<?php echo $row_typebar["product_type_id"]; ?>">
                                 <?php
@@ -110,27 +173,11 @@ $product_linebar_id = $_GET["product_linebar_id"];
             </div>
 
 
+
+            <!-- <h5 class="product-subtype-heading">High-end Model</h5> -->
+            
             <div class="product-items">
                 <?php
-                include  $path_basemodel;
-                $sql2 = "SELECT * FROM 
-                        tb_product_line_up
-                        LEFT JOIN tb_product_type 
-                        ON tb_product_line_up.product_type_id = tb_product_type.product_type_id
-                        where tb_product_line_up.product_type_id = '" . $product_type_id . "' AND tb_product_line_up.product_line_up_id = '" . $product_linebar_id . "'";
-                $result2 = mysqli_query($connection, $sql2);
-                while ($row2 = mysqli_fetch_array($result2)) {
-                    $product_line_up_id = $row2["product_line_up_id"];
-                    $product_line_up_name = $row2["product_line_up_name"];
-
-                ?>
-
-                    <h5 class="product-subtype-heading"><?php echo $product_line_up_name; ?></h5>
-
-                    <?php }
-        ?>
-                    <div class="grid product-grid">
-                        <?php
                         $sql = "SELECT * FROM 
                         tb_product 
 
@@ -147,24 +194,77 @@ $product_linebar_id = $_GET["product_linebar_id"];
                         $result = mysqli_query($connection, $sql);
                         $path = "assets/images/product/";
                         while ($row = mysqli_fetch_array($result)) {
-                        ?>
-
-                            <div class="grid-item product-item">
-                                <div class="img-box">
-                                    <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
-                                </div>
-                                <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
-                                <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
-                                <span class="price"><?php echo $row["product_price"]; ?> THB</span>
-                                <div class="view-info">View Info</div>
-                            </div>
-
-                        <?php
-                        }
-                        ?>
+                ?>
+                <div class="product-item">
+                    <div class="img-box">
+                        <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
                     </div>
+                    <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
+                    <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
+                    <span class="price"><?php echo $row["product_price"]; ?> THB</span>
+                    <div class="view-info">View Info</div>
+                </div>
+
+                <?php
+                    }
+                ?>
+
+                <div class="product-item">
+                    <div class="img-box">
+                        <img src="./assets/images/slide_img11.jpg" class="product-img" alt="">
+                    </div>
+                    <h5 class="product-name">God Camera</h5>
+                    <span class="sub-product-name">this is description</span>
+                    <span class="price">16666 THB</span>
+                    <div class="view-info">View Info</div>
+                </div>
+                <div class="product-item">
+                    <div class="img-box">
+                        <img src="./assets/images/Product/0211202246015fa03ed19bb4c.jpg" class="product-img" alt="">
+                    </div>
+                    <h5 class="product-name">God Camera</h5>
+                    <span class="sub-product-name">this is description</span>
+                    <span class="price">16666 THB</span>
+                    <div class="view-info">View Info</div>
+                </div>
+                <div class="product-item">
+                    <div class="img-box">
+                        <img src="./assets/images/Product/1311201906015fae8bc111c2f.png" class="product-img" alt="">
+                    </div>
+                    <h5 class="product-name">God Camera</h5>
+                    <span class="sub-product-name">this is description</span>
+                    <span class="price">16666 THB</span>
+                    <div class="view-info">View Info</div>
+                </div>
+                <div class="product-item">
+                    <div class="img-box">
+                        <img src="./assets/images/Product/0211202246015fa03ed19bb4c.jpg" class="product-img" alt="">
+                    </div>
+                    <h5 class="product-name">God Camera</h5>
+                    <span class="sub-product-name">this is description</span>
+                    <span class="price">16666 THB</span>
+                    <div class="view-info">View Info</div>
+                </div>
+                <div class="product-item">
+                    <div class="img-box">
+                        <img src="./assets/images/Product/0211202246015fa03ed19bb4c.jpg" class="product-img" alt="">
+                    </div>
+                    <h5 class="product-name">God Camera</h5>
+                    <span class="sub-product-name">this is description</span>
+                    <span class="price">16666 THB</span>
+                    <div class="view-info">View Info</div>
+                </div>
+                <div class="product-item">
+                    <div class="img-box">
+                        <img src="./assets/images/Product/0211202246015fa03ed19bb4c.jpg" class="product-img" alt="">
+                    </div>
+                    <h5 class="product-name">God Camera</h5>
+                    <span class="sub-product-name">this is description</span>
+                    <span class="price">16666 THB</span>
+                    <div class="view-info">View Info</div>
+                </div>
+
             </div>
-   
 
 
         </div>
@@ -188,12 +288,15 @@ $product_linebar_id = $_GET["product_linebar_id"];
                 <div class="social-media-wrap">
                     <h4 class="footer-heading">Contact Us</h4>
                     <div class="contact-detail">
-                        <p class="contact-email"><i class="fa fa-envelope" aria-hidden="true"></i>online@mib-thailand.com</p>
+                        <p class="contact-email"><i class="fa fa-envelope"
+                                aria-hidden="true"></i>online@mib-thailand.com</p>
                         <p class="contact-phone"><i class="fa fa-phone" aria-hidden="true"></i>099-8765432</p>
                     </div>
                     <div class="social-media">
-                        <a href="https://www.facebook.com/MultiInnovationBroadcast/" class="sm-link" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://line.me/R/ti/p/%40zwm2906e" class="sm-link" target="_blank"><i class="fab fa-line"></i></a>
+                        <a href="https://www.facebook.com/MultiInnovationBroadcast/" class="sm-link" target="_blank"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://line.me/R/ti/p/%40zwm2906e" class="sm-link" target="_blank"><i
+                                class="fab fa-line"></i></a>
                         <a href="#/" class="sm-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
@@ -205,22 +308,34 @@ $product_linebar_id = $_GET["product_linebar_id"];
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/modal.js"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
 </body>
 <script>
+    // toggle product type
+    const subMenu = document.querySelector('.catagory-item-sub')
+    const showList = (id) => {
+        console.log('eiei id:', id)
+        document.querySelector('#pt' + id).classList.toggle('active')
+    }
 
-const subMenu = document.querySelector('.catagory-item-sub')
-//  const test = 
+    // Product type list menu
+    const mediaQuery = window.matchMedia('(max-width: 1000px)')
+    //คลิกเลือกแล้วหุบเข้า
+    if (mediaQuery.matches) {
+        $('.menu-link').on("click", function () {
+            console.log('menu-link is clicked')
+            document.getElementById('menu').style.width = '0';
+            // document.getElementById('content').style.marginLeft = '0';
+            // document.getElementById('main-content').style.opacity = '1';
+            // document.getElementById('main-content').style.pointerEvents = 'auto';
+        });
+    }
 
-const showList = (id) => {
-    console.log('eiei id:',id)
-    document.querySelector('#pt'+id).classList.toggle('active')
-}
+
+
 
 </script>
+
 </html>
