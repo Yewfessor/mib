@@ -53,7 +53,7 @@ $path_basemodel = "admin/models/BaseModel.php";
     <div class="software-hero">
         <div class="swiper-container hero-slide">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background: url(./assets/images/slide_img3.jpg);background-size: cover;background-position: center;">
+                <div class="swiper-slide" style="background: url(./assets/images/banner/server.jpg);background-size: cover;background-position: center;">
                 </div>
             </div>
         </div>

@@ -70,7 +70,7 @@ function dateTime($date_time)
         </div>
     </header>
 
-    <div class="news-all-hero" style="background: url(./assets/images/slide_img1.jpg);background-size: cover;background-position: center;">
+    <div class="news-all-hero" style="background: url(./assets/images/banner/newspaper3.jpg);background-size: cover;background-position: center;">
     </div>
 
 

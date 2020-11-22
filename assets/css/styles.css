@@ -247,7 +247,7 @@ section {
       rgba(255, 209, 124, 0.6),
       rgba(209, 157, 255, 0.6)
     ),
-    url(../images/slide_img4.jpg) bottom center no-repeat;
+    url(../images/banner/office3.jpg) bottom center no-repeat;
   background-size: cover;
   height: 60vh;
   display: flex;
