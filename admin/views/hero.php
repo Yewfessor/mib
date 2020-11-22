@@ -2,26 +2,35 @@
 $path_basemodel = "models/BaseModel.php";
 ?>
 <!-- Hero Slide -->
-<div class="upload-container">
-    <h3 class="upload-heading">Big Slide Upload</h3>
-    <div class="upload-form">
+
+<div class="col-xs-12 col-sm-6 col-md-6">
+    <div class="thumbnail">
+        <h3>Big Slide Upload</h3>
         <form action="models/heromodel/heroupload.php" method="post" enctype="multipart/form-data" name="upload_hero">
-            <input type="file" name="fileupload[]" id="fileupload" multiple>
-            <input type="submit" name="Submit" value="Upload">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button id="fake-file-button-browse" type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-file"></span>
+                    </button>
+                </span>
+                <input type="file" name="fileupload[]" id="files-input-upload" style="display:none" multiple>
+                <input type="text" id="fake-file-input-name" disabled="disabled" placeholder="File not selected" class="form-control">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default" disabled="disabled" id="fake-file-button-upload">
+                        <i class="fas fa-upload"></i>
+                    </button>
+                </span>
+            </div>
         </form>
     </div>
-</div>
 
-<div class="table-container">
-    <form name="show_hero" method="post" action="models/heromodel/heroshow.php">
-        <table class="table-data">
-            <thead>
+    <div class="thumbnail" style="height:270px; width:100%; overflow: auto;">
+        <form name="show_hero" method="post" action="models/heromodel/heroshow.php">
+            <table class="table-data">
                 <tr>
-                    <th>Images</th>
-                    <th>options</th>
+                    <td align="center">Images</td>
+                    <td align="center">options</td>
                 </tr>
-            </thead>
-            <tbody>
                 <?php
                 include $path_basemodel;
                 $sql = "SELECT * FROM tb_hero ORDER BY adddate DESC";
@@ -30,14 +39,12 @@ $path_basemodel = "models/BaseModel.php";
                     $hide = $row["list_no"];
                     $hide_2 = $row["list_no_2"];
                 ?>
-
                     <tr>
-                        <td align="center" bgcolor="#FFFFFF">
-                            <img width="200" src="../assets/images/hero/<?php echo $row["hero_images"]; ?>" class="image-data"><br>
+                        <td align="center">
+                            <img width="1000" src="../assets/images/hero/<?php echo $row["hero_images"]; ?>" class="image-data"><br>
                             <?php echo $row["adddate"]; ?>
                         </td>
-                        <td align="center" bgcolor="#FFFFFF">
-
+                        <td align="center">
                             <?php
                             if ($hide >= 1) { ?>
                                 <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&hidden_list=0"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
@@ -64,7 +71,7 @@ $path_basemodel = "models/BaseModel.php";
                 }
                     ?>
                     </tr>
-            </tbody>
-        </table>
-    </form>
+            </table>
+        </form>
+    </div>
 </div>

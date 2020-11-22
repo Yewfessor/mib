@@ -14,8 +14,13 @@ date_default_timezone_set("Asia/Bangkok");
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 	<!--bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!--bootstrap -->
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!-- ckeditor-->
 	<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+	<!-- jquery-->
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 	<!-- Slide-->
 	<script>
 		const openSlideMenu = () => {
@@ -72,11 +77,10 @@ date_default_timezone_set("Asia/Bangkok");
 
 		<div id="main-content">
 			<div id="slide" class="section-container">
-				<h1 class="section-heading">Manage Website</h1>
+				<h1 class="section-heading">Manage Website</h1><br>
 				<div id="images">
 					<?php include("views/hero.php"); ?>
 				</div>
-
 				<div id="links">
 					<?php include("views/link.php"); ?>
 				</div>
@@ -110,7 +114,7 @@ date_default_timezone_set("Asia/Bangkok");
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="../assets/js/main.js"></script>
-<script>
+<script type="text/javascript">
 	const mediaQuery = window.matchMedia('(max-width: 1000px)')
 	if (mediaQuery.matches) {
 		$('.menu-link').on("click", function() {
@@ -121,6 +125,15 @@ date_default_timezone_set("Asia/Bangkok");
 			document.getElementById('main-content').style.pointerEvents = 'auto';
 		});
 	}
+	// Fake file upload
+	document.getElementById('fake-file-button-browse').addEventListener('click', function() {
+		document.getElementById('files-input-upload').click();
+	});
+
+	document.getElementById('files-input-upload').addEventListener('change', function() {
+		document.getElementById('fake-file-input-name').value = this.value;
+		document.getElementById('fake-file-button-upload').removeAttribute('disabled');
+	});
 </script>
 
 </html>

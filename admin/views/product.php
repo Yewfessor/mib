@@ -21,14 +21,12 @@ $path_image         = "../assets/images/product/";
                         <input class="form-control" type="text" name="product_name_en" id="product_name_en" value="" required>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div class="col-sm-2" align="right">คำอธิบาย : </div>
                     <div class="col-sm-8" align="left">
                         <input class="form-control" type="text" name="product_description_en" id="product_description_en" value="">
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div class="col-sm-2" align="right">ประเภทสินค้า :</div>
                     <div class="col-sm-3" align="left">
@@ -66,7 +64,6 @@ $path_image         = "../assets/images/product/";
                         </select>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div class="col-sm-2" align="right">รายละเอียด :</div>
                     <div class="col-sm-8" align="left">
@@ -75,21 +72,18 @@ $path_image         = "../assets/images/product/";
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-2" align="right">ราคา : </div>
+                    <div class="col-sm-2" align="right">ราคา :</div>
                     <div class="col-sm-2" align="left">
                         <input class="form-control" type="text" name="product_price" id="product_price" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" value="" required>
                     </div>
                     <div>บาท</div>
-
                 </div>
-
                 <div class="form-group">
-                    <div class="col-sm-2" align="right">ไฟล์ประกอบ</div>
+                    <div class="col-sm-2" align="right">ไฟล์ประกอบ :</div>
                     <div class="col-sm-7" align="left">
                         <input type="file" name="product_image" id="product_image" required></td>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <div class="col-sm-2"> </div>
                     <div class="col-sm-8" align="right">
@@ -132,7 +126,6 @@ $path_image         = "../assets/images/product/";
             ?>
                 <table border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
                     <tr align="center" bgcolor="#FFFFFF">
-                        <td>Id</td>
                         <td>Image </td>
                         <td>Name</td>
                         <td>Description</td>
@@ -147,7 +140,6 @@ $path_image         = "../assets/images/product/";
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                         <tr align="center" bgcolor="#FFFFFF">
-                            <td><?php echo $row["product_id"] ?></td>
                             <td><img height="100" src="<?php echo $path_image . $row["product_image"]; ?>"></td>
                             <td><?php echo $row["product_name_en"]; ?></td>
                             <td><?php echo $row["product_description_en"]; ?></td>
@@ -178,7 +170,6 @@ $path_image         = "../assets/images/product/";
             ?>
                 <table border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
                     <tr align="center" bgcolor="#FFFFFF">
-                        <td>Id</td>
                         <td>Image </td>
                         <td>Name</td>
                         <td>Description</td>
@@ -193,7 +184,6 @@ $path_image         = "../assets/images/product/";
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                         <tr align="center" bgcolor="#FFFFFF">
-                            <td><?php echo $row["product_id"] ?></td>
                             <td><img height="100" src="<?php echo $path_image . $row["product_image"]; ?>"></td>
                             <td><?php echo $row["product_name_en"]; ?></td>
                             <td><?php echo $row["product_description_en"]; ?></td>
