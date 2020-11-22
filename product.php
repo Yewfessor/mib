@@ -255,7 +255,15 @@ $product_linebar_id = $_GET["product_linebar_id"];
             // document.getElementById('main-content').style.opacity = '1';
             // document.getElementById('main-content').style.pointerEvents = 'auto';
         });
+    } 
+    mediaQuery.addEventListener( "change", (e) => {
+        if (e.matches) {
+        console.log('This is a narrow screen — less than 1000px wide.')
+    } else {
+        console.log('This is a wide screen — more than 1000px wide.')
+        document.getElementById('menu').style.width = '0';
     }
+    })
 </script>
 
 </html>
