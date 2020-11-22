@@ -1,0 +1,185 @@
+:root {
+  --dark-color: #1a1a1a;
+  --solid-color: #464646;
+  --light-color: #c4c4c4;
+  --dark-transparent: rgba(170, 170, 170, 0.7);
+  --light-transparent: rgba(170, 170, 170, 0.5);
+}
+
+.info-container {
+  margin-top: 70px;
+  width: 100%;
+}
+info-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.info-name {
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 0 2rem;
+}
+.info-img-container {
+  padding: 1rem 4rem;
+}
+.info-img-container img {
+  width: 100%;
+}
+
+.info-detail {
+  display: flex;
+  justify-content: center;
+}
+.info-detail-table {
+  max-width: 80vw;
+}
+.info-detail-table td {
+  font-size: 1.6rem;
+  padding: 0.3rem;
+  border: none;
+}
+.info-price {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.info-detail-table .breakline {
+  border-bottom: 1px solid var(--dark-color);
+}
+.info-detail-table button {
+  background-color: var(--dark-color);
+  color: white;
+  width: 100%;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+
+/* Full detail section */
+.full-detail-container {
+  padding: 4rem 2rem;
+}
+.full-detail-heading {
+  font-size: 2.2rem;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+}
+.full-detail-text {
+  font-size: 1.6rem;
+}
+
+/* Payment section */
+.payment-container {
+  padding: 5rem 2rem;
+}
+.payment-heading {
+  font-size: 2.2rem;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  margin-bottom: 2rem;
+}
+.payment-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 2px solid var(--light-color);
+}
+.payment-detail img {
+  max-width: 20vw;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+  .info-container {
+    margin-top: 110px;
+  }
+  .info-img-container {
+    padding: 1rem 12rem;
+  }
+  .info-detail-table td {
+    font-size: 2rem;
+    padding-left: 2rem;
+  }
+  .info-detail-table button {
+    font-size: 2rem;
+  }
+  .info-price {
+    font-size: 2.2rem;
+  }
+  /* Full detail section */
+  .full-detail-container {
+    padding: 5rem 8rem;
+  }
+  .full-detail-text {
+    font-size: 1.8rem;
+  }
+
+  /* Payment section */
+  .payment-container {
+    padding: 5rem 8rem;
+  }
+  .payment-detail {
+    font-size: 1.8rem;
+  }
+
+  .full-detail-heading,
+  .payment-heading {
+    font-size: 2.4rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10rem;
+  }
+  .info-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem 5rem;
+  }
+  .info-img-container {
+    padding: 0 5rem;
+  }
+  .info-price {
+    font-size: 2.4rem;
+  }
+
+  .payment-detail img {
+    max-width: 10vw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .info-container {
+    padding: 0 20rem;
+  }
+
+  .info-name {
+    padding: 0 8rem;
+    font-size: 3.2rem;
+  }
+  .info-detail-table td,
+  .full-detail-text,
+  .payment-detail {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .info-container {
+    padding: 0 35rem;
+  }
+
+  .info-name {
+    padding: 0 8rem;
+    font-size: 2.5rem;
+  }
+  .info-img-container img {
+    max-width: 20vw;
+  }
+}
