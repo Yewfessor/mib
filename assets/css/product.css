@@ -222,6 +222,9 @@
     justify-content: center;
     max-width: 30%;    /* item width*/
     margin: 0 1rem 2rem 0;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
 }
 .img-box {
     display: flex;
@@ -238,6 +241,12 @@
 }
 .product-name,.sub-product-name,.price,.view-info {
     text-align: center;
+}
+.product-name,.sub-product-name { /*  ดัก 1 บรรทัด */ 
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
 }
 .product-name {
     font-size: 1.2rem;
