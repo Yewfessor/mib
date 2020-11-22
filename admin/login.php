@@ -25,14 +25,13 @@
                     <input type="text" id="user_username" required name="user_username" placeholder="Username" autofocus>
                     <input type="password" id="user_password" required name="user_password" placeholder="Password">
                 </div>
-
-                <input type="submit" value="Login" class="submit-btn"/>
-
+                <input type="submit" value="Login" class="submit-btn" />
             </form>
         </div>
     </div>
 
     <footer>
+
         <p class="contact">Contact Support: 091-234-5678</p>
     </footer>
 

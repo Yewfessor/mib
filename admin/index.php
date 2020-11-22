@@ -58,12 +58,12 @@ date_default_timezone_set("Asia/Bangkok");
 			<a href="#" class="close" onclick="closeSlideMenu()">
 				<i class="fas fa-times"></i>
 			</a>
-			<a href="#slide" class="menu-link">Slide</a>
+			<a href="#slide-image" class="menu-link">Slide</a>
 			<div class="sub-menu">
 				<a href="#images" class="menu-link">Big Slide</a>
 				<a href="#links" class="menu-link">Youtube Links</a>
 			</div>
-			<a href="#slide" class="menu-link">Product</a>
+			<a href="#slide-product" class="menu-link">Product</a>
 			<div class="sub-menu">
 				<a href="#product" class="menu-link">Product List</a>
 				<a href="#product-type" class="menu-link">Product Type</a>
@@ -76,24 +76,22 @@ date_default_timezone_set("Asia/Bangkok");
 		</div>
 
 		<div id="main-content">
-			<div id="slide" class="section-container">
-				<h1 class="section-heading">Manage Website</h1><br>
+			<div class="section-container">
+				<h1 id="slide-image">Manage Slide</h1><br>
 				<div id="images">
 					<?php include("views/hero.php"); ?>
 				</div>
 				<div id="links">
 					<?php include("views/link.php"); ?>
 				</div>
+				<h1 id="slide-product">Manage Product</h1><br>
 				<div id="product">
-					<h1>Product</h1>
 					<?php include("views/product.php"); ?>
 				</div><br>
 				<div id="line-up">
-					<h1>Type</h1>
 					<?php include("views/producttype.php"); ?>
 				</div><br>
 				<div id="line-up">
-					<h1>Sub-Type</h1>
 					<?php include("views/productline.php"); ?>
 				</div><br>
 				<div id="software">

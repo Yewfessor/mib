@@ -4,7 +4,7 @@
         <h3>Youtube Link</h3>
         <form action="models/linkmodel/linkupload.php" method="post" name="upload_link">
             <div class="input-group">
-                <input class="form-control" type="text" name="link_name" id="link_name">
+                <input class="form-control" type="text" name="link_name" id="link_name" required>
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit">
                         <i class="fas fa-upload"></i>
@@ -32,13 +32,13 @@
                                 <?php
                                 if ($hide >= 1) { ?>
                                     Slide 3
-                                    <a href="models/linkmodel/linkshow.php?list_no=<?php echo $row["link_id"]; ?>&hidden_list=0"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                    <a href="models/linkmodel/linkshow.php?list_no=<?php echo $row["link_id"]; ?>&hidden_list=0"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     |
                                 <?php
                                 } elseif ($hide == 0) {
                                 ?>
                                     Slide 3
-                                    <a href="models/linkmodel/linkshow.php?list_no=<?php echo $row["link_id"]; ?>&show_list=1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a href="models/linkmodel/linkshow.php?list_no=<?php echo $row["link_id"]; ?>&show_list=1"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                     |
                                 <?php
                                 }
@@ -46,13 +46,13 @@
                                 <?php
                                 if ($hide_2 >= 1) { ?>
                                     Slide 4
-                                    <a href="models/linkmodel/linkshow.php?list_no=<?php echo $row["link_id"]; ?>&hidden_list_2=0"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                    <a href="models/linkmodel/linkshow.php?list_no=<?php echo $row["link_id"]; ?>&hidden_list_2=0"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     |
                                 <?php
                                 } elseif ($hide_2 == 0) {
                                 ?>
                                     Slide 4
-                                    <a href="models/linkmodel/linkshow.php?list_no=<?php echo $row["link_id"]; ?>&show_list_2=1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a href="models/linkmodel/linkshow.php?list_no=<?php echo $row["link_id"]; ?>&show_list_2=1"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                     |
                                 <?php
                                 }

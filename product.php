@@ -138,6 +138,7 @@ $product_linebar_id = $_GET["product_linebar_id"];
         <div class="product-content">
             <div class="catagory-container">
                 <li class="catagory-item">
+                    <a href="#/" class="btn-list">All Product</a>
                     <?php
                     $sql_typebar = "SELECT * FROM tb_product_type ";
                     $result_typebar = mysqli_query($connection, $sql_typebar);
@@ -149,8 +150,10 @@ $product_linebar_id = $_GET["product_linebar_id"];
                         </a>
 
                         <ul class="catagory-item-sub 
-                        <?php if ($product_type_id == $product_type_bar) { echo 'active';} ?>" id="pt<?php echo $row_typebar["product_type_id"]; ?>">
-                        <?php
+                        <?php if ($product_type_id == $product_type_bar) {
+                            echo 'active';
+                        } ?>" id="pt<?php echo $row_typebar["product_type_id"]; ?>">
+                            <?php
                             $sql_linebar = "SELECT * FROM tb_product_line_up WHERE product_type_id='" . $product_type_bar . "'";
                             $result_linebar = mysqli_query($connection, $sql_linebar);
                             while ($row_linebar = mysqli_fetch_array($result_linebar)) {
@@ -185,7 +188,7 @@ $product_linebar_id = $_GET["product_linebar_id"];
                         </div>
                         <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
                         <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
-                        <span class="price"><?php echo $row["product_price"]; ?> THB</span>
+                        <span class="price"><?php echo number_format($row["product_price"]); ?> THB</span>
                         <div class="view-info">View Info</div>
                     </div>
 
@@ -255,14 +258,14 @@ $product_linebar_id = $_GET["product_linebar_id"];
             // document.getElementById('main-content').style.opacity = '1';
             // document.getElementById('main-content').style.pointerEvents = 'auto';
         });
-    } 
-    mediaQuery.addEventListener( "change", (e) => {
-        if (e.matches) {
-        console.log('This is a narrow screen — less than 1000px wide.')
-    } else {
-        console.log('This is a wide screen — more than 1000px wide.')
-        document.getElementById('menu').style.width = '0';
     }
+    mediaQuery.addEventListener("change", (e) => {
+        if (e.matches) {
+            console.log('This is a narrow screen — less than 1000px wide.')
+        } else {
+            console.log('This is a wide screen — more than 1000px wide.')
+            document.getElementById('menu').style.width = '0';
+        }
     })
 </script>
 

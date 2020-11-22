@@ -23,7 +23,6 @@ $path_basemodel = "models/BaseModel.php";
             </div>
         </form>
     </div>
-
     <div class="thumbnail" style="height:270px; width:100%; overflow: auto;">
         <form name="show_hero" method="post" action="models/heromodel/heroshow.php">
             <table>
@@ -37,18 +36,18 @@ $path_basemodel = "models/BaseModel.php";
                 ?>
                     <tr>
                         <td align="center">
-                            <img width="350px"  height="245px" src="../assets/images/hero/<?php echo $row["hero_images"]; ?>" class="image-data">
+                            <img width="350px" height="245px" src="../assets/images/hero/<?php echo $row["hero_images"]; ?>" class="image-data">
                             <div class="col-xs-12"><?php echo $row["adddate"]; ?>&nbsp;
                                 <?php
                                 if ($hide >= 1) { ?>
                                     slide 1
-                                    <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&hidden_list=0"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                    <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&hidden_list=0"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     |
                                 <?php
                                 } elseif ($hide == 0) {
                                 ?>
                                     slide 1
-                                    <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&show_list=1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&show_list=1"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                     |
                                 <?php
                                 }
@@ -56,13 +55,13 @@ $path_basemodel = "models/BaseModel.php";
                                 <?php
                                 if ($hide_2 >= 1) { ?>
                                     slide 2
-                                    <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&hidden_list_2=0"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                    <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&hidden_list_2=0"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     |
                                 <?php
                                 } elseif ($hide_2 == 0) {
                                 ?>
                                     slide 2
-                                    <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&show_list_2=1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&show_list_2=1"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                     |
                                 <?php
                                 }
@@ -74,7 +73,7 @@ $path_basemodel = "models/BaseModel.php";
                 }
                     ?>
                     </tr>
-                    
+
             </table>
         </form>
     </div>
