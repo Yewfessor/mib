@@ -108,7 +108,7 @@ $path_image         = "../assets/images/product/";
             <th> Search
                 <input name="productall" id="productall" type="text" value="">
                 <input type="submit" value="Search">
-                <a href="index.php">Refresh</a>
+                &nbsp;<a href="index.php"><i class="fas fa-sync-alt"></i></a>
             </th>
         </tr>
     </table>
@@ -155,7 +155,7 @@ $path_image         = "../assets/images/product/";
                             <td><?php echo number_format($row["product_price"]); ?> บาท</td>
                             <td><?php echo $row["product_type_name"]; ?></td>
                             <td><?php echo $row["product_line_up_name"]; ?></td>
-                            <td><a href="<?php echo $path_modeledit . "?edit_id=" . $row["product_id"]; ?>">แก้ไข </a></td>
+                            <td><a href="<?php echo $path_modeledit . "?edit_id=" . $row["product_id"]; ?>"><i class="fas fa-edit"></i></a></td>
                             <td><a href="<?php echo $path_modeldelete . "?delete_id=" . $row["product_id"] . "&delete_img=" . $row["product_image"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">ลบ</a></td>
                         </tr>
                     <?php
@@ -201,7 +201,7 @@ $path_image         = "../assets/images/product/";
                             <td><?php echo number_format($row["product_price"]); ?> บาท</td>
                             <td><?php echo $row["product_type_name"]; ?></td>
                             <td><?php echo $row["product_line_up_name"]; ?></td>
-                            <td><a href="<?php echo $path_modeledit . "?edit_id=" . $row["product_id"]; ?>">แก้ไข </a></td>
+                            <td><a href="<?php echo $path_modeledit . "?edit_id=" . $row["product_id"]; ?>"><i class="fas fa-edit"></i></a></td>
                             <td><a href="<?php echo $path_modeldelete . "?delete_id=" . $row["product_id"] . "&delete_img=" . $row["product_image"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                         </tr>
                 <?php
