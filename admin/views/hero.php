@@ -5,7 +5,7 @@ $path_basemodel = "models/BaseModel.php";
 
 <div class="col-xs-12 col-sm-6 col-md-6">
     <div class="thumbnail">
-        <h3>Big Slide Upload</h3>
+        <h3>Slide Upload</h3>
         <form action="models/heromodel/heroupload.php" method="post" enctype="multipart/form-data" name="upload_hero">
             <div class="input-group">
                 <span class="input-group-btn">
@@ -26,11 +26,7 @@ $path_basemodel = "models/BaseModel.php";
 
     <div class="thumbnail" style="height:270px; width:100%; overflow: auto;">
         <form name="show_hero" method="post" action="models/heromodel/heroshow.php">
-            <table class="table-data">
-                <tr>
-                    <td align="center">Images</td>
-                    <td align="center">options</td>
-                </tr>
+            <table>
                 <?php
                 include $path_basemodel;
                 $sql = "SELECT * FROM tb_hero ORDER BY adddate DESC";
@@ -41,36 +37,44 @@ $path_basemodel = "models/BaseModel.php";
                 ?>
                     <tr>
                         <td align="center">
-                            <img width="1000" src="../assets/images/hero/<?php echo $row["hero_images"]; ?>" class="image-data"><br>
-                            <?php echo $row["adddate"]; ?>
-                        </td>
-                        <td align="center">
-                            <?php
-                            if ($hide >= 1) { ?>
-                                <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&hidden_list=0"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
-                            <?php
-                            } elseif ($hide == 0) {
-                            ?>
-                                <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&show_list=1"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                            <?php
-                            }
-                            ?>
-                            <?php
-                            if ($hide_2 >= 1) { ?>
-                                <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&hidden_list_2=0"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
-                            <?php
-                            } elseif ($hide_2 == 0) {
-                            ?>
-                                <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&show_list_2=1"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                            <?php
-                            }
-                            ?>
-                            <a href="models/heromodel/herodelete.php?delete_id=<?php echo $row["hero_id"]; ?>&delete_img=<?php echo $row["hero_images"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            <img width="350px"  height="245px" src="../assets/images/hero/<?php echo $row["hero_images"]; ?>" class="image-data">
+                            <div class="col-xs-12"><?php echo $row["adddate"]; ?>&nbsp;
+                                <?php
+                                if ($hide >= 1) { ?>
+                                    slide 1
+                                    <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&hidden_list=0"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                    |
+                                <?php
+                                } elseif ($hide == 0) {
+                                ?>
+                                    slide 1
+                                    <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&show_list=1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    |
+                                <?php
+                                }
+                                ?>
+                                <?php
+                                if ($hide_2 >= 1) { ?>
+                                    slide 2
+                                    <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&hidden_list_2=0"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                    |
+                                <?php
+                                } elseif ($hide_2 == 0) {
+                                ?>
+                                    slide 2
+                                    <a href="models/heromodel/heroshow.php?list_no=<?php echo $row["hero_id"]; ?>&show_list_2=1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    |
+                                <?php
+                                }
+                                ?>
+                                <a href="models/heromodel/herodelete.php?delete_id=<?php echo $row["hero_id"]; ?>&delete_img=<?php echo $row["hero_images"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            </div>
                         </td>
                     <?php
                 }
                     ?>
                     </tr>
+                    
             </table>
         </form>
     </div>
