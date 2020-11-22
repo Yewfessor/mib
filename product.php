@@ -111,7 +111,6 @@ $product_linebar_id = $_GET["product_linebar_id"];
             <a href="#/" class="menu-link">Entry Model</a>
             <a href="#/" class="menu-link">Entry Model</a>
         </div>
-
     </div>
 
     <main>
@@ -166,11 +165,6 @@ $product_linebar_id = $_GET["product_linebar_id"];
                     ?>
                 </li>
             </div>
-
-
-
-            <!-- <h5 class="product-subtype-heading">High-end Model</h5> -->
-
             <div class="product-items">
                 <?php
                 $sql = "SELECT * FROM tb_product 
