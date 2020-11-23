@@ -97,13 +97,13 @@ $product_linebar_id = $_GET["product_linebar_id"];
         $result_typebar2 = mysqli_query($connection, $sql_typebar2);
         while ($row_typebar2 = mysqli_fetch_array($result_typebar2)) {
             $product_type_bar2 = $row_typebar2["product_type_id"]; ?>
-            <a href="#/" class="menu-list" onclick="showList(<?php echo $row_typebar2['product_type_id']; ?>)">
+            <a href="#/" class="menu-list" onclick="showListMobile(<?php echo $row_typebar2['product_type_id']; ?>)">
                 <?php echo $row_typebar2["product_type_name"]; ?>&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i>
             </a>
             <div class="catagory-item-sub 
                         <?php if ($product_type_id == $product_type_bar2) {
                             echo 'active';
-                        } ?>" id="pt<?php echo $row_typebar2["product_type_id"]; ?>">
+                        } ?>" id="ptm<?php echo $row_typebar2["product_type_id"]; ?>">
                 <?php
                 $sql_linebar2 = "SELECT * FROM tb_product_line_up WHERE product_type_id='" . $product_type_bar2 . "'";
                 $result_linebar2 = mysqli_query($connection, $sql_linebar2);
@@ -242,8 +242,10 @@ $product_linebar_id = $_GET["product_linebar_id"];
 <script>
     // toggle product type
     const subMenu = document.querySelector('.catagory-item-sub')
+    const showListMobile = (id) => {
+        document.querySelector('#ptm' + id).classList.toggle('active')
+    }
     const showList = (id) => {
-        console.log('eiei id:', id)
         document.querySelector('#pt' + id).classList.toggle('active')
     }
 
