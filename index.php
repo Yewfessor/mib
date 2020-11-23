@@ -110,7 +110,7 @@ function dateTime($date_time)
             </div>
             <div class="swiper-container underhero-slide2vdo">
                 <div class="swiper-wrapper">
-                <div class="swiper-slide">
+                    <div class="swiper-slide">
                         <?php
                         include("admin/models/BaseModel.php");
                         $sql = "SELECT * FROM tb_link WHERE list_no_2 ='1' ORDER BY adddate DESC";
@@ -152,37 +152,41 @@ function dateTime($date_time)
                     <span class="sub-heading">check out our product</span>
                 </h5>
                 <div class="grid product-type-items">
-                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=1&product_linebar_id=46'">
-                        <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" alt="" class="product-type-image">
-                        <h5 class="product-type-name">IT/IP Platform</h5>
+                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=2&product_linebar_id=1'">
+                        <div class="img-box">
+                            <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" class="product-img" alt="">
+                        </div>
+                        <h5 class="product-name">1asdasdasd</h5>
+                        <span class="sub-product-name">asdasdasd</span>
+                        <span class="price">10000 THB</span>
+                        <div class="view-info">View Info</div>
                     </div>
                     <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=2&product_linebar_id=1'">
-                        <img src="https://www.fullcompass.com/common/products/lgr/281819.jpg" alt="" class="product-type-image">
-                        <h5 class="product-type-name">PTZ Camera Systems</h5>
+                        <div class="img-box">
+                            <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" class="product-img" alt="">
+                        </div>
+                        <h5 class="product-name">1asdasdasd</h5>
+                        <span class="sub-product-name">asdasdasd</span>
+                        <span class="price">10000 THB</span>
+                        <div class="view-info">View Info</div>
                     </div>
-                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=3&product_linebar_id=7'">
-                        <img src="https://pro-av.panasonic.net/en/products/img/lineup/system_cameras/lineup_ak_uc4000.png" alt="" class="product-type-image">
-                        <h5 class="product-type-name">System Cameras</h5>
+                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=2&product_linebar_id=1'">
+                        <div class="img-box">
+                            <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" class="product-img" alt="">
+                        </div>
+                        <h5 class="product-name">1asdasdasd</h5>
+                        <span class="sub-product-name">asdasdasd</span>
+                        <span class="price">10000 THB</span>
+                        <div class="view-info">View Info</div>
                     </div>
-                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=4&product_linebar_id=13'">
-                        <img src="https://pro-av.panasonic.net/en/products/img/lineup/live_switchers/lineup_av_uhs500.png" alt="" class="product-type-image">
-                        <h5 class="product-type-name">Live Switchers</h5>
-                    </div>
-                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=5&product_linebar_id=15'">
-                        <img src="https://pro-av.panasonic.net/en/products/img/lineup/cinema_cameras/lineup_varicam_35.png" alt="" class="product-type-image">
-                        <h5 class="product-type-name">Cinema Cameras</h5>
-                    </div>
-                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=6&product_linebar_id=17'">
-                        <img src="https://pro-av.panasonic.net/en/products/img/lineup/professional_camera_recorders/lineup_ag_cx350.png" alt="" class="product-type-image">
-                        <h5 class="product-type-name">Professional Camera Recorders</h5>
-                    </div>
-                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=7&product_linebar_id=22'">
-                        <img src="https://pro-av.panasonic.net/en/products/img/accessories/cable.png" alt="" class="product-type-image">
-                        <h5 class="product-type-name">Accessories</h5>
-                    </div>
-                    <div class="grid-item product-type" onclick="window.location.href='software.php'">
-                        <img src="https://pro-av.panasonic.net/en/products/img/accessories/cable.png" alt="" class="product-type-image">
-                        <h5 class="product-type-name">Software</h5>
+                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=2&product_linebar_id=1'">
+                        <div class="img-box">
+                            <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" class="product-img" alt="">
+                        </div>
+                        <h5 class="product-name">1asdasdasd</h5>
+                        <span class="sub-product-name">asdasdasd</span>
+                        <span class="price">10000 THB</span>
+                        <div class="view-info">View Info</div>
                     </div>
                 </div>
             </div>

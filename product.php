@@ -89,28 +89,34 @@ $product_linebar_id = $_GET["product_linebar_id"];
         <a href="#" class="close" onclick="closeSlideMenu()">
             <i class="fas fa-times"></i>
         </a>
-        <a href="#slide" class="menu-link">IT/IP Platform</a>
-        <div class="sub-menu">
-            <a href="#/" class="menu-link">Hardware</a>
-        </div>
-        <a href="#slide" class="menu-link">PTZ Camera Systems</a>
-        <div class="sub-menu">
-            <a href="#/" class="menu-link">High-end Model</a>
-            <a href="#/" class="menu-link">Standard Model</a>
-            <a href="#/" class="menu-link">Entry Model</a>
-        </div>
-        <a href="#software" class="menu-link">Accessories</a>
-        <div class="sub-menu">
-            <a href="#/" class="menu-link">High-end Model</a>
-            <a href="#/" class="menu-link">Standard Model</a>
-            <a href="#/" class="menu-link">Entry Model</a>
-            <a href="#/" class="menu-link">Entry Model</a>
-            <a href="#/" class="menu-link">Entry Model</a>
-            <a href="#/" class="menu-link">Entry Model</a>
-            <a href="#/" class="menu-link">Entry Model</a>
-            <a href="#/" class="menu-link">Entry Model</a>
-            <a href="#/" class="menu-link">Entry Model</a>
-        </div>
+
+        <a href="#/" class="menu-list">All Product</a>
+        <?php
+        include $path_basemodel;
+        $sql_typebar2 = "SELECT * FROM tb_product_type ";
+        $result_typebar2 = mysqli_query($connection, $sql_typebar2);
+        while ($row_typebar2 = mysqli_fetch_array($result_typebar2)) {
+            $product_type_bar2 = $row_typebar2["product_type_id"]; ?>
+            <a href="#/" class="menu-list" onclick="showList(<?php echo $row_typebar2['product_type_id']; ?>)">
+                <?php echo $row_typebar2["product_type_name"]; ?>&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i>
+            </a>
+            <div class="catagory-item-sub 
+                        <?php if ($product_type_id == $product_type_bar2) {
+                            echo 'active';
+                        } ?>" id="pt<?php echo $row_typebar2["product_type_id"]; ?>">
+                <?php
+                $sql_linebar2 = "SELECT * FROM tb_product_line_up WHERE product_type_id='" . $product_type_bar2 . "'";
+                $result_linebar2 = mysqli_query($connection, $sql_linebar2);
+                while ($row_linebar2 = mysqli_fetch_array($result_linebar2)) {
+                ?>
+                    <a class="menu-list" href="product.php?product_type_id=<?php echo $row_linebar2["product_type_id"]; ?>&product_linebar_id=<?php echo  $row_linebar2["product_line_up_id"]; ?>"><?php echo $row_linebar2["product_line_up_name"]; ?></a>
+                <?php
+                }
+                ?>
+            </div>
+        <?php
+        }
+        ?>
     </div>
 
     <main>
@@ -123,7 +129,6 @@ $product_linebar_id = $_GET["product_linebar_id"];
             </div>
             <div class="heading-box">
                 <?php
-                include $path_basemodel;
                 $sql_type = "SELECT * FROM tb_product_type where product_type_id = '" . $product_type_id . "' ";
                 $result_type = mysqli_query($connection, $sql_type);
                 while ($row_type = mysqli_fetch_array($result_type)) {
@@ -134,7 +139,6 @@ $product_linebar_id = $_GET["product_linebar_id"];
                 ?>
             </div>
         </div>
-
         <div class="product-content">
             <div class="catagory-container">
                 <li class="catagory-item">
@@ -149,10 +153,7 @@ $product_linebar_id = $_GET["product_linebar_id"];
                             <i class="fa fa-caret-down" aria-hidden="true"></i>
                         </a>
 
-                        <ul class="catagory-item-sub 
-                        <?php if ($product_type_id == $product_type_bar) {
-                            echo 'active';
-                        } ?>" id="pt<?php echo $row_typebar["product_type_id"]; ?>">
+                        <ul class="catagory-item-sub <?php if ($product_type_id == $product_type_bar) { echo 'active';} ?>" id="pt<?php echo $row_typebar["product_type_id"]; ?>">
                             <?php
                             $sql_linebar = "SELECT * FROM tb_product_line_up WHERE product_type_id='" . $product_type_bar . "'";
                             $result_linebar = mysqli_query($connection, $sql_linebar);
@@ -196,7 +197,6 @@ $product_linebar_id = $_GET["product_linebar_id"];
                 }
                 ?>
             </div>
-
 
         </div>
 
