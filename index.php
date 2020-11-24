@@ -152,47 +152,55 @@ function dateTime($date_time)
                     <span class="sub-heading">check out our product</span>
                 </h5>
                 <div class="grid product-type-items">
-                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=2&product_linebar_id=1'">
+                    <div class="grid-item product-type">
                         <div class="img-box">
                             <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" class="product-img" alt="">
                         </div>
                         <h5 class="product-name">1asdasdasd</h5>
                         <span class="sub-product-name">asdasdasd</span>
                         <span class="price">10000 THB</span>
-                        <div class="view-info">View Info</div>
+                        <a href="productinfo.html">
+                            <div class="view-info">View Info</div>
+                        </a>
                     </div>
-                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=2&product_linebar_id=1'">
+                    <div class="grid-item product-type">
                         <div class="img-box">
                             <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" class="product-img" alt="">
                         </div>
                         <h5 class="product-name">1asdasdasd</h5>
                         <span class="sub-product-name">asdasdasd</span>
                         <span class="price">10000 THB</span>
-                        <div class="view-info">View Info</div>
+                        <a href="productinfo.html">
+                            <div class="view-info">View Info</div>
+                        </a>
                     </div>
-                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=2&product_linebar_id=1'">
+                    <div class="grid-item product-type">
                         <div class="img-box">
                             <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" class="product-img" alt="">
                         </div>
                         <h5 class="product-name">1asdasdasd</h5>
                         <span class="sub-product-name">asdasdasd</span>
                         <span class="price">10000 THB</span>
-                        <div class="view-info">View Info</div>
+                        <a href="productinfo.html">
+                            <div class="view-info">View Info</div>
+                        </a>
                     </div>
-                    <div class="grid-item product-type" onclick="window.location.href='product.php?product_type_id=2&product_linebar_id=1'">
+                    <div class="grid-item product-type">
                         <div class="img-box">
                             <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" class="product-img" alt="">
                         </div>
                         <h5 class="product-name">1asdasdasd</h5>
                         <span class="sub-product-name">asdasdasd</span>
                         <span class="price">10000 THB</span>
-                        <div class="view-info">View Info</div>
+                        <a href="productinfo.html">
+                            <div class="view-info">View Info</div>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <div class="read-all-container">
-                <a href="product.php" class="read-all-text">
+                <a href="product.php?product_type_id=0&product_linebar_id=0" class="read-all-text">
                     See more products <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>

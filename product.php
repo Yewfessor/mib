@@ -90,7 +90,7 @@ $product_linebar_id = $_GET["product_linebar_id"];
             <i class="fas fa-times"></i>
         </a>
 
-        <a href="#/" class="menu-list">All Product</a>
+        <a href="product.php?product_type_id=0&product_linebar_id=0" class="menu-list">All Product</a>
         <?php
         include $path_basemodel;
         $sql_typebar2 = "SELECT * FROM tb_product_type ";
@@ -129,20 +129,28 @@ $product_linebar_id = $_GET["product_linebar_id"];
             </div>
             <div class="heading-box">
                 <?php
-                $sql_type = "SELECT * FROM tb_product_type where product_type_id = '" . $product_type_id . "' ";
-                $result_type = mysqli_query($connection, $sql_type);
-                while ($row_type = mysqli_fetch_array($result_type)) {
-                    $product_type_name = $row_type["product_type_name"]; ?>
-                    <h1 class="heading"><?php echo $product_type_name; ?></h1>
+                if ($product_type_id == 0) {
+                ?>
+                    <h1 class="heading">All Product</h1>
+
+                    <?php
+                } else {
+                    $sql_type = "SELECT * FROM tb_product_type where product_type_id = '" . $product_type_id . "' ";
+                    $result_type = mysqli_query($connection, $sql_type);
+                    while ($row_type = mysqli_fetch_array($result_type)) {
+                        $product_type_name = $row_type["product_type_name"]; ?>
+                        <h1 class="heading"><?php echo $product_type_name; ?></h1>
                 <?php
+                    }
                 }
                 ?>
             </div>
         </div>
+
         <div class="product-content">
             <div class="catagory-container">
                 <li class="catagory-item">
-                    <a href="#/" class="btn-list">All Product</a>
+                    <a href="product.php?product_type_id=0&product_linebar_id=0" class="btn-list">All Product</a>
                     <?php
                     $sql_typebar = "SELECT * FROM tb_product_type ";
                     $result_typebar = mysqli_query($connection, $sql_typebar);
@@ -153,7 +161,9 @@ $product_linebar_id = $_GET["product_linebar_id"];
                             <i class="fa fa-caret-down" aria-hidden="true"></i>
                         </a>
 
-                        <ul class="catagory-item-sub <?php if ($product_type_id == $product_type_bar) { echo 'active';} ?>" id="pt<?php echo $row_typebar["product_type_id"]; ?>">
+                        <ul class="catagory-item-sub <?php if ($product_type_id == $product_type_bar) {
+                                                            echo 'active';
+                                                        } ?>" id="pt<?php echo $row_typebar["product_type_id"]; ?>">
                             <?php
                             $sql_linebar = "SELECT * FROM tb_product_line_up WHERE product_type_id='" . $product_type_bar . "'";
                             $result_linebar = mysqli_query($connection, $sql_linebar);
@@ -169,31 +179,60 @@ $product_linebar_id = $_GET["product_linebar_id"];
                     ?>
                 </li>
             </div>
+
             <div class="product-items">
-                <?php
-                $sql = "SELECT * FROM tb_product 
-                        LEFT JOIN tb_product_type 
-                        ON tb_product.product_type_id = tb_product_type.product_type_id
-                        LEFT JOIN tb_product_line_up 
-                        ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id
-                        WHERE tb_product.product_line_up_id = '" . $product_linebar_id . "' 
-                        AND tb_product.product_type_id = '" . $product_type_id . "'      
-                        ";
-                $result = mysqli_query($connection, $sql);
-                $path = "assets/images/product/";
-                while ($row = mysqli_fetch_array($result)) {
+                <?php if ($product_type_id == 0) {
+                    $sql = "SELECT * FROM tb_product 
+                    LEFT JOIN tb_product_type 
+                    ON tb_product.product_type_id = tb_product_type.product_type_id
+                    LEFT JOIN tb_product_line_up 
+                    ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id    
+                    ";
+                    $result = mysqli_query($connection, $sql);
+                    $path = "assets/images/product/";
+                    while ($row = mysqli_fetch_array($result)) {
                 ?>
-                    <div class="product-item">
-                        <div class="img-box">
-                            <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
+                        <div class="product-item">
+                            <div class="img-box">
+                                <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
+                            </div>
+                            <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
+                            <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
+                            <span class="price"><?php echo number_format($row["product_price"]); ?> THB</span>
+                            <a href="productinfo.html">
+                                <div class="view-info">View Info</div>
+                            </a>
                         </div>
-                        <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
-                        <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
-                        <span class="price"><?php echo number_format($row["product_price"]); ?> THB</span>
-                        <div class="view-info">View Info</div>
-                    </div>
+
+                    <?php
+                    }
+                } else {
+                    $sql = "SELECT * FROM tb_product 
+                    LEFT JOIN tb_product_type 
+                    ON tb_product.product_type_id = tb_product_type.product_type_id
+                    LEFT JOIN tb_product_line_up 
+                    ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id
+                    WHERE tb_product.product_line_up_id = '" . $product_linebar_id . "' 
+                    AND tb_product.product_type_id = '" . $product_type_id . "'      
+                    ";
+                    $result = mysqli_query($connection, $sql);
+                    $path = "assets/images/product/";
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <div class="product-item">
+                            <div class="img-box">
+                                <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
+                            </div>
+                            <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
+                            <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
+                            <span class="price"><?php echo number_format($row["product_price"]); ?> THB</span>
+                            <a href="productinfo.html">
+                                <div class="view-info">View Info</div>
+                            </a>
+                        </div>
 
                 <?php
+                    }
                 }
                 ?>
             </div>
