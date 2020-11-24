@@ -54,7 +54,7 @@ $product_line_up_name = $row["product_line_up_name"];
         </tr>
         <tr bgcolor="#FFFFFF">
             <td>Detail</td>
-            <td><textarea name="product_detail_en" id="product_detail_en" ><?php echo $product_detail_en; ?>"</textarea></td>
+            <td><textarea name="product_detail_en" id="product_detail_en" ><?php echo $product_detail_en; ?></textarea></td>
         </tr <tr bgcolor="#FFFFFF">
         <tr bgcolor="#FFFFFF">
 

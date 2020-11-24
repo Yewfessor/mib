@@ -179,7 +179,7 @@ $product_linebar_id = $_GET["product_linebar_id"];
                     ?>
                 </li>
             </div>
-
+   
             <div class="product-items">
                 <?php if ($product_type_id == 0) {
                     $sql = "SELECT * FROM tb_product 
