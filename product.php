@@ -1,7 +1,12 @@
 <?php
-$path_basemodel = "admin/models/BaseModel.php";
+//get
 $product_type_id = $_GET["product_type_id"];
 $product_linebar_id = $_GET["product_linebar_id"];
+
+//path
+$path_basemodel = "admin/models/BaseModel.php";
+$path = "assets/images/product/";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -189,7 +194,6 @@ $product_linebar_id = $_GET["product_linebar_id"];
                     ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id    
                     ";
                     $result = mysqli_query($connection, $sql);
-                    $path = "assets/images/product/";
                     while ($row = mysqli_fetch_array($result)) {
                 ?>
                         <div class="product-item">
@@ -199,7 +203,7 @@ $product_linebar_id = $_GET["product_linebar_id"];
                             <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
                             <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
                             <span class="price"><?php echo number_format($row["product_price"]); ?> THB</span>
-                            <a href="productinfo.html">
+                            <a href="productinfo.php?product_id=<?php echo $row["product_id"]; ?>">
                                 <div class="view-info">View Info</div>
                             </a>
                         </div>

@@ -1,4 +1,10 @@
 <?php
+
+//path
+$path_basemodel = "admin/models/BaseModel.php";
+$path = "assets/images/product/";
+
+
 function changeDate($date)
 {
     $get_date = explode("-", $date);
@@ -69,7 +75,7 @@ function dateTime($date_time)
             <div class="swiper-container hero-slide">
                 <div class="swiper-wrapper">
                     <?php
-                    include("admin/models/BaseModel.php");
+                    include $path_basemodel;
                     $sql = "SELECT * FROM tb_hero WHERE list_no ='1' ORDER BY adddate DESC";
                     $result = mysqli_query($connection, $sql);
                     $num = mysqli_num_rows($result);
@@ -112,7 +118,7 @@ function dateTime($date_time)
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <?php
-                        include("admin/models/BaseModel.php");
+                        include $path_basemodel;
                         $sql = "SELECT * FROM tb_link WHERE list_no_2 ='1' ORDER BY adddate DESC";
                         $result = mysqli_query($connection, $sql);
                         $num = mysqli_num_rows($result);
@@ -129,7 +135,7 @@ function dateTime($date_time)
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <?php
-                        include("admin/models/BaseModel.php");
+                        include $path_basemodel;
                         $sql = "SELECT * FROM tb_link WHERE list_no ='1' ORDER BY adddate DESC";
                         $result = mysqli_query($connection, $sql);
                         $num = mysqli_num_rows($result);
@@ -151,51 +157,28 @@ function dateTime($date_time)
                     <span class="heading">Product</span>
                     <span class="sub-heading">check out our product</span>
                 </h5>
-                <div class="grid product-type-items">
-                    <div class="grid-item product-type">
-                        <div class="img-box">
-                            <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" class="product-img" alt="">
+                <div class="grid ">
+                    <?php
+                    include $path_basemodel;
+                    $sql_pnew = "SELECT * FROM tb_product ORDER BY lastupdate DESC limit 3";
+                    $result_pnew = mysqli_query($connection, $sql_pnew);
+                    while ($row_pnew = mysqli_fetch_array($result_pnew)) { ?>
+                            <div class="product-items " >
+                                <div class="product-item " >
+                                    <div class="img-box" >
+                                        <img src="<?php echo $path . $row_pnew["product_image"]; ?>" class="product-img" alt="">
+                                    </div>
+                                    <h5 class="product-name"><?php echo $row_pnew["product_name_en"]; ?></h5>
+                                    <span class="sub-product-name"><?php echo $row_pnew["product_description_en"]; ?></span>
+                                    <span class="price"><?php echo number_format($row_pnew["product_price"]); ?> THB</span>
+                                    <a href="productinfo.php?product_id=<?php echo $row_pnew["product_id"]; ?>">
+                                        <div class="view-info">View Info</div>
+                                    </a>
+                            </div>
                         </div>
-                        <h5 class="product-name">1asdasdasd</h5>
-                        <span class="sub-product-name">asdasdasd</span>
-                        <span class="price">10000 THB</span>
-                        <a href="productinfo.html">
-                            <div class="view-info">View Info</div>
-                        </a>
-                    </div>
-                    <div class="grid-item product-type">
-                        <div class="img-box">
-                            <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" class="product-img" alt="">
-                        </div>
-                        <h5 class="product-name">1asdasdasd</h5>
-                        <span class="sub-product-name">asdasdasd</span>
-                        <span class="price">10000 THB</span>
-                        <a href="productinfo.html">
-                            <div class="view-info">View Info</div>
-                        </a>
-                    </div>
-                    <div class="grid-item product-type">
-                        <div class="img-box">
-                            <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" class="product-img" alt="">
-                        </div>
-                        <h5 class="product-name">1asdasdasd</h5>
-                        <span class="sub-product-name">asdasdasd</span>
-                        <span class="price">10000 THB</span>
-                        <a href="productinfo.html">
-                            <div class="view-info">View Info</div>
-                        </a>
-                    </div>
-                    <div class="grid-item product-type">
-                        <div class="img-box">
-                            <img src="https://videstream.com/wp-content/uploads/2020/05/kairos_platform.jpeg" class="product-img" alt="">
-                        </div>
-                        <h5 class="product-name">1asdasdasd</h5>
-                        <span class="sub-product-name">asdasdasd</span>
-                        <span class="price">10000 THB</span>
-                        <a href="productinfo.html">
-                            <div class="view-info">View Info</div>
-                        </a>
-                    </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
 
