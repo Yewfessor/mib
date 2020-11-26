@@ -219,13 +219,6 @@
 
 /* Product Items */
 
-.product-group {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-}
-
 .product-content {
     padding: 3rem 0rem;
     display: flex;
