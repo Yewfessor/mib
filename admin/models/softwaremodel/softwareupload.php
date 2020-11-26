@@ -37,4 +37,3 @@ if (strlen($name)) {
     mysqli_close($connection);
     Header("Location: ../../index.php");
 }
-mysqli_close($connection);

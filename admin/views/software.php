@@ -33,7 +33,6 @@ $path_sofwaremodel_download     = "models/softwaremodel/softwaredownload.php";
                             <option value="<?php echo $row["software_type_id"]; ?>"><?php echo $row["software_type_name"]; ?></option>
                         <?php
                         }
-                        mysqli_close($connection);
                         ?>
                     </select>
                 </td>
@@ -52,7 +51,6 @@ $path_sofwaremodel_download     = "models/softwaremodel/softwaredownload.php";
                             <option value="<?php echo $row["product_type_id"]; ?>"><?php echo $row["product_type_name"]; ?></option>
                         <?php
                         }
-                        mysqli_close($connection);
                         ?>
                     </select>
                 </td>
@@ -105,7 +103,6 @@ $path_sofwaremodel_download     = "models/softwaremodel/softwaredownload.php";
                 </tr>
             <?php
             }
-            mysqli_close($connection);
             ?>
         </table>
     </form>
