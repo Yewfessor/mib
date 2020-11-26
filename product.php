@@ -246,7 +246,7 @@ $path = "assets/images/product/";
                                 <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
                                 <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
                                 <span class="price"><?php echo number_format($row["product_price"]); ?> THB</span>
-                                <a href="productinfo.html">
+                                <a href="productinfo.php?product_id=<?php echo $row["product_id"]; ?>">
                                     <div class="view-info">View Info</div>
                                 </a>
                             </div>

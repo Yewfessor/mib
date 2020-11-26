@@ -345,7 +345,7 @@ section {
 /* News Section Style */
 
 .grid.news {
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-gap: 2.5rem;
 }
 
