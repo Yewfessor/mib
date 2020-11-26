@@ -157,29 +157,27 @@ function dateTime($date_time)
                     <span class="heading">Product</span>
                     <span class="sub-heading">check out our product</span>
                 </h5>
-                <?php
-                ?>
-                    <div class="grid grid-item">
-                        <div class="grid-product-items">
-                            <?php
-                            include $path_basemodel;
-                            $sql_pnew = "SELECT * FROM tb_product ORDER BY lastupdate DESC limit 6";
-                            $result_pnew = mysqli_query($connection, $sql_pnew);
-                            while ($row_pnew = mysqli_fetch_array($result_pnew)) { ?>
-                                <div class="product-item">
-                                    <div class="img-box">
-                                        <img src="<?php echo $path . $row_pnew["product_image"]; ?>" class="product-img" alt="">
-                                    </div>
-                                    <h5 class="product-name"><?php echo $row_pnew["product_name_en"]; ?></h5>
-                                    <span class="sub-product-name"><?php echo $row_pnew["product_description_en"]; ?></span>
-                                    <span class="price"><?php echo number_format($row_pnew["product_price"]); ?> THB</span>
-                                    <a href="productinfo.php?product_id=<?php echo $row_pnew["product_id"]; ?>">
-                                        <div class="view-info">View Info</div>
-                                    </a>
+                <div class="grid grid-item">
+                    <div class="grid-product-items">
+                        <?php
+                        include $path_basemodel;
+                        $sql_pnew = "SELECT * FROM tb_product ORDER BY lastupdate DESC limit 6";
+                        $result_pnew = mysqli_query($connection, $sql_pnew);
+                        while ($row_pnew = mysqli_fetch_array($result_pnew)) { ?>
+                            <div class="product-item">
+                                <div class="img-box">
+                                    <img src="<?php echo $path . $row_pnew["product_image"]; ?>" class="product-img" alt="">
                                 </div>
-                            <?php
-                            }
-                            ?>
+                                <h5 class="product-name"><?php echo $row_pnew["product_name_en"]; ?></h5>
+                                <span class="sub-product-name"><?php echo $row_pnew["product_description_en"]; ?></span>
+                                <span class="price"><?php echo number_format($row_pnew["product_price"]); ?> THB</span>
+                                <a href="productinfo.php?product_id=<?php echo $row_pnew["product_id"]; ?>">
+                                    <div class="view-info">View Info</div>
+                                </a>
+                            </div>
+                        <?php
+                        }
+                        ?>
                     </div>
 
                 </div>
@@ -210,36 +208,36 @@ function dateTime($date_time)
                     <span class="heading">What's New</span>
                     <span class="sub-heading">all news here</span>
                 </h5>
-                <div class="grid news">
-                    <?php
-                    $path_imagenews = "assets/images/news/";
-                    include("admin/models/BaseModel.php");
-                    $sql = "SELECT news_id, CONCAT(SUBSTRING(news_name, 1, 30),'') as news_name, news_image, news_description_th, CONCAT(SUBSTRING(news_detail_th, 1, 70),' . . .') as news_detail_th, adddate 
+                    <div class="grid news">
+                        <?php
+                        $path_imagenews = "assets/images/news/";
+                        include("admin/models/BaseModel.php");
+                        $sql = "SELECT news_id, CONCAT(SUBSTRING(news_name, 1, 30),'') as news_name, news_image, news_description_th, CONCAT(SUBSTRING(news_detail_th, 1, 70),' . . .') as news_detail_th, adddate 
                     FROM tb_news ORDER BY adddate DESC LIMIT 3";
-                    $result = mysqli_query($connection, $sql);
-                    $num = mysqli_num_rows($result);
-                    while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                        <div class="grid-item news-card">
-                            <div class="news-card-img">
-                                <img src="<?php echo $path_imagenews . $row["news_image"]; ?>" alt="">
-                            </div>
-                            <div class="news-card-info">
-                                <div class="news-card-date">
-                                    <span><?php echo dateTime($row["adddate"]); ?></span>
+                        $result = mysqli_query($connection, $sql);
+                        $num = mysqli_num_rows($result);
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                            <div class="grid-item news-card">
+                                <div class="news-card-img">
+                                    <img src="<?php echo $path_imagenews . $row["news_image"]; ?>" alt="">
                                 </div>
-                                <!-- หัวข้อข่าวควรไม่เกิน 30 ตัวอักษร จะได้ 1 บรรทัดสวยๆพอดี -->
-                                <h1 class="news-card-title"><?php echo $row["news_name"]; ?></h1>
-                                <p class="news-card-text">
-                                    <?php echo $row["news_detail_th"]; ?>
-                                </p>
-                                <a href="news.php<?php echo "?news_id=" . $row["news_id"]; ?>" class="read-more">Read more</a>
+                                <div class="news-card-info">
+                                    <div class="news-card-date">
+                                        <span><?php echo dateTime($row["adddate"]); ?></span>
+                                    </div>
+                                    <!-- หัวข้อข่าวควรไม่เกิน 30 ตัวอักษร จะได้ 1 บรรทัดสวยๆพอดี -->
+                                    <h1 class="news-card-title"><?php echo $row["news_name"]; ?></h1>
+                                    <p class="news-card-text">
+                                        <?php echo $row["news_detail_th"]; ?>
+                                    </p>
+                                    <a href="news.php<?php echo "?news_id=" . $row["news_id"]; ?>" class="read-more">Read more</a>
+                                </div>
                             </div>
-                        </div>
-                    <?php
-                    }
-                    ?>
-                    <!-- <div class="grid-item news-card">
+                        <?php
+                        }
+                        ?>
+                        <!-- <div class="grid-item news-card">
                         <div class="news-card-img">
                             <img src="https://via.placeholder.com/1920x1080?text=News+Image" alt="">
                         </div>
@@ -255,7 +253,7 @@ function dateTime($date_time)
                             <a href="#" class="read-more">Read more</a>
                         </div>
                     </div> -->
-                </div>
+                    </div>
                 <div class="read-all-container">
                     <a href="newsAll.php">
                         <h1 class="read-all-text">See more news <i class="fa fa-arrow-right" aria-hidden="true"></i></h1>
