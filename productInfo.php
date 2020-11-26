@@ -136,8 +136,8 @@ function dateTime($date_time)
 
                 <div class="full-detail-container">
                     <div class="full-detail-heading">รายละเอียดสินค้า</div>
-                    <p class="full-detail-text">
-                        <?php echo $row["product_detail_en"]; ?>
+                    <p class="full-detail-text ">
+                        <div class="info-img-container"><?php echo $row["product_detail_en"]; ?></div>
                     </p>
                 </div>
                 <!-- [END] full-detail -->

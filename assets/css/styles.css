@@ -211,17 +211,9 @@ section {
     color: #a5a5a5;
 }
 
-.grid-product-content {
-    padding: 3rem 0rem;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
-
 .grid {
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     grid-gap: 2.5rem;
-    justify-content: center;
 }
 
 .grid-item {

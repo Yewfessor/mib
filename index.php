@@ -158,24 +158,7 @@ function dateTime($date_time)
                     <span class="sub-heading">check out our product</span>
                 </h5>
                 <?php
-                //style---
-                //grid
-                //grid-item
-                //*** */
-                //product-type
-                //product-type-image
-                //--------
-                //product-content 
-                //product-items
-                //product-item
-                //img-box
-                //product-img
-                //product-name
-                //sub-product-name
-                //price
-                //view-info
                 ?>
-                <div class="">
                     <div class="grid grid-item">
                         <div class="grid-product-items">
                             <?php
@@ -197,7 +180,6 @@ function dateTime($date_time)
                             <?php
                             }
                             ?>
-                        </div>
                     </div>
 
                 </div>

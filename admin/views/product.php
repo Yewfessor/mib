@@ -8,7 +8,6 @@ $path_image         = "../assets/images/product/";
 
 ?>
 
-<!--Upload Detail Product-->
 
 <div class="col-xs-12 col-sm-12 col-md-12">
     <div class="thumbnail">
@@ -180,7 +179,7 @@ $path_image         = "../assets/images/product/";
                     <td>Image </td>
                     <td>Name</td>
                     <td>Description</td>
-                    <td>Detail</td>
+                   <!-- <td>Detail</td>-->
                     <td>Price</td>
                     <td>Category</td>
                     <td>Type</td>
@@ -193,13 +192,13 @@ $path_image         = "../assets/images/product/";
                     <tr>
                         <td></td>
                         <td></td>
-                        <td><img height="100px" src="<?php echo $path_image . $row["product_image"]; ?>"></td>
-                        <td><?php echo $row["product_name_en"]; ?></td>
-                        <td><?php echo $row["product_description_en"]; ?></td>
-                        <td><?php echo $row["product_detail_en"]; ?></td>
-                        <td><?php echo number_format($row["product_price"]); ?> บาท</td>
-                        <td><?php echo $row["product_type_name"]; ?></td>
-                        <td><?php echo $row["product_line_up_name"]; ?></td>
+                        <td align="center"><img height="100px" src="<?php echo $path_image . $row["product_image"]; ?>"></td>
+                        <td align="center"><?php echo $row["product_name_en"]; ?></td>
+                        <td align="center"><?php echo $row["product_description_en"]; ?></td>
+                        <!--<td><?php // echo $row["product_detail_en"]; ?></td>-->
+                        <td align="center"><?php echo number_format($row["product_price"]); ?> บาท</td>
+                        <td align="center"><?php echo $row["product_type_name"]; ?></td>
+                        <td align="center"><?php echo $row["product_line_up_name"]; ?></td>
                         <td><a href="<?php echo $path_modeledit . "?edit_id=" . $row["product_id"]; ?>"><i class="fas fa-edit"></i></a></td>
                         <td><a href="<?php echo $path_modeldelete . "?delete_id=" . $row["product_id"] . "&delete_img=" . $row["product_image"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                     </tr>

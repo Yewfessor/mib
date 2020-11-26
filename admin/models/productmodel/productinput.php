@@ -33,7 +33,9 @@ $product_detail_en_str = mysqli_real_escape_string($connection, $product_detail_
         product_detail_en,
         product_price,
         product_type_id,
-        product_line_up_id
+        product_line_up_id,
+        adddate,
+        lastupdate
     ) 
     VALUES 
     (
@@ -43,7 +45,9 @@ $product_detail_en_str = mysqli_real_escape_string($connection, $product_detail_
         '" . $product_detail_en_str . "',
         '" . $product_price . "',
         '" . $product_type_id . "',
-        '" . $product_line_up_id . "'
+        '" . $product_line_up_id . "',
+        '" . $date . "',
+        '" . $date . "'
     )";
     $result = mysqli_query($connection, $sql) or die("error : " . mysqli_error($connection));
     
