@@ -211,10 +211,17 @@ section {
     color: #a5a5a5;
 }
 
+.grid-product-content {
+    padding: 3rem 0rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-gap: 2.5rem;
+    justify-content: center;
 }
 
 .grid-item {
@@ -225,13 +232,52 @@ section {
     text-align: center;
 }
 
+.grid-product-items {
+    /*test*/
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.grid-product-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 1rem 2rem 0;
+}
+
+.grid-product-image-box {
+    display: flex;
+    width: 100%;
+    height: 9rem;
+    /* item height*/
+    overflow: hidden;
+    margin-bottom: .7rem;
+}
+
+.grid-product-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s;
+}
+
+
+/*
 .product-type {
     height: 15rem;
     color: #fff;
     padding: 1rem;
     position: relative;
 }
+*/
 
+
+/*
 .product-type::before {
     content: "";
     position: absolute;
@@ -242,7 +288,7 @@ section {
     background-color: var(--light-transparent);
     z-index: -1;
     transition: background 0.4s;
-}
+}*/
 
 .product-type-image {
     width: 100%;
@@ -518,6 +564,9 @@ section {
     .news-container {
         padding: 0 3rem;
     }
+    .grids-product-items {
+        padding: 0 2rem;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -540,6 +589,9 @@ section {
     .grid {
         grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
         grid-gap: 2.5rem;
+    }
+    .grids-product-items {
+        padding: 0 10rem;
     }
     .product-type {
         height: 20rem;
@@ -626,6 +678,13 @@ section {
         grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
         grid-gap: 2.5rem;
     }
+    .grid-product-items {
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0;
+        margin-left: 5rem;
+        /* width: 80rem; */
+    }
     .product-type {
         height: 25rem;
     }
@@ -661,6 +720,13 @@ section {
     .grid {
         grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
         grid-gap: 2.5rem;
+    }
+    .grid-product-items {
+        width: 100rem;
+    }
+    .grid-product-items {
+        padding: 0;
+        /* width: 80rem; */
     }
     .product-type {
         height: 25rem;

@@ -140,7 +140,8 @@ $path = "assets/images/product/";
 
                     <?php
                 } else {
-                    $sql_type = "SELECT * FROM tb_product_type where product_type_id = '" . $product_type_id . "' ";
+                    $sql_type = "SELECT * FROM tb_product_type
+                     where product_type_id = '" . $product_type_id . "' ";
                     $result_type = mysqli_query($connection, $sql_type);
                     while ($row_type = mysqli_fetch_array($result_type)) {
                         $product_type_name = $row_type["product_type_name"]; ?>
@@ -153,8 +154,10 @@ $path = "assets/images/product/";
         </div>
 
         <div class="product-content">
+
             <div class="catagory-container">
                 <li class="catagory-item">
+
                     <a href="product.php?product_type_id=0&product_linebar_id=0" class="btn-list">All Product</a>
                     <?php
                     $sql_typebar = "SELECT * FROM tb_product_type ";
@@ -184,34 +187,47 @@ $path = "assets/images/product/";
                     ?>
                 </li>
             </div>
-   
-            <div class="product-items">
-                <?php if ($product_type_id == 0) {
-                    $sql = "SELECT * FROM tb_product 
+            <div class="product-group">
+                <?php
+                $sql_lineshow = "SELECT * FROM tb_product_line_up
+                                 where product_line_up_id = '" . $product_linebar_id  . "' ";
+                $result_lineshow = mysqli_query($connection, $sql_lineshow);
+                while ($row_lineshow = mysqli_fetch_array($result_lineshow)) {
+                    $product_lineshow_name = $row_lineshow["product_line_up_name"]; ?>
+                    <div class="product-type-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $product_lineshow_name; ?></div>
+
+                <?php
+                }
+                ?>
+                <div class="product-items">
+
+                    <?php if ($product_type_id == 0) {
+                        $sql = "SELECT * FROM tb_product 
                     LEFT JOIN tb_product_type 
                     ON tb_product.product_type_id = tb_product_type.product_type_id
                     LEFT JOIN tb_product_line_up 
                     ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id    
                     ";
-                    $result = mysqli_query($connection, $sql);
-                    while ($row = mysqli_fetch_array($result)) {
-                ?>
-                        <div class="product-item">
-                            <div class="img-box">
-                                <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
-                            </div>
-                            <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
-                            <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
-                            <span class="price"><?php echo number_format($row["product_price"]); ?> THB</span>
-                            <a href="productinfo.php?product_id=<?php echo $row["product_id"]; ?>">
-                                <div class="view-info">View Info</div>
-                            </a>
-                        </div>
+                        $result = mysqli_query($connection, $sql);
+                        while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                            <div class="product-item">
 
-                    <?php
-                    }
-                } else {
-                    $sql = "SELECT * FROM tb_product 
+                                <div class="img-box">
+                                    <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
+                                </div>
+                                <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
+                                <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
+                                <span class="price"><?php echo number_format($row["product_price"]); ?> THB</span>
+                                <a href="productinfo.php?product_id=<?php echo $row["product_id"]; ?>">
+                                    <div class="view-info">View Info</div>
+                                </a>
+                            </div>
+
+                        <?php
+                        }
+                    } else {
+                        $sql = "SELECT * FROM tb_product 
                     LEFT JOIN tb_product_type 
                     ON tb_product.product_type_id = tb_product_type.product_type_id
                     LEFT JOIN tb_product_line_up 
@@ -219,28 +235,28 @@ $path = "assets/images/product/";
                     WHERE tb_product.product_line_up_id = '" . $product_linebar_id . "' 
                     AND tb_product.product_type_id = '" . $product_type_id . "'      
                     ";
-                    $result = mysqli_query($connection, $sql);
-                    $path = "assets/images/product/";
-                    while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                        <div class="product-item">
-                            <div class="img-box">
-                                <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
+                        $result = mysqli_query($connection, $sql);
+                        $path = "assets/images/product/";
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                            <div class="product-item">
+                                <div class="img-box">
+                                    <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
+                                </div>
+                                <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
+                                <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
+                                <span class="price"><?php echo number_format($row["product_price"]); ?> THB</span>
+                                <a href="productinfo.html">
+                                    <div class="view-info">View Info</div>
+                                </a>
                             </div>
-                            <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
-                            <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
-                            <span class="price"><?php echo number_format($row["product_price"]); ?> THB</span>
-                            <a href="productinfo.html">
-                                <div class="view-info">View Info</div>
-                            </a>
-                        </div>
 
-                <?php
+                    <?php
+                        }
                     }
-                }
-                ?>
+                    ?>
+                </div>
             </div>
-
         </div>
 
 
