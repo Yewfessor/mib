@@ -1,5 +1,7 @@
 <!-- Youtube Links -->
 <div class="col-xs-12 col-sm-6 col-md-6">
+<h1 id="slide-image">Manage Video</h1><br>
+
     <div class="thumbnail">
         <h3>Youtube Link</h3>
         <form action="models/linkmodel/linkupload.php" method="post" name="upload_link">

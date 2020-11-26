@@ -54,6 +54,7 @@ $product_line_up_name = $row["product_line_up_name"];
 </head>
 
 <div class="col-xs-12 col-sm-12 col-md-12">
+
     <div class="thumbnail">
         <br><br>
         <form class="form-horizontal" action="<?php echo $path_edit; ?>" id="productedit" enctype="multipart/form-data" name="productedit" method="post">

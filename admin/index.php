@@ -40,13 +40,12 @@ date_default_timezone_set("Asia/Bangkok");
 
 
 <body>
-
-
 	<div id="content">
 		<span class="slide">
 			<a href="#" onclick="openSlideMenu()">
 				<i class="fas fa-bars"></i>
 			</a>
+			
 		</span>
 
 
@@ -76,15 +75,15 @@ date_default_timezone_set("Asia/Bangkok");
 		</div>
 
 		<div id="main-content">
+
 			<div class="section-container">
-				<h1 id="slide-image">Manage Slide</h1><br>
+
 				<div id="images">
 					<?php include("views/hero.php"); ?>
 				</div>
 				<div id="links">
 					<?php include("views/link.php"); ?>
 				</div>
-				<h1 id="slide-product">Manage Product</h1><br>
 				<div id="product">
 					<?php include("views/product.php"); ?>
 				</div><br>
@@ -104,7 +103,6 @@ date_default_timezone_set("Asia/Bangkok");
 				</div><br>
 
 			</div>
-
 
 		</div>
 </body>

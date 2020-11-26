@@ -4,6 +4,8 @@ $path_basemodel = "models/BaseModel.php";
 <!-- Hero Slide -->
 
 <div class="col-xs-12 col-sm-6 col-md-6">
+<h1 id="slide-image">Manage Slide</h1><br>
+
     <div class="thumbnail">
         <h3>Slide Upload</h3>
         <form action="models/heromodel/heroupload.php" method="post" enctype="multipart/form-data" name="upload_hero">

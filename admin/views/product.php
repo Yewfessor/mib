@@ -10,6 +10,8 @@ $path_image         = "../assets/images/product/";
 
 
 <div class="col-xs-12 col-sm-12 col-md-12">
+<h1 id="slide-product">Manage Product</h1><br>
+
     <div class="thumbnail">
         <br><br>
         <form class="form-horizontal" action="<?php echo $path_modelinput; ?>" id="productinput" enctype="multipart/form-data" name="productinput" method="post">
