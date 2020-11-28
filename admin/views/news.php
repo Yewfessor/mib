@@ -6,11 +6,11 @@ $path_delete    = "models/newsmodel/newsdelete.php";
 $path_edit      = "views/newsedit.php";
 $path_images    = "../assets/images/news/";
 ?>
-<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="col-xs-12 col-sm-12 col-md-12" id="news">
     <h1 id="slide-product">Manage News</h1><br>
     <div class="thumbnail">
         <div class="" align="center">
-            <h3>Add News</h3>
+            <h3>เพิ่มข่าว</h3>
         </div>
         <form class="form-horizontal" action="<?php echo $path_input; ?>" id="productinput" enctype="multipart/form-data" name="newsinput" method="post">
 
@@ -38,73 +38,34 @@ $path_images    = "../assets/images/news/";
             <div class="form-group">
                 <div class="col-sm-2"> </div>
                 <div class="col-sm-8" align="right">
-                    <input class="btn btn-primary" type="submit" name="newssubmit" value="Upload">
+                    <input class="btn btn-primary" type="submit" name="newssubmit" value="บันทึก">
                 </div>
             </div>
         </form>
     </div>
 </div>
 
-<div class="col-xs-12 col-sm-12 col-md-12">
-    <h2 id="slide-product">Search</h2>
-    <form name="newssearch" method="get" action="">
-        <div class="form-group">
-            <div class="col-xs-4" align="right">
-                <input class="form-control" name="newsall" id="newsall" type="text" value="" placeholder="์News ID">
-            </div>
-            <input class="btn btn-primary" type="submit" value="Search">
-            &nbsp;&nbsp;<a href="index.php"><i class="fas fa-sync-alt"></i></a>
+<div class="col-xs-12 col-sm-12 col-md-12 News_Search">
+    <form class="form-inline" name="searchformnews" id="searchformnews">
+        <div class="form-group ">
+            <label for="textsearch">Search&nbsp;</label>
+            <input type="text" name="newsall" id="newsall" class="form-control" placeholder="News ID!" autocomplete="off">
         </div>
-
+        <button type="button" class="btn btn-primary" id="btnSearchnews">
+            <span class="glyphicon glyphicon-search"></span>
+            ค้นหา
+        </button>
     </form>
 </div>
-<br>
 
 <div class="col-xs-12 col-sm-12 col-md-12">
-    <div class="thumbnail" style="height:270px; width:100%; overflow: auto;">
-
-        <?php
-        if (isset($_GET["newsall"]) != "") {
-            $i = 1;
+    <div id="list-datanews" style="margin-top: 10px;">
+        <div class="thumbnail" style="height:270px; width:100%; overflow: auto;">
+            <?php
             include $path_basemodel;
-            $sql = "SELECT * FROM tb_news WHERE news_id = '" . $_GET["newsall"] . "' ";
+            $sql = "SELECT * FROM tb_news ORDER BY lastupdate DESC ";
             $result = mysqli_query($connection, $sql);
-        ?>
-            <form>
-                <table border="0" cellpadding="3" cellspacing="1" width="100%">
-                    <tr align="center">
-                        <td align="center"><strong>News ID</td>
-                        <td align="center"><strong>Image</td>
-                        <td align="center"><strong>Topic</td>
-                        <td align="center"><strong>Detail</td>
-                        <td align="center" colspan="2"><strong>Option</strong></td>
-
-                    </tr>
-                    <?php
-                    while ($row = mysqli_fetch_array($result)) { ?>
-                        <tr align="center" height="150px">
-                            <td><?php echo $row["news_id"] ?></td>
-                            <td><img height="100" src="<?php echo $path_images . $row["news_image"]; ?>"></td>
-                            <td><?php echo $row["news_name"]; ?></td>
-                            <td><?php echo $row["news_detail_th"]; ?><br><?php echo "วันที่ :" . $row["adddate"] . " แก้ไข : " . $row["lastupdate"]; ?></td>
-                            <td><a href="<?php echo $path_edit . "?edit_id=" . $row["news_id"]; ?>"><i class="fas fa-edit"></i></a></td>
-                            <td><a href="<?php echo $path_delete . "?delete_id=" . $row["news_id"]; ?>
-                            &delete_img=<?php echo $row["news_image"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                        </tr>
-                    <?php
-                        $i++;
-                    }
-                    mysqli_close($connection);
-                    ?>
-                </table>
-            </form>
-        <?php
-        } else if (isset($_GET["productall"]) == "") {
-            $i = 1;
-            include $path_basemodel;
-            $sql = "SELECT * FROM tb_news ";
-            $result = mysqli_query($connection, $sql);
-        ?>
+            ?>
             <form>
                 <table border="0" cellpadding="3" cellspacing="1" width="100%">
                     <tr align="center">
@@ -128,13 +89,13 @@ $path_images    = "../assets/images/news/";
                             &delete_img=<?php echo $row["news_image"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')">
                                     <i class="fa fa-trash" aria-hidden="true"></i></a></td>
                         </tr>
-                <?php
-                        $i++;
+                    <?php
                     }
                     mysqli_close($connection);
-                }
-                ?>
+
+                    ?>
                 </table>
             </form>
+        </div>
     </div>
 </div>

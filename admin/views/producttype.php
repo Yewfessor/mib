@@ -6,17 +6,17 @@ $path_producttypemodel_delete   = "models/producttypemodel/typedelete.php";
 ?>
 
 <!--Upload Detail Product-->
-<div class="col-xs-12 col-sm-6 col-md-6">
+<div class="col-xs-12 col-sm-6 col-md-6" id="product-type">
     <div class="thumbnail">
         <h3 center>Name type</h3>
         <form class="form-horizontal" action="<?php echo $path_producttypemodel_input; ?>" id="typeinput" enctype="multipart/form-data" name="typeinput" method="post">
             <div class="form-group">
                 <div class="col-xs-10">
-                    <input class="form-control" name="product_type_name" id="product_type_name" value="" required>
+                    <input class="form-control" name="product_type_name" id="product_type_name" value="" required placeholder="ชื่อหมวดหมู่">
                 </div>
-                <div class="col-xs-1">
+                <div class="col-sm-1">
                     <button class="btn btn-default" type="submit" name="typesubmit">
-                        <i class="far fa-save"></i>
+                        บันทึก
                     </button>
                 </div>
             </div>
@@ -43,8 +43,7 @@ $path_producttypemodel_delete   = "models/producttypemodel/typedelete.php";
                     <tr align="center" bgcolor="#FFFFFF">
                         <td hidden><?php echo $row["product_type_id"] ?></td>
                         <td><?php echo $row["product_type_name"]; ?></td>
-                        <td><a href="models/producttypemodel/typedelete.php?delete_id=<?php echo $row["product_type_id"]; ?>" 
-                        onclick="return confirm('โปรดตรวจสอบ Sub-type ก่อนลบ')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                        <td><a href="models/producttypemodel/typedelete.php?delete_id=<?php echo $row["product_type_id"]; ?>" onclick="return confirm('โปรดตรวจสอบ Sub-type ก่อนลบ')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                     </tr>
                 <?php
                 }

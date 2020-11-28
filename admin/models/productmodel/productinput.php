@@ -15,6 +15,8 @@ $product_detail_en = $_POST['product_detail_en'];
 $product_price = $_POST['product_price'];
 $product_type_id = $_POST['product_type_id'];
 $product_line_up_id = $_POST["product_line_up_id"];
+$list_no = $_POST["list_no"];
+
 
 $product_name_en_str = mysqli_real_escape_string($connection, $product_name_en);
 $product_description_en_str = mysqli_real_escape_string($connection, $product_description_en);
@@ -34,6 +36,7 @@ $product_detail_en_str = mysqli_real_escape_string($connection, $product_detail_
         product_price,
         product_type_id,
         product_line_up_id,
+        list_no,
         adddate,
         lastupdate
     ) 
@@ -46,6 +49,7 @@ $product_detail_en_str = mysqli_real_escape_string($connection, $product_detail_
         '" . $product_price . "',
         '" . $product_type_id . "',
         '" . $product_line_up_id . "',
+        '" . $list_no . "',
         '" . $date . "',
         '" . $date . "'
     )";

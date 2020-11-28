@@ -1,5 +1,0 @@
-<!--Show On Index-->
-<br />
-<b>Warning</b>:  filesize(): stat failed for uploads/screencapture-localhost-mib-software-html-2020-11-06-11_45_45.png in <b>C:\xampp\htdocs\mib\admin\models\softwaremodel\softwaredownload.php</b> on line <b>23</b><br />
-<br />
-<b>Warning</b>:  readfile(uploads/screencapture-localhost-mib-software-html-2020-11-06-11_45_45.png): failed to open stream: No such file or directory in <b>C:\xampp\htdocs\mib\admin\models\softwaremodel\softwaredownload.php</b> on line <b>24</b><br />

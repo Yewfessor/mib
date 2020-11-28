@@ -6,8 +6,8 @@ $path_productlinemodel_delete   = "models/productlinemodel/productlinedelete.php
 ?>
 
 <!--Upload Detail Product-->
-<div class="col-xs-12 col-sm-6 col-md-6">
-    <div class="thumbnail">
+<div class="col-xs-12 col-sm-6 col-md-6" id="product-category">
+    <div class="thumbnail" >
         <h3>Name Sub-Type</h3>
         <form class="form-horizontal" action="<?php echo $path_productlinemodel_input; ?>" id="productlineinput" enctype="multipart/form-data" name="productlineinput" method="post">
             <div class="form-group">
@@ -28,11 +28,11 @@ $path_productlinemodel_delete   = "models/productlinemodel/productlinedelete.php
                     </select>
                 </div>
                 <div class="col-xs-5">
-                    <input class="form-control" type="text" name="product_line_up_name" id="product_line_up_name" value="" required>
+                    <input class="form-control" type="text" name="product_line_up_name" id="product_line_up_name" value="" required placeholder="ชื่อหมวดหมู่ย่อย">
                 </div>
-                <div class="col-xs-1">
+                <div class="col-sm-1">
                     <button class="btn btn-default" type="submit" name="productlinesubmit">
-                        <i class="far fa-save"></i>
+                        บันทึก
                     </button>
                 </div>
             </div>

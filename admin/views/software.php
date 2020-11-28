@@ -8,12 +8,12 @@ $path_sofwaremodel_download     = "models/softwaremodel/softwaredownload.php";
 ?>
 
 <!--Upload Detail Software-->
-<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="col-xs-12 col-sm-12 col-md-12" id="software">
     <h1 id="slide-product">Manage Software</h1><br>
 
     <div class="thumbnail">
         <div class="" align="center">
-            <h3>Add Software</h3>
+            <h3>อัพโหลด โปรแกรม</h3>
         </div>
         <form class="form-horizontal" action="<?php echo $path_sofwaremodel_upload; ?>" method="post" enctype="multipart/form-data" name="upload_software">
             <div class="form-group">
@@ -78,7 +78,7 @@ $path_sofwaremodel_download     = "models/softwaremodel/softwaredownload.php";
             <div class="form-group">
                 <div class="col-sm-2"> </div>
                 <div class="col-sm-8" align="right">
-                    <input class="btn btn-primary" type="submit" name="Submit" value="Upload">
+                    <input class="btn btn-primary" type="submit" name="Submit" value="อัพโหลด">
                 </div>
             </div>
         </form><br>

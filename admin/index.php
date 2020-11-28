@@ -26,14 +26,10 @@ date_default_timezone_set("Asia/Bangkok");
 		const openSlideMenu = () => {
 			document.getElementById('menu').style.width = '250px';
 			document.getElementById('content').style.marginLeft = '250px';
-			document.getElementById('main-content').style.opacity = '0.3';
-			document.getElementById('main-content').style.pointerEvents = 'none';
 		}
 		const closeSlideMenu = () => {
 			document.getElementById('menu').style.width = '0';
 			document.getElementById('content').style.marginLeft = '0';
-			document.getElementById('main-content').style.opacity = '1';
-			document.getElementById('main-content').style.pointerEvents = 'auto';
 		}
 	</script>
 </head>
@@ -45,7 +41,7 @@ date_default_timezone_set("Asia/Bangkok");
 			<a href="#" onclick="openSlideMenu()">
 				<i class="fas fa-bars"></i>
 			</a>
-			
+
 		</span>
 
 
@@ -57,12 +53,12 @@ date_default_timezone_set("Asia/Bangkok");
 			<a href="#" class="close" onclick="closeSlideMenu()">
 				<i class="fas fa-times"></i>
 			</a>
-			<a href="#slide-image" class="menu-link">Slide</a>
+			<a href="#images" class="menu-link">Slide</a>
 			<div class="sub-menu">
 				<a href="#images" class="menu-link">Big Slide</a>
 				<a href="#links" class="menu-link">Youtube Links</a>
 			</div>
-			<a href="#slide-product" class="menu-link">Product</a>
+			<a href="#product" class="menu-link">Product</a>
 			<div class="sub-menu">
 				<a href="#product" class="menu-link">Product List</a>
 				<a href="#product-type" class="menu-link">Product Type</a>
@@ -84,19 +80,19 @@ date_default_timezone_set("Asia/Bangkok");
 				<div id="links">
 					<?php include("views/link.php"); ?>
 				</div>
-				<div id="product">
+				<div>
 					<?php include("views/product.php"); ?>
 				</div><br>
-				<div id="line-up">
+				<div>
 					<?php include("views/producttype.php"); ?>
 				</div><br>
-				<div id="line-up">
+				<div>
 					<?php include("views/productline.php"); ?>
 				</div><br>
-				<div id="software">
+				<div >
 					<?php include("views/software.php"); ?>
 				</div><br>
-				<div id="news">
+				<div >
 					<?php include("views/news.php"); ?>
 				</div><br>
 
@@ -127,6 +123,53 @@ date_default_timezone_set("Asia/Bangkok");
 	document.getElementById('files-input-upload').addEventListener('change', function() {
 		document.getElementById('fake-file-input-name').value = this.value;
 		document.getElementById('fake-file-button-upload').removeAttribute('disabled');
+	});
+</script>
+
+<script type="text/javascript">
+	$(function() {
+		$("#btnSearchnews").click(function() {
+			$.ajax({
+				url: "models/newsmodel/newssearch.php",
+				type: "post",
+				data: {
+					newsall: $("#newsall").val()
+				},
+				success: function(data) {
+					$("#list-datanews").html(data);
+				}
+			});
+		});
+		$("#searchformnews").on("keyup keypress", function(e) {
+			var code = e.keycode || e.which;
+			if (code == 13) {
+				$("#btnSearchnews").click();
+				return false;
+			}
+		});
+	});
+</script>
+<script type="text/javascript">
+	$(function() {
+		$("#btnSearchproduct").click(function() {
+			$.ajax({
+				url: "models/productmodel/productsearch.php",
+				type: "post",
+				data: {
+					productall: $("#productall").val()
+				},
+				success: function(data) {
+					$("#list-dataproduct").html(data);
+				}
+			});
+		});
+		$("#searchformproduct").on("keyup keypress", function(e) {
+			var code = e.keycode || e.which;
+			if (code == 13) {
+				$("#btnSearchproduct").click();
+				return false;
+			}
+		});
 	});
 </script>
 
