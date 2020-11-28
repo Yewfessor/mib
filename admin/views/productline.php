@@ -51,11 +51,11 @@ $path_productlinemodel_delete   = "models/productlinemodel/productlinedelete.php
         $result = mysqli_query($connection, $sql);
         ?>
         <form>
-            <table border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
+            <table border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC"  width="100%">
                 <tr align="center" bgcolor="#FFFFFF">
-                    <td>Type</td>
-                    <td>Sub-Type </td>
-                    <td>Delete</td>
+                    <td align="center"><strong>Type</strong></td>
+                    <td align="center"><strong>Sub-Type</strong></td>
+                    <td align="center"><strong>Delete</strong></td>
                 </tr>
                 <?php
                 while ($row = mysqli_fetch_array($result)) {
@@ -64,7 +64,8 @@ $path_productlinemodel_delete   = "models/productlinemodel/productlinedelete.php
                         <td hidden><?php echo $row["product_line_up_id"] ?></td>
                         <td><?php echo $row["product_type_name"]; ?></td>
                         <td><?php echo $row["product_line_up_name"]; ?></td>
-                        <td><a href="models/productlinemodel/productlinedelete.php?delete_id=<?php echo $row["product_line_up_id"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                        <td><a href="models/productlinemodel/productlinedelete.php?delete_id=<?php echo $row["product_line_up_id"]; ?>" 
+                        onclick="return confirm('ต้องการลบข้อมูลหรือไม่')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                     </tr>
                 <?php
                 }

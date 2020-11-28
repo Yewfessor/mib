@@ -158,7 +158,7 @@ $path = "assets/images/product/";
             <div class="catagory-container">
                 <li class="catagory-item">
 
-                    <a href="product.php?product_type_id=0&product_linebar_id=0" class="btn-list">All Product</a>
+                    <a href="product.php?product_type_id=0&product_linebar_id=0&Page=1" class="btn-list">All Product</a>
                     <?php
                     $sql_typebar = "SELECT * FROM tb_product_type ";
                     $result_typebar = mysqli_query($connection, $sql_typebar);
@@ -177,7 +177,7 @@ $path = "assets/images/product/";
                             $result_linebar = mysqli_query($connection, $sql_linebar);
                             while ($row_linebar = mysqli_fetch_array($result_linebar)) {
                             ?>
-                                <li><a href="product.php?product_type_id=<?php echo $row_linebar["product_type_id"]; ?>&product_linebar_id=<?php echo  $row_linebar["product_line_up_id"]; ?>"><?php echo $row_linebar["product_line_up_name"]; ?></a></li>
+                                <li><a href="product.php?product_type_id=<?php echo $row_linebar["product_type_id"]; ?>&product_linebar_id=<?php echo  $row_linebar["product_line_up_id"]; ?>&Page=1"><?php echo $row_linebar["product_line_up_name"]; ?></a></li>
                             <?php
                             }
                             ?>
@@ -189,30 +189,64 @@ $path = "assets/images/product/";
             </div>
             <div class="product-group">
                 <?php
-                $sql_lineshow = "SELECT * FROM tb_product_line_up
+                if ($product_type_id == 0) { ?>
+                    <div class="product-type-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;รวมสินค้าทั้งหมด</div>
+                    <?php
+                } else {
+                    $sql_lineshow = "SELECT * FROM tb_product_line_up
                                  where product_line_up_id = '" . $product_linebar_id  . "' ";
-                $result_lineshow = mysqli_query($connection, $sql_lineshow);
-                while ($row_lineshow = mysqli_fetch_array($result_lineshow)) {
-                    $product_lineshow_name = $row_lineshow["product_line_up_name"]; ?>
-                    <div class="product-type-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $product_lineshow_name; ?></div>
-
+                    $result_lineshow = mysqli_query($connection, $sql_lineshow);
+                    while ($row_lineshow = mysqli_fetch_array($result_lineshow)) {
+                        $product_lineshow_name = $row_lineshow["product_line_up_name"]; ?>
+                        <div class="product-type-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $product_lineshow_name; ?></div>
                 <?php
+                    }
                 }
                 ?>
-                <div class="product-items">
+                <br>
 
-                    <?php if ($product_type_id == 0) {
+                <div class="product-items">
+                    <?php
+                    if ($product_type_id == 0) {
+                        $sql_all = "SELECT * FROM tb_product 
+                        LEFT JOIN tb_product_type 
+                        ON tb_product.product_type_id = tb_product_type.product_type_id
+                        LEFT JOIN tb_product_line_up 
+                        ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id ORDER BY lastupdate DESC   
+                        ";
+                        $result_all = mysqli_query($connection, $sql_all);
+                        $Num_Rows = mysqli_num_rows($result_all);
+
+                        $Per_Page = 20;   // Per Page
+                        $Page = $_GET["Page"];
+                        if (!$_GET["Page"]) {
+                            $Page = 1;
+                        }
+
+                        $Prev_Page = $Page - 1;
+                        $Next_Page = $Page + 1;
+
+                        $Page_Start = (($Per_Page * $Page) - $Per_Page);
+                        if ($Num_Rows <= $Per_Page) {
+                            $Num_Pages = 1;
+                        } else if (($Num_Rows % $Per_Page) == 0) {
+                            $Num_Pages = ($Num_Rows / $Per_Page);
+                        } else {
+                            $Num_Pages = ($Num_Rows / $Per_Page) + 1;
+                            $Num_Pages = (int)$Num_Pages;
+                        }
+
                         $sql = "SELECT * FROM tb_product 
-                    LEFT JOIN tb_product_type 
-                    ON tb_product.product_type_id = tb_product_type.product_type_id
-                    LEFT JOIN tb_product_line_up 
-                    ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id    
-                    ";
+                                LEFT JOIN tb_product_type 
+                                ON tb_product.product_type_id = tb_product_type.product_type_id
+                                LEFT JOIN tb_product_line_up 
+                                ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id 
+                                ORDER BY lastupdate DESC limit {$Page_Start} , {$Per_Page}    
+                                ";
                         $result = mysqli_query($connection, $sql);
                         while ($row = mysqli_fetch_array($result)) {
                     ?>
                             <div class="product-item">
-
                                 <div class="img-box">
                                     <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
                                 </div>
@@ -223,38 +257,134 @@ $path = "assets/images/product/";
                                     <div class="view-info">View Info</div>
                                 </a>
                             </div>
-
                         <?php
                         }
+                        ?>
+                </div>
+                <div style="text-align: right;">
+                    <br>
+                    ทั้งหมด <?php echo $Num_Rows; ?> รายการ : <?php echo $Num_Pages; ?> หน้า :
+                    <?php
+                        if ($Prev_Page) {
+                            echo " <a href='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$Prev_Page'><< Back</a> ";
+                        }
+
+                        $intRankPage = 2;
+                        $LastShowPage = $Page + $intRankPage;
+                        if ($LastShowPage > $Num_Pages) {
+                            $LastShowPage = $Num_Pages;
+                        }
+                        $FirstShowPage = $Page - $intRankPage;
+                        if ($FirstShowPage < 1) {
+                            $FirstShowPage = 1;
+                        }
+
+                        for ($i = $FirstShowPage; $i <= $LastShowPage; $i++) {
+                            if ($i != $Page) {
+                                echo "[ <a href='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$i'>$i</a> ]";
+                            } else {
+                                echo "<b> $i </b>";
+                            }
+                        }
+                        if ($Page != $Num_Pages) {
+                            echo " <a href ='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$Next_Page'>Next>></a> ";
+                        }
+                    ?>
+                </div>
+
+                <div class="product-items">
+                    <?php
                     } else {
+                        $sql_all = "SELECT * FROM tb_product 
+                                    LEFT JOIN tb_product_type 
+                                    ON tb_product.product_type_id = tb_product_type.product_type_id
+                                    LEFT JOIN tb_product_line_up 
+                                    ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id
+                                    WHERE tb_product.product_line_up_id = '" . $product_linebar_id . "' 
+                                    AND tb_product.product_type_id = '" . $product_type_id . "' 
+                                    ORDER BY lastupdate DESC 
+                        ";
+                        $result_all = mysqli_query($connection, $sql_all);
+                        $Num_Rows = mysqli_num_rows($result_all);
+
+                        $Per_Page = 20;   // Per Page
+                        $Page = $_GET["Page"];
+                        if (!$_GET["Page"]) {
+                            $Page = 1;
+                        }
+
+                        $Prev_Page = $Page - 1;
+                        $Next_Page = $Page + 1;
+
+                        $Page_Start = (($Per_Page * $Page) - $Per_Page);
+                        if ($Num_Rows <= $Per_Page) {
+                            $Num_Pages = 1;
+                        } else if (($Num_Rows % $Per_Page) == 0) {
+                            $Num_Pages = ($Num_Rows / $Per_Page);
+                        } else {
+                            $Num_Pages = ($Num_Rows / $Per_Page) + 1;
+                            $Num_Pages = (int)$Num_Pages;
+                        }
+
                         $sql = "SELECT * FROM tb_product 
-                    LEFT JOIN tb_product_type 
-                    ON tb_product.product_type_id = tb_product_type.product_type_id
-                    LEFT JOIN tb_product_line_up 
-                    ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id
-                    WHERE tb_product.product_line_up_id = '" . $product_linebar_id . "' 
-                    AND tb_product.product_type_id = '" . $product_type_id . "'      
-                    ";
+                                LEFT JOIN tb_product_type 
+                                ON tb_product.product_type_id = tb_product_type.product_type_id
+                                LEFT JOIN tb_product_line_up 
+                                ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id
+                                WHERE tb_product.product_line_up_id = '" . $product_linebar_id . "' 
+                                AND tb_product.product_type_id = '" . $product_type_id . "' 
+                                ORDER BY lastupdate DESC  limit {$Page_Start} , {$Per_Page} 
+                                ";
                         $result = mysqli_query($connection, $sql);
                         $path = "assets/images/product/";
                         while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <div class="product-item">
-                                <div class="img-box">
-                                    <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
-                                </div>
-                                <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
-                                <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
-                                <span class="price"><?php echo number_format($row["product_price"]); ?> THB</span>
-                                <a href="productinfo.php?product_id=<?php echo $row["product_id"]; ?>">
-                                    <div class="view-info">View Info</div>
-                                </a>
+                    ?>
+                        <div class="product-item">
+                            <div class="img-box">
+                                <img src="<?php echo $path . $row["product_image"]; ?>" class="product-img" alt="">
                             </div>
-
+                            <h5 class="product-name"><?php echo $row["product_name_en"]; ?></h5>
+                            <span class="sub-product-name"><?php echo $row["product_description_en"]; ?></span>
+                            <span class="price"><?php echo number_format($row["product_price"]); ?> THB</span>
+                            <a href="productinfo.php?product_id=<?php echo $row["product_id"]; ?>">
+                                <div class="view-info">View Info</div>
+                            </a>
+                        </div>
                     <?php
                         }
-                    }
                     ?>
+
+                </div>
+                <div style="text-align: right;">
+                    <br>
+                    ทั้งหมด <?php echo $Num_Rows; ?> รายการ : <?php echo $Num_Pages; ?> หน้า :
+                <?php
+                        if ($Prev_Page) {
+                            echo " <a href='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$Prev_Page'><< Back</a> ";
+                        }
+
+                        $intRankPage = 2;
+                        $LastShowPage = $Page + $intRankPage;
+                        if ($LastShowPage > $Num_Pages) {
+                            $LastShowPage = $Num_Pages;
+                        }
+                        $FirstShowPage = $Page - $intRankPage;
+                        if ($FirstShowPage < 1) {
+                            $FirstShowPage = 1;
+                        }
+
+                        for ($i = $FirstShowPage; $i <= $LastShowPage; $i++) {
+                            if ($i != $Page) {
+                                echo "[ <a href='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$i'>$i</a> ]";
+                            } else {
+                                echo "<b> $i </b>";
+                            }
+                        }
+                        if ($Page != $Num_Pages) {
+                            echo " <a href ='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$Next_Page'>Next>></a> ";
+                        }
+                    }
+                ?>
                 </div>
             </div>
         </div>

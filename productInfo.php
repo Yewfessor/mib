@@ -50,22 +50,22 @@ function dateTime($date_time)
                 </div>
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Home</a>
+                        <a href="index.php" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#product" class="nav-link">Product</a>
+                        <a href="index.php#product" class="nav-link">Product</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#about" class="nav-link">About</a>
+                        <a href="index.php#about" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#news" class="nav-link">News</a>
+                        <a href="index.php#news" class="nav-link">News</a>
                     </li>
                     <li class="nav-item">
                         <a href="software.php" class="nav-link">Software</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#footer" class="nav-link">Contact</a>
+                        <a href="index.php#footer" class="nav-link">Contact</a>
                     </li>
                 </ul>
             </nav>
@@ -106,11 +106,11 @@ function dateTime($date_time)
                                 <td>สถานะสินค้า</td>
                                 <?php if ($row["list_no"] == 0) {
                                 ?>
-                                    <td>สินค้าหมด</td>
+                                    <td>พร้อมส่ง</td>
                                 <?php
                                 } elseif ($row["list_no"] == 1) {
                                 ?>
-                                    <td>พร้อมส่ง</td>
+                                    <td>สินค้าหมด</td>
                                 <?php
                                 }
                                 ?>

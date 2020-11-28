@@ -41,7 +41,7 @@ $path_basemodel = "admin/models/BaseModel.php";
                         <a href="index.php#news" class="nav-link">News</a>
                     </li>
                     <li class="nav-item">
-                        <a href="software.php#software" class="nav-link">Software</a>
+                        <a href="software.php" class="nav-link">Software</a>
                     </li>
                     <li class="nav-item">
                         <a href="index.php#footer" class="nav-link">Contact</a>
@@ -50,7 +50,7 @@ $path_basemodel = "admin/models/BaseModel.php";
             </nav>
         </div>
     </header>
-    <div class="software-hero">
+    <div class="software-hero" >
         <div class="swiper-container hero-slide">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" style="background: url(./assets/images/banner/server.jpg);background-size: cover;background-position: center;">
@@ -58,7 +58,7 @@ $path_basemodel = "admin/models/BaseModel.php";
             </div>
         </div>
     </div>
-    <div class="software-content">
+    <div class="software-content" >
         <h1 class="software-heading">Software Download</h1>
         <?php
         include $path_basemodel;

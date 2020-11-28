@@ -94,11 +94,9 @@ date_default_timezone_set("Asia/Bangkok");
 					<?php include("views/productline.php"); ?>
 				</div><br>
 				<div id="software">
-					<h2>software</h2>
 					<?php include("views/software.php"); ?>
 				</div><br>
 				<div id="news">
-					<h1>News</h1>
 					<?php include("views/news.php"); ?>
 				</div><br>
 

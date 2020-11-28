@@ -184,7 +184,7 @@ function dateTime($date_time)
             </div>
 
             <div class="read-all-container">
-                <a href="product.php?product_type_id=0&product_linebar_id=0" class="read-all-text">
+                <a href="product.php?product_type_id=0&product_linebar_id=0&Page=1" class="read-all-text">
                     See more products <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>
@@ -196,8 +196,7 @@ function dateTime($date_time)
                 <div class="about-content">
                     <h5 class="business-name">Multi Innovation Broadcast</h5>
                     <p class="paragraph">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error est quasi esse porro magnam asperiores nisi nostrum at adipisci blanditiis.
-                    </p>
+                        Multi Innovation Broadcast (MIB.) provided support, service and supply the right products to the television industry in the Thailand. </p>
                 </div>
             </div>
         </section>
@@ -208,36 +207,38 @@ function dateTime($date_time)
                     <span class="heading">What's New</span>
                     <span class="sub-heading">all news here</span>
                 </h5>
-                    <div class="grid news">
-                        <?php
-                        $path_imagenews = "assets/images/news/";
-                        include("admin/models/BaseModel.php");
-                        $sql = "SELECT news_id, CONCAT(SUBSTRING(news_name, 1, 30),'') as news_name, news_image, news_description_th, CONCAT(SUBSTRING(news_detail_th, 1, 70),' . . .') as news_detail_th, adddate 
+                <div class="grid news">
+                    <?php
+                    $path_imagenews = "assets/images/news/";
+                    include("admin/models/BaseModel.php");
+                    $sql = "SELECT news_id, CONCAT(SUBSTRING(news_name, 1, 30),'') as news_name, news_image, news_description_th, CONCAT(SUBSTRING(news_detail_th, 1, 70),' . . .') as news_detail_th, adddate 
                     FROM tb_news ORDER BY adddate DESC LIMIT 3";
-                        $result = mysqli_query($connection, $sql);
-                        $num = mysqli_num_rows($result);
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <div class="grid-item news-card">
-                                <div class="news-card-img">
-                                    <img src="<?php echo $path_imagenews . $row["news_image"]; ?>" alt="">
-                                </div>
-                                <div class="news-card-info">
-                                    <div class="news-card-date">
-                                        <span><?php echo dateTime($row["adddate"]); ?></span>
-                                    </div>
-                                    <!-- หัวข้อข่าวควรไม่เกิน 30 ตัวอักษร จะได้ 1 บรรทัดสวยๆพอดี -->
-                                    <h1 class="news-card-title"><?php echo $row["news_name"]; ?></h1>
-                                    <p class="news-card-text">
-                                        <?php echo $row["news_detail_th"]; ?>
-                                    </p>
-                                    <a href="news.php<?php echo "?news_id=" . $row["news_id"]; ?>" class="read-more">Read more</a>
-                                </div>
+                    $result = mysqli_query($connection, $sql);
+                    $num = mysqli_num_rows($result);
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <div class="grid-item news-card">
+                            <div class="news-card-img">
+                                <img src="<?php echo $path_imagenews . $row["news_image"]; ?>" alt="">
                             </div>
-                        <?php
-                        }
-                        ?>
-                        <!-- <div class="grid-item news-card">
+                            <div class="news-card-info">
+                                <div class="news-card-date">
+                                    <span><?php echo dateTime($row["adddate"]); ?></span>
+                                </div>
+                                <!-- หัวข้อข่าวควรไม่เกิน 30 ตัวอักษร จะได้ 1 บรรทัดสวยๆพอดี -->
+                                <h1 class="news-card-title"><?php echo $row["news_name"]; ?></h1>
+                                <p class="news-card-text">
+                                    <font color="white">
+                                        <?php echo $row["news_detail_th"]; ?>
+                                    </font>
+                                </p>
+                                <a href="news.php<?php echo "?news_id=" . $row["news_id"]; ?>" class="read-more">Read more</a>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                    <!-- <div class="grid-item news-card">
                         <div class="news-card-img">
                             <img src="https://via.placeholder.com/1920x1080?text=News+Image" alt="">
                         </div>
@@ -253,7 +254,7 @@ function dateTime($date_time)
                             <a href="#" class="read-more">Read more</a>
                         </div>
                     </div> -->
-                    </div>
+                </div>
                 <div class="read-all-container">
                     <a href="newsAll.php">
                         <h1 class="read-all-text">See more news <i class="fa fa-arrow-right" aria-hidden="true"></i></h1>
@@ -279,7 +280,7 @@ function dateTime($date_time)
                 <div class="social-media-wrap">
                     <h4 class="footer-heading">Contact Us</h4>
                     <div class="contact-detail">
-                        <p class="contact-email"><i class="fa fa-envelope" aria-hidden="true"></i>online@mib-thailand.com</p>
+                        <p class="contact-email"><i class="fa fa-envelope" aria-hidden="true"></i>info@mib-thailand.com</p>
                         <p class="contact-phone"><i class="fa fa-phone" aria-hidden="true"></i>099-8765432</p>
                     </div>
                     <div class="social-media">

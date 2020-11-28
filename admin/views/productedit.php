@@ -141,11 +141,10 @@ $product_line_up_name = $row["product_line_up_name"];
             <div class="form-group">
                 <div class="col-sm-2"> </div>
                 <div class="col-sm-8" align="right">
-                    <input class="btn btn-danger" type="button" onclick="history.back();" name="newssubmit" value="Cancel">
+                    <input class="btn btn-danger" type="button" onclick="history.back();" name="productback" value="Cancel">
                     <input class="btn btn-primary" type="submit" name="productsubmit" value="Save">
                 </div>
             </div>
-        </form>
         </form>
     </div>
 </div>

@@ -77,7 +77,7 @@ $news_lastupdate        = dateTime($row["lastupdate"]);
                         <a href="index.php#news" class="nav-link">News</a>
                     </li>
                     <li class="nav-item">
-                        <a href="software.html" class="nav-link">Software</a>
+                        <a href="software.php" class="nav-link">Software</a>
                     </li>
                     <li class="nav-item">
                         <a href="index.php#footer" class="nav-link">Contact</a>
@@ -91,8 +91,10 @@ $news_lastupdate        = dateTime($row["lastupdate"]);
         <div class="news-content">
             <h1 class="news-heading"><?php echo $news_name; ?></h1>
             <span class="news-date"><?php echo $news_lastupdate; ?></span>
-            <img src="<?php echo $path_images . $news_image; ?>" alt="" class="news-img">
-            <p class="news-text"><?php echo $news_detail_th; ?></p>
+            <div class="news-more">
+                <img src="<?php echo $path_images . $news_image; ?>" alt="" class="news-img">
+                <p class="news-text"><?php echo $news_detail_th; ?></p>
+            </div>
             <div class="news-more">
                 <h3 class="news-more-heading">อ่านข่าวอื่นๆ</h3>
                 <ul class="news-more-lists">
