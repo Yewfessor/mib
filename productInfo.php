@@ -151,10 +151,11 @@ function dateTime($date_time)
                 <div class="payment-heading">วิธีการชำระเงิน</div>
                 <div class="payment-detail">
                     <p>ชำระผ่านธนาคาร</p>
-                    <img src="https://kasikornbank.com/th/personal/Digital-banking/PublishingImages/youtrip/KBank-logo.jpg" alt="">
-                    <p>ธ.กสิกรไทย</p>
-                    <p>บริษัท มัลติอินโนเวชั่นบรอดแคสต์ จำกัด</p>
-                    <p>9876543210</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/th/thumb/4/4a/Logo_GSB_Thailand.svg/800px-Logo_GSB_Thailand.svg.png" alt="">
+                    <p>ธนาคารออมสิน</p>
+                    <p>สาขา รามคำแหง ภายใน ม.รามคำแหง</p>
+                    <p>บริษัท มัลติ อินโนเวชั่น บรอดคาสต์ จำกัด</p>
+                    <p>000 000 665 117</p>
                     <p>ติดต่อโทร: 099-876-5432</p>
                 </div>
             </div>
