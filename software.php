@@ -81,12 +81,12 @@ $path_basemodel = "admin/models/BaseModel.php";
                             <th>Type</th>
                             <th>Software</th>
                             <th>Manual</th>
-
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $path_software  = "assets/software/";
+                        $path_manual    = "assets/manual/";
 
                         $sql = "SELECT * FROM 
                         tb_software 
@@ -103,8 +103,14 @@ $path_basemodel = "admin/models/BaseModel.php";
                             <tr>
                                 <td><?php echo $row["software_name"]; ?></td>
                                 <td><?php echo $row["software_type_name"]; ?></td>
-                                <td align="center"><a href="<?php echo $path_software.$row["software_file"]; ?>" class="btn-download" download><i class="fa fa-download" aria-hidden="true"></i></a></td>
-                                <td align="center"></td>
+                                <td align="center"><a href="<?php echo $path_software . $row["software_file"]; ?>" class="btn-download" download><i class="fa fa-download" aria-hidden="true"></i></a></td>
+                                <?php if ($row["software_manual"] != "") { ?>
+                                    <td align="center"><a href="<?php echo $path_manual . $row["software_manual"]; ?>" class="btn-download" download><i class="fas fa-file-download"></i></a></td>
+                                <?php
+                                } else { ?>
+                                    <td align="center"></td>
+                                <?php
+                                } ?>
                             </tr>
                         <?php
                         }

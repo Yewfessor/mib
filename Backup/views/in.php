@@ -1,7 +1,8 @@
 
 <?php
-    $path_basemodel="../../admin/models/BaseModel.php";
-    $path_software="../../assets/software/";
+    $path_basemodel = "../../admin/models/BaseModel.php";
+    $path_software  = "../../assets/software/";
+    $path_manual    = "../../assets/manual/";
 ?>
 
 <a href="<?php echo $path_software ?>FileZilla_3.51.0_win64_sponsored-setup.rar" download>
@@ -35,7 +36,8 @@
                         <td align="center"><?php echo $row["software_type_name"]; ?></td>
                         <td align="center"><?php echo $row["product_type_name"]; ?></td>
                         <td align="center">
-                            <a href="<?php echo $path_software.$row["software_file"]; ?>" download>download</i></a>
+                            <a href="<?php echo $path_software.$row["software_file"]; ?>" download>software</i></a>
+                            <a href="<?php echo $path_manual.$row["software_manual"]; ?>" download>manual</i></a>
                         </td>
                     </tr>
                 <?php

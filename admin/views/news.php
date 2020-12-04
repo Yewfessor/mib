@@ -67,7 +67,7 @@ $path_images    = "../assets/images/news/";
             $result = mysqli_query($connection, $sql);
             ?>
             <form>
-                <table border="0" cellpadding="3" cellspacing="1" width="100%">
+                <table border="0"  cellpadding="3" cellspacing="1" width="100%">
                     <tr align="center">
                         <td align="center"><strong>News ID</strong></td>
                         <td align="center"><strong>Image</strong></td>
