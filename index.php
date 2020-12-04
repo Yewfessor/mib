@@ -2,7 +2,7 @@
 
 //path
 $path_basemodel = "admin/models/BaseModel.php";
-$path = "assets/images/product/";
+$path           = "assets/images/product/";
 
 
 function changeDate($date)
@@ -280,7 +280,7 @@ function dateTime($date_time)
                 <div class="social-media-wrap">
                     <h4 class="footer-heading">Contact Us</h4>
                     <div class="contact-detail">
-                        <p class="contact-email"><i class="fa fa-envelope" aria-hidden="true"></i>info@mib-thailand.com</p>
+                        <p class="contact-email"><i class="fa fa-envelope" aria-hidden="true"></i>online@mib-thailand.com</p>
                         <p class="contact-phone"><i class="fa fa-phone" aria-hidden="true"></i>099-8765432</p>
                     </div>
                     <div class="social-media">

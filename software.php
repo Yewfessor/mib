@@ -50,7 +50,7 @@ $path_basemodel = "admin/models/BaseModel.php";
             </nav>
         </div>
     </header>
-    <div class="software-hero" >
+    <div class="software-hero">
         <div class="swiper-container hero-slide">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" style="background: url(./assets/images/banner/server.jpg);background-size: cover;background-position: center;">
@@ -58,8 +58,8 @@ $path_basemodel = "admin/models/BaseModel.php";
             </div>
         </div>
     </div>
-    <div class="software-content" >
-        <h1 class="software-heading">Software Download</h1>
+    <div class="software-content">
+        <h1 class="software-heading">Download</h1>
         <?php
         include $path_basemodel;
         $sql2 = "SELECT DISTINCT product_type_name,tb_software.product_type_id  FROM 
@@ -70,7 +70,7 @@ $path_basemodel = "admin/models/BaseModel.php";
         ON tb_software.software_type_id = tb_software_type.software_type_id";
         $result2 = mysqli_query($connection, $sql2);
         while ($row2 = mysqli_fetch_array($result2)) {
-        $product_type_id = $row2["product_type_id"];
+            $product_type_id = $row2["product_type_id"];
         ?>
             <div class="software-container">
                 <h3 class="software-product-heading">For <?php echo $row2["product_type_name"]; ?></h3>
@@ -79,11 +79,15 @@ $path_basemodel = "admin/models/BaseModel.php";
                         <tr>
                             <th>Software</th>
                             <th>Type</th>
-                            <th>Download</th>
+                            <th>Software</th>
+                            <th>Manual</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <?php
+                        $path_software  = "assets/software/";
+
                         $sql = "SELECT * FROM 
                         tb_software 
                         LEFT JOIN tb_product_type 
@@ -99,7 +103,8 @@ $path_basemodel = "admin/models/BaseModel.php";
                             <tr>
                                 <td><?php echo $row["software_name"]; ?></td>
                                 <td><?php echo $row["software_type_name"]; ?></td>
-                                <td><a href="admin/models/softwaremodel/softwaredownload.php?download_id=<?php echo $row["software_id"]; ?>" class="btn-download"><i class="fa fa-download" aria-hidden="true"></i></a></td>
+                                <td align="center"><a href="<?php echo $path_software.$row["software_file"]; ?>" class="btn-download" download><i class="fa fa-download" aria-hidden="true"></i></a></td>
+                                <td align="center"></td>
                             </tr>
                         <?php
                         }

@@ -64,7 +64,11 @@ date_default_timezone_set("Asia/Bangkok");
 				<a href="#product-type" class="menu-link">Product Type</a>
 				<a href="#product-category" class="menu-link">Product Sub-Type</a>
 			</div>
-			<a href="#software" class="menu-link">Software</a>
+			<a href="#software" class="menu-link">Download</a>
+			<div class="sub-menu">
+				<a href="#software" class="menu-link">Software</a>
+				<a href="#" class="menu-link">Manual</a>
+			</div>
 			<a href="#news" class="menu-link">News</a>
 			<a href="models/accountmodel/logout.php" class="nav-link">Log out</a>
 

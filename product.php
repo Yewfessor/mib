@@ -290,6 +290,8 @@ $path = "assets/images/product/";
                             echo " <a href ='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$Next_Page'>Next>></a> ";
                         }
                     ?>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+
                 </div>
 
                 <div class="product-items">
@@ -385,6 +387,7 @@ $path = "assets/images/product/";
                         }
                     }
                 ?>
+                &nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
             </div>
         </div>

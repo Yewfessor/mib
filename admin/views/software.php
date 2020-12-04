@@ -1,6 +1,8 @@
 <!--Show On Index-->
 <?php
 $path_basemodel                 = "models/BaseModel.php";
+$path_software                  = "../../assets/software/";
+$path_manual                    = "../../assets/manual/";
 $path_sofwaremodel_upload       = "models/softwaremodel/softwareupload.php";
 $path_sofwaremodel_delete       = "models/softwaremodel/softwaredelete.php";
 $path_sofwaremodel_download     = "models/softwaremodel/softwaredownload.php";
@@ -72,7 +74,7 @@ $path_sofwaremodel_download     = "models/softwaremodel/softwaredownload.php";
                 <div class="col-sm-2" align="right"></div>
                 <div class="col-sm-7" align="left">
                     ไฟล์ประกอบ
-                    <input type="file" name="fileupload" id="fileupload" multiple>
+                    <input type="file" name="fileupload" id="fileupload">
                 </div>
             </div>
             <div class="form-group">
@@ -100,11 +102,11 @@ $path_sofwaremodel_download     = "models/softwaremodel/softwaredownload.php";
                 <?php
                 include $path_basemodel;
                 $sql = "SELECT * FROM 
-            tb_software 
-            LEFT JOIN tb_product_type 
-            ON tb_software.product_type_id = tb_product_type.product_type_id 
-            LEFT JOIN tb_software_type
-            ON tb_software.software_type_id = tb_software_type.software_type_id";
+                    tb_software 
+                    LEFT JOIN tb_product_type 
+                    ON tb_software.product_type_id = tb_product_type.product_type_id 
+                    LEFT JOIN tb_software_type
+                    ON tb_software.software_type_id = tb_software_type.software_type_id";
                 $result = mysqli_query($connection, $sql);
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -114,7 +116,7 @@ $path_sofwaremodel_download     = "models/softwaremodel/softwaredownload.php";
                         <td align="center"><?php echo $row["software_type_name"]; ?></td>
                         <td align="center"><?php echo $row["product_type_name"]; ?></td>
                         <td align="center">
-                            <a href="<?php echo $path_sofwaremodel_download; ?>?download_id=<?php echo $row["software_id"]; ?>"><i class="fas fa-download"></i></a>
+                            <a href="<?php echo $path_software.$row["software_file"]; ?>" download><i class="fas fa-download"></i></a>
                         </td>
                         <td align="center">
                             <a href="<?php echo $path_sofwaremodel_delete; ?>?delete_id=<?php echo $row["software_id"]; ?>&delete_file=<?php echo $row["software_file"]; ?>" 
