@@ -211,7 +211,7 @@ function dateTime($date_time)
                     <?php
                     $path_imagenews = "assets/images/news/";
                     include("admin/models/BaseModel.php");
-                    $sql = "SELECT news_id, CONCAT(SUBSTRING(news_name, 1, 30),'') as news_name, news_image, news_description_th, CONCAT(SUBSTRING(news_detail_th, 1, 70),' . . .') as news_detail_th, adddate 
+                    $sql = "SELECT news_id,news_name, news_image, news_description_th,news_detail_th, adddate 
                     FROM tb_news ORDER BY adddate DESC LIMIT 3";
                     $result = mysqli_query($connection, $sql);
                     $num = mysqli_num_rows($result);
@@ -222,16 +222,15 @@ function dateTime($date_time)
                                 <img src="<?php echo $path_imagenews . $row["news_image"]; ?>" alt="">
                             </div>
                             <div class="news-card-info">
-                                <div class="news-card-date">
+                                <div class="news-card-date ">
                                     <span><?php echo dateTime($row["adddate"]); ?></span>
                                 </div>
                                 <!-- หัวข้อข่าวควรไม่เกิน 30 ตัวอักษร จะได้ 1 บรรทัดสวยๆพอดี -->
                                 <h1 class="news-card-title"><?php echo $row["news_name"]; ?></h1>
-                                <p class="news-card-text">
-                                    <font color="white">
-                                        <?php echo $row["news_detail_th"]; ?>
-                                    </font>
-                                </p>
+                                <!-- class="news-card-text" -->
+                                <div class="news-card-text">
+                                    <?php echo $row["news_detail_th"]; ?>
+                                </div>
                                 <a href="news.php<?php echo "?news_id=" . $row["news_id"]; ?>" class="read-more">Read more</a>
                             </div>
                         </div>
@@ -298,6 +297,7 @@ function dateTime($date_time)
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/modal.js"></script>
+
 </body>
 
 </html>

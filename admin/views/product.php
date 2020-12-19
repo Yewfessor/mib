@@ -5,7 +5,10 @@ $path_modelinput    = "models/productmodel/productinput.php";
 $path_modeldelete   = "models/productmodel/productdelete.php";
 $path_modeledit     = "views/productedit.php";
 $path_image         = "../assets/images/product/";
+$path_list          = "script.php";
 ?>
+
+
 
 
 <div class="col-xs-12 col-sm-12 col-md-12" id="product">
@@ -30,44 +33,29 @@ $path_image         = "../assets/images/product/";
                     <input class="form-control" type="text" name="product_description_en" id="product_description_en" value="">
                 </div>
             </div>
+
             <div class="form-group">
                 <div class="col-sm-2" align="right"></div>
                 <div class="col-sm-3" align="left">
-                    ประเภทสินค้า
-                    <select class="form-control" name="product_type_id" id="product_type_id" required>
-                        <option center value="">-Select-</option>
-                        <?php
-                        include $path_basemodel;
-                        $sql = "SELECT * FROM tb_product_type";
-                        $result = mysqli_query($connection, $sql);
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <option value="<?php echo $row["product_type_id"]; ?>"><?php echo $row["product_type_name"]; ?></option>
-                        <?php
-                        }
-                        mysqli_close($connection);
-                        ?>
+                    <?php
+                    include $path_basemodel;
+                    $sql_type = "SELECT * FROM tb_product_type";
+                    $query = mysqli_query($connection, $sql_type);
+                    ?>
+                    ประเภท
+                    <select class="form-control" name="product_type_id" id="product_type" require>
+                        <option value="" selected disabled>-กรุณาเลือกประเภท-</option>
+                        <?php foreach ($query as $value) { ?>
+                            <option value="<?= $value['product_type_id'] ?>"><?= $value['product_type_name'] ?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="col-sm-3" align="left">
-                    ประเภทย่อย
-                    <select class="form-control" name="product_line_up_id" id="product_line_up_id" required>
-                        <option center value="">-Select-</option>
-                        <?php
-                        include $path_basemodel;
-                        $sql = "SELECT * FROM tb_product_line_up 
-                                LEFT JOIN tb_product_type
-                                ON tb_product_line_up.product_type_id = tb_product_type.product_type_id";
-                        $result = mysqli_query($connection, $sql);
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <option value="<?php echo $row["product_line_up_id"]; ?>"><?php echo $row["product_type_name"] . " | " . $row["product_line_up_name"]; ?></option>
-                        <?php
-                        }
-                        mysqli_close($connection);
-                        ?>
+                    ชนิด
+                    <select class="form-control" name="product_line_up_id" id="product_line_up" disabled require>
                     </select>
                 </div>
+
                 <div class="col-sm-2" align="left">
                     สถานะ
                     <select class="form-control" name="list_no" id="list_no" required>
@@ -106,6 +94,23 @@ $path_image         = "../assets/images/product/";
                 </div>
             </div>
         </form>
+        <script type="text/javascript">
+            $('#product_type').change(function() {
+                var id_type = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "product_list.php",
+                    data: {
+                        product_type_id: id_type,
+                        function: 'product_type'
+                    },
+                    success: function(data) {
+                        $('#product_line_up').html(data);
+                        $('#product_line_up').prop("disabled", false);
+                    }
+                });
+            });
+        </script>
     </div>
 </div>
 
@@ -132,7 +137,7 @@ $path_image         = "../assets/images/product/";
                             LEFT JOIN tb_product_type
                             ON tb_product.product_type_id = tb_product_type.product_type_id
                             LEFT JOIN tb_product_line_up
-                            ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id ORDER BY lastupdate DESC";
+                            ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id ORDER BY lastupdate DESC limit 10";
             $result = mysqli_query($connection, $sql);
             ?>
             <table border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" width="100%">

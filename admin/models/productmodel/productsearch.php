@@ -13,7 +13,7 @@ LEFT JOIN tb_product_type
 ON tb_product.product_type_id = tb_product_type.product_type_id
 LEFT JOIN tb_product_line_up
 ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id
-WHERE product_id Like '%{$_POST['productall']}%' ORDER BY product_id ASC";
+WHERE product_id Like '%{$_POST['productall']}%' ORDER BY product_id ASC limit 10";
 $result = mysqli_query($connection, $sql);
 ?>
 <div class="thumbnail" style="height:270px; width:100%; overflow: auto;">

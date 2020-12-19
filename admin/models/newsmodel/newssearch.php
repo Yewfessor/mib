@@ -9,7 +9,7 @@ $path_edit      = "views/newsedit.php";
 
 include $path_basemodel;
 
-$sql = "SELECT * FROM tb_news WHERE news_id Like '%{$_POST['newsall']}%' ORDER BY news_id ASC";
+$sql = "SELECT * FROM tb_news WHERE news_id Like '%{$_POST['newsall']}%' ORDER BY news_id ASC limit 10";
 $result = mysqli_query($connection, $sql);
 ?>
 <div class="thumbnail" style="height:270px; width:100%; overflow: auto;">

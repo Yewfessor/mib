@@ -381,11 +381,23 @@ section {
 .news-card-title {
     color: #fff;
     font-size: 1.8rem;
+    width: 28rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
 }
 
 .news-card-text {
     color: rgba(255, 255, 255, 0.8);
     font-size: 1.2rem;
+    line-height: 1em;
+    height: 1em;
+    width: 28rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
 }
 
 .read-more {

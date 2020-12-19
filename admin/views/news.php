@@ -63,11 +63,11 @@ $path_images    = "../assets/images/news/";
         <div class="thumbnail" style="height:270px; width:100%; overflow: auto;">
             <?php
             include $path_basemodel;
-            $sql = "SELECT * FROM tb_news ORDER BY lastupdate DESC ";
+            $sql = "SELECT * FROM tb_news ORDER BY lastupdate DESC limit 10";
             $result = mysqli_query($connection, $sql);
             ?>
             <form>
-                <table border="0"  cellpadding="3" cellspacing="1" width="100%">
+                <table border="0" cellpadding="3" cellspacing="1" width="100%">
                     <tr align="center">
                         <td align="center"><strong>News ID</strong></td>
                         <td align="center"><strong>Image</strong></td>

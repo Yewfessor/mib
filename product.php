@@ -194,7 +194,7 @@ $path = "assets/images/product/";
                     <?php
                 } else {
                     $sql_lineshow = "SELECT * FROM tb_product_line_up
-                                 where product_line_up_id = '" . $product_linebar_id  . "' ";
+                                 where product_line_up_id = '" . $product_linebar_id  . "'";
                     $result_lineshow = mysqli_query($connection, $sql_lineshow);
                     while ($row_lineshow = mysqli_fetch_array($result_lineshow)) {
                         $product_lineshow_name = $row_lineshow["product_line_up_name"]; ?>
@@ -212,7 +212,7 @@ $path = "assets/images/product/";
                         LEFT JOIN tb_product_type 
                         ON tb_product.product_type_id = tb_product_type.product_type_id
                         LEFT JOIN tb_product_line_up 
-                        ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id ORDER BY lastupdate DESC   
+                        ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id ORDER BY lastupdate DESC limit 100
                         ";
                         $result_all = mysqli_query($connection, $sql_all);
                         $Num_Rows = mysqli_num_rows($result_all);

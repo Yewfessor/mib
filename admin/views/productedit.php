@@ -51,6 +51,11 @@ $product_line_up_name = $row["product_line_up_name"];
     <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
     <!-- jquery-->
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 
 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -75,42 +80,41 @@ $product_line_up_name = $row["product_line_up_name"];
             <div class="form-group">
                 <div class="col-sm-2" align="right"></div>
                 <div class="col-sm-3" align="left">
-                    ประเภทสินค้า
-                    <select class="form-control" name="product_type_id" id="product_type_id" required>
-                        <option center value="<?php echo $product_type_id; ?>"><?php echo $product_type_name; ?></option>
-                        <?php
-                        include $path_basemodel;
-                        $sql = "SELECT * FROM tb_product_type WHERE NOT product_type_id = $product_type_id";
-                        $result = mysqli_query($connection, $sql);
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <option value="<?php echo $row["product_type_id"]; ?>"><?php echo $row["product_type_name"]; ?></option>
-                        <?php
-                        }
-                        mysqli_close($connection);
-                        ?>
+                    <?php
+                    include $path_basemodel;
+                    $sql_type = "SELECT * FROM tb_product_type";
+                    $query = mysqli_query($connection, $sql_type);
+                    ?>
+                    ประเภท
+                    <select class="form-control" name="product_type_id" id="product_type" require> 
+                        <option value="<?php echo $product_type_id; ?>" selected ><?php echo $product_type_name; ?></option>
+                        <?php foreach ($query as $value) { ?>
+                            <option value="<?= $value['product_type_id'] ?>"><?= $value['product_type_name'] ?></option>
+                        <?php } ?>
                     </select>
                 </div>
-                <div class="col-sm-4" align="left">
-                    ประเภทย่อย
-                    <select class="form-control" name="product_line_up_id" id="product_line_up_id" required>
-                        <option center value="<?php echo $product_line_up_id; ?>"><?php echo $product_type_name . " | " . $product_line_up_name; ?></option>
-                        <?php
-                        include $path_basemodel;
-                        $sql = "SELECT * FROM tb_product_line_up 
-                                LEFT JOIN tb_product_type
-                                ON tb_product_line_up.product_type_id = tb_product_type.product_type_id
-                                WHERE NOT product_line_up_id = $product_line_up_id";
-                        $result = mysqli_query($connection, $sql);
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <option value="<?php echo $row["product_line_up_id"]; ?>"><?php echo $row["product_type_name"] . " | " . $row["product_line_up_name"]; ?></option>
-                        <?php
-                        }
-                        mysqli_close($connection);
-                        ?>
+                <div class="col-sm-3" align="left">
+                    ชนิด
+                    <select class="form-control" name="product_line_up_id" id="product_line_up" require>
+                        <option value="<?php echo $product_line_up_id; ?>" selected><?php echo $product_line_up_name; ?></option>
                     </select>
                 </div>
+                <script type="text/javascript">
+            $('#product_type').change(function() {
+                var id_type = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "productedit_list.php",
+                    data: {
+                        product_type_id: id_type,
+                        function: 'product_type'
+                    },
+                    success: function(data) {
+                        $('#product_line_up').html(data);
+                    }
+                });
+            });
+        </script>
             </div>
             <div class="form-group">
                 <div class="col-sm-2" align="right"></div>
@@ -146,5 +150,6 @@ $product_line_up_name = $row["product_line_up_name"];
                 </div>
             </div>
         </form>
+      
     </div>
 </div>

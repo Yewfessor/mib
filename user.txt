@@ -1,0 +1,9 @@
+file_uploads = On
+max_execution_time = 180
+upload_max_filesize = 100G
+post_max_size = 200G
+memory_limit = 300G
+
+182.50.151.92
+ph17385860351
+Mib2017!
