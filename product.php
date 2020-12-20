@@ -208,23 +208,24 @@ $path = "assets/images/product/";
                 <div class="product-items">
                     <?php
                     if ($product_type_id == 0) {
-                        $sql_all = "SELECT * FROM tb_product 
-                        LEFT JOIN tb_product_type 
-                        ON tb_product.product_type_id = tb_product_type.product_type_id
-                        LEFT JOIN tb_product_line_up 
-                        ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id ORDER BY lastupdate DESC limit 100
-                        ";
+                        $sql_all    =   "SELECT * FROM tb_product 
+                                        LEFT JOIN tb_product_type 
+                                        ON tb_product.product_type_id = tb_product_type.product_type_id
+                                        LEFT JOIN tb_product_line_up 
+                                        ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id ORDER BY lastupdate DESC
+                                        ";
                         $result_all = mysqli_query($connection, $sql_all);
-                        $Num_Rows = mysqli_num_rows($result_all);
+                        $Num_Rows   = mysqli_num_rows($result_all);
 
-                        $Per_Page = 20;   // Per Page
-                        $Page = $_GET["Page"];
+                        $Per_Page   = 12;
+                        $Page       = $_GET["Page"];
+
                         if (!$_GET["Page"]) {
-                            $Page = 1;
+                            $Page   = 1;
                         }
 
-                        $Prev_Page = $Page - 1;
-                        $Next_Page = $Page + 1;
+                        $Prev_Page  = $Page - 1;
+                        $Next_Page  = $Page + 1;
 
                         $Page_Start = (($Per_Page * $Page) - $Per_Page);
                         if ($Num_Rows <= $Per_Page) {
@@ -235,7 +236,6 @@ $path = "assets/images/product/";
                             $Num_Pages = ($Num_Rows / $Per_Page) + 1;
                             $Num_Pages = (int)$Num_Pages;
                         }
-
                         $sql = "SELECT * FROM tb_product 
                                 LEFT JOIN tb_product_type 
                                 ON tb_product.product_type_id = tb_product_type.product_type_id
@@ -289,6 +289,8 @@ $path = "assets/images/product/";
                         if ($Page != $Num_Pages) {
                             echo " <a href ='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$Next_Page'>Next>></a> ";
                         }
+
+                        mysqli_close($connection);
                     ?>
                     &nbsp;&nbsp;&nbsp;&nbsp;
 

@@ -1,5 +1,15 @@
 <?php
 
+
+
+
+
+
+
+
+
+
+
 namespace Composer;
 
 use Composer\Semver\VersionParser;
@@ -19,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '561a8168f428c81b7c30199ceafcde769ae22c45',
+    'reference' => 'c53c70a84eeea635c3c8983d51f6b6b6e10ad98c',
     'name' => '__root__',
   ),
   'versions' => 
@@ -31,16 +41,16 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '561a8168f428c81b7c30199ceafcde769ae22c45',
+      'reference' => 'c53c70a84eeea635c3c8983d51f6b6b6e10ad98c',
     ),
-    'components/jquery' => 
+    'ozdemir/datatables' => 
     array (
-      'pretty_version' => '3.5.1',
-      'version' => '3.5.1.0',
+      'pretty_version' => '2.3.3',
+      'version' => '2.3.3.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'b33e8f0f9a1cb2ae390cf05d766a900b53d2125b',
+      'reference' => '4b95970f4a09b93cf5c8a29cc3e4ad9bd4158fc9',
     ),
   ),
 );

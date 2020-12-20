@@ -6,6 +6,20 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit277b699dbbf56328706e6ee296253f5f
 {
+    public static $prefixLengthsPsr4 = array (
+        'O' => 
+        array (
+            'Ozdemir\\Datatables\\' => 19,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Ozdemir\\Datatables\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ozdemir/datatables/src',
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -13,6 +27,8 @@ class ComposerStaticInit277b699dbbf56328706e6ee296253f5f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInit277b699dbbf56328706e6ee296253f5f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit277b699dbbf56328706e6ee296253f5f::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInit277b699dbbf56328706e6ee296253f5f::$classMap;
 
         }, null, ClassLoader::class);

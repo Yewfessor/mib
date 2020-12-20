@@ -4,35 +4,32 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9fb6aeb57114ed420133ac6cb7e7e0a",
+    "content-hash": "fbf6fe038df76a969e4aed969e00763a",
     "packages": [
         {
-            "name": "components/jquery",
-            "version": "3.5.1",
+            "name": "ozdemir/datatables",
+            "version": "2.3.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/components/jquery.git",
-                "reference": "b33e8f0f9a1cb2ae390cf05d766a900b53d2125b"
+                "url": "https://github.com/n1crack/datatables.git",
+                "reference": "4b95970f4a09b93cf5c8a29cc3e4ad9bd4158fc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/jquery/zipball/b33e8f0f9a1cb2ae390cf05d766a900b53d2125b",
-                "reference": "b33e8f0f9a1cb2ae390cf05d766a900b53d2125b",
+                "url": "https://api.github.com/repos/n1crack/datatables/zipball/4b95970f4a09b93cf5c8a29cc3e4ad9bd4158fc9",
+                "reference": "4b95970f4a09b93cf5c8a29cc3e4ad9bd4158fc9",
                 "shasum": ""
             },
-            "type": "component",
-            "extra": {
-                "component": {
-                    "scripts": [
-                        "jquery.js"
-                    ],
-                    "files": [
-                        "jquery.min.js",
-                        "jquery.min.map",
-                        "jquery.slim.js",
-                        "jquery.slim.min.js",
-                        "jquery.slim.min.map"
-                    ]
+            "require": {
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ozdemir\\Datatables\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -41,19 +38,16 @@
             ],
             "authors": [
                 {
-                    "name": "JS Foundation and other contributors"
+                    "name": "Yusuf Özdemir",
+                    "email": "yusuf@ozdemir.be"
                 }
             ],
-            "description": "jQuery JavaScript Library",
-            "homepage": "http://jquery.com",
+            "description": "PHP Library to handle server-side processing for Datatables, in a fast and simple way.",
             "support": {
-                "forum": "http://forum.jquery.com",
-                "irc": "irc://irc.freenode.org/jquery",
-                "issues": "https://github.com/jquery/jquery/issues",
-                "source": "https://github.com/jquery/jquery",
-                "wiki": "http://docs.jquery.com/"
+                "issues": "https://github.com/n1crack/datatables/issues",
+                "source": "https://github.com/n1crack/datatables/tree/2.3.3"
             },
-            "time": "2020-05-05T13:21:02+00:00"
+            "time": "2020-09-30T18:16:28+00:00"
         }
     ],
     "packages-dev": [],

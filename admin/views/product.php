@@ -144,7 +144,6 @@ $path_list          = "script.php";
                 <tr align="center">
                     <td>&nbsp;&nbsp;</td>
                     <td align="center"><strong>Product ID</strong></td>
-                    <td align="center"><strong>Image</strong></td>
                     <td align="center"><strong>Name</strong></td>
                     <td align="center"><strong>Description</strong></td>
                     <td align="center"><strong>Price</strong></td>
@@ -158,7 +157,6 @@ $path_list          = "script.php";
                     <tr align="center" height="150px">
                         <td></td>
                         <td align="center"><?php echo $row["product_id"]; ?></td>
-                        <td align="center"><img height="100px" src="<?php echo $path_image . $row["product_image"]; ?>"></td>
                         <td align="center"><?php echo $row["product_name_en"]; ?></td>
                         <td align="center"><?php echo $row["product_description_en"]; ?></td>
                         <td align="center"><?php echo number_format($row["product_price"]); ?> บาท</td>
