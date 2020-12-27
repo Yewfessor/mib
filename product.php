@@ -208,7 +208,11 @@ $path = "assets/images/product/";
                 <div class="product-items">
                     <?php
                     if ($product_type_id == 0) {
-                        $sql_all    =   "SELECT * FROM tb_product 
+                        $sql_all    =   "SELECT product_name_en,
+                                                product_description_en,
+                                                product_price,
+                                                product_image
+                                        FROM tb_product 
                                         LEFT JOIN tb_product_type 
                                         ON tb_product.product_type_id = tb_product_type.product_type_id
                                         LEFT JOIN tb_product_line_up 
