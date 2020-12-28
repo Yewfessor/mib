@@ -98,6 +98,8 @@ $software_file = $row["software_file"];
                 <div class="col-sm-7" align="left">
                     ไฟล์คู่มือ
                     <input type="file" name="manualupload" id="manualupload" require>
+                    <h5 style="color: red;"> (ขนาดไฟล์ไม่เกิน 50 MB)</h5>
+
                 </div>
             </div>
             <div class="form-group">

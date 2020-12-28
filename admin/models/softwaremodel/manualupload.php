@@ -16,7 +16,7 @@ $software_id   = $_POST["softwareid"];
         software_manual = '" . $name . "'
         WHERE software_id = '" . $software_id . "'";
         $result = mysqli_query($connection, $sql) or die("error : " . mysqli_error($connection));
-        mysqli_close($connection);
+
         if ($result) {
             echo "<script type='text/javascript'>alert('บันทึกข้อมูลแล้ว')</script>";
             echo "<meta http-equiv ='refresh'content='0;URL=../../index.php'>";

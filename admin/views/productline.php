@@ -44,10 +44,12 @@ $path_productlinemodel_delete   = "models/productlinemodel/productlinedelete.php
         <?php
         $path = "../assets/images/product/";
         include $path_basemodel;
-        $sql = "SELECT * FROM 
-    tb_product_line_up
-    LEFT JOIN tb_product_type
-    ON tb_product_line_up.product_type_id = tb_product_type.product_type_id";
+        $sql = "SELECT  product_line_up_id,
+                        product_type_name,
+                        product_line_up_name
+                FROM tb_product_line_up
+                LEFT JOIN tb_product_type
+                ON tb_product_line_up.product_type_id = tb_product_type.product_type_id";
         $result = mysqli_query($connection, $sql);
         ?>
         <form>

@@ -68,7 +68,7 @@ $path_list          = "script.php";
             <div class="form-group">
                 <div class="col-sm-2" align="right"></div>
                 <div class="col-sm-8" align="left">
-                    รายละเอียด
+                รายละเอียด <font color="red">(ไม่ควรใส่รายละเอียดเยอะเกินไป)</font>
                     <textarea class="ckeditor" cols="69" rows="5" name="product_detail_en" id="product_detail_en"></textarea>
                 </div>
             </div>
@@ -133,17 +133,26 @@ $path_list          = "script.php";
         <div class="thumbnail" style="height:270px; width:100%; overflow: auto;">
             <?php
             include $path_basemodel;
-            $sql = "SELECT * FROM tb_product 
-                            LEFT JOIN tb_product_type
-                            ON tb_product.product_type_id = tb_product_type.product_type_id
-                            LEFT JOIN tb_product_line_up
-                            ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id ORDER BY lastupdate DESC limit 10";
+            $sql = "SELECT  product_id,
+                            product_name_en,
+                            product_description_en,
+                            product_price,
+                            product_image,
+                            product_type_name,
+                            product_line_up_name
+
+                    FROM tb_product 
+                    LEFT JOIN tb_product_type
+                    ON tb_product.product_type_id = tb_product_type.product_type_id
+                    LEFT JOIN tb_product_line_up
+                    ON tb_product.product_line_up_id = tb_product_line_up.product_line_up_id ORDER BY lastupdate DESC limit 100";
             $result = mysqli_query($connection, $sql);
             ?>
             <table border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" width="100%">
                 <tr align="center">
                     <td>&nbsp;&nbsp;</td>
                     <td align="center"><strong>Product ID</strong></td>
+                    <td align="center"><strong>Picture</strong></td>
                     <td align="center"><strong>Name</strong></td>
                     <td align="center"><strong>Description</strong></td>
                     <td align="center"><strong>Price</strong></td>
@@ -157,6 +166,7 @@ $path_list          = "script.php";
                     <tr align="center" height="150px">
                         <td></td>
                         <td align="center"><?php echo $row["product_id"]; ?></td>
+                        <td><img height="100" src="<?php echo $path_image . $row["product_image"]; ?>"></td>
                         <td align="center"><?php echo $row["product_name_en"]; ?></td>
                         <td align="center"><?php echo $row["product_description_en"]; ?></td>
                         <td align="center"><?php echo number_format($row["product_price"]); ?> บาท</td>

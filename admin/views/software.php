@@ -69,7 +69,7 @@ $path_sofwaremodel_manual       = "models/softwaremodel/manualupload.php";
             <div class="form-group">
                 <div class="col-sm-2" align="right"></div>
                 <div class="col-sm-7" align="left">
-                    ไฟล์ประกอบ
+                    ไฟล์ประกอบ <font color="red">(ขนาดไฟล์ไม่เกิน 50 MB)</font>
                     <input type="file" name="fileupload" id="fileupload" require>
                 </div>
             </div>
@@ -97,8 +97,13 @@ $path_sofwaremodel_manual       = "models/softwaremodel/manualupload.php";
                 </tr>
                 <?php
                 include $path_basemodel;
-                $sql = "SELECT * FROM 
-                    tb_software 
+                $sql = "SELECT  software_id,
+                                software_name,
+                                software_manual,
+                                software_type_name,
+                                product_type_name,
+                                software_file
+                    FROM tb_software 
                     LEFT JOIN tb_product_type 
                     ON tb_software.product_type_id = tb_product_type.product_type_id 
                     LEFT JOIN tb_software_type
