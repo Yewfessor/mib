@@ -684,7 +684,7 @@ section {
         grid-gap: 2.5rem;
     }
     .grid-product-items {
-        justify-content: flex-start;
+        justify-content: center;
         align-items: flex-start;
         padding: 0;
         margin-left: 5rem;
