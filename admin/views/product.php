@@ -118,7 +118,7 @@ $path_list          = "script.php";
     <form class="form-inline" name="searchformproduct" id="searchformproduct">
         <div class="form-group ">
             <label for="textsearch">Search&nbsp;</label>
-            <input type="text" name="productall" id="productall" class="form-control" placeholder="Product ID!" autocomplete="off">
+            <input type="text" name="productall" id="productall" class="form-control" placeholder="ค้นหาจากชื่อสินค้า" autocomplete="off">
         </div>
         <button type="button" class="btn btn-primary" id="btnSearchproduct">
             <span class="glyphicon glyphicon-search"></span>

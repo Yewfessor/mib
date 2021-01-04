@@ -9,7 +9,7 @@ $path_edit      = "views/newsedit.php";
 
 include $path_basemodel;
 
-$sql = "SELECT * FROM tb_news WHERE news_id Like '%{$_POST['newsall']}%' ORDER BY news_id ASC limit 10";
+$sql = "SELECT * FROM tb_news WHERE news_name Like '%{$_POST['newsall']}%' ORDER BY news_id ASC limit 10";
 $result = mysqli_query($connection, $sql);
 ?>
 <div class="thumbnail" style="height:270px; width:100%; overflow: auto;">
@@ -19,7 +19,8 @@ $result = mysqli_query($connection, $sql);
             <td align="center"><strong>News ID</strong></td>
             <td align="center"><strong>Image</strong></td>
             <td align="center"><strong>Topic</strong></td>
-            <td align="center"><strong>Detail</strong></td>
+            <td align="center"><strong>Add Date</strong></td>
+            <td align="center"><strong>Last Update</strong></td>
             <td align="center" colspan="2"><strong>Option</strong></td>
         </tr>
         <?php $i = 1;
@@ -29,7 +30,8 @@ $result = mysqli_query($connection, $sql);
                 <td><?php echo $row["news_id"] ?></td>
                 <td><img height="100" src="<?php echo $path_images . $row["news_image"]; ?>"></td>
                 <td><?php echo $row["news_name"]; ?></td>
-                <td><?php echo $row["news_detail_th"]; ?><br><?php echo "วันที่ :" . $row["adddate"] . " แก้ไข : " . $row["lastupdate"]; ?></td>
+                <td><br><?php echo "วันที่ :" . $row["adddate"]; ?></td>
+                <td><br><?php echo "แก้ไข : " . $row["lastupdate"]; ?></td>
                 <td><a href="<?php echo $path_edit . "?edit_id=" . $row["news_id"]; ?>"><i class="fas fa-edit"></i></a></td>
 
                 <td><a href="<?php echo $path_delete . "?delete_id=" . $row["news_id"]; ?>&delete_img=<?php echo $row["news_image"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>

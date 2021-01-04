@@ -49,7 +49,7 @@ $path_images    = "../assets/images/news/";
     <form class="form-inline" name="searchformnews" id="searchformnews">
         <div class="form-group ">
             <label for="textsearch">Search&nbsp;</label>
-            <input type="text" name="newsall" id="newsall" class="form-control" placeholder="News ID!" autocomplete="off">
+            <input type="text" name="newsall" id="newsall" class="form-control" placeholder="ค้นหาจากชื่อหัวข้อ" autocomplete="off">
         </div>
         <button type="button" class="btn btn-primary" id="btnSearchnews">
             <span class="glyphicon glyphicon-search"></span>

@@ -96,7 +96,7 @@ function dateTime($date_time)
                                 <td><span class="info-price"><?php echo number_format($row["product_price"]); ?></span> บาท</td>
                             </tr>
                             <tr>
-                                <td colspan="2" class="breakline">&nbsp</td>
+                                <td colspan="2" class="breakline"></td>
                             </tr>
                             <tr>
                                 <td>Vat</td>
@@ -147,16 +147,17 @@ function dateTime($date_time)
             ?>
 
 
-            <div id="payment" class="payment-container">
+            <div id="payment" class="payment-container" >
                 <div class="payment-heading">วิธีการชำระเงิน</div>
-                <div class="payment-detail">
+                <div class="payment-detail" style="text-align: center;">
                     <p>ชำระผ่านธนาคาร</p>
                     <img src="https://upload.wikimedia.org/wikipedia/th/thumb/4/4a/Logo_GSB_Thailand.svg/800px-Logo_GSB_Thailand.svg.png" alt="">
-                    <p>ธนาคารออมสิน</p>
-                    <p>1.กรุณาสั่งจ่ายเช็คขีดคร่อมในนาม บริษัท มัลติ อินโนเวชั่น บรอดคาสต์ จำกัด</p>
-                    <p>2.กรณีโอนเงินให้โอนเข้าบัญชี บริษัท มัลติ อินโนเวชั่น บรอดคาสต์ จำกัด ธนาคารออมสิน</p>
-                    <p>สาขา รามคำแหง ภายใน ม.รามคำแหง เลขที่ 000 000 665 117</p>
-                    <p>ติดต่อโทร: 099-876-5432</p>
+                    <p> ธนาคารออมสิน<br>
+                        1.กรุณาสั่งจ่ายเช็คขีดคร่อมในนาม บริษัท มัลติ อินโนเวชั่น บรอดคาสต์ จำกัด<br>
+                        2.กรณีโอนเงินให้โอนเข้าบัญชี บริษัท มัลติ อินโนเวชั่น บรอดคาสต์ จำกัด ธนาคารออมสิน<br>
+                        สาขา รามคำแหง ภายใน ม.รามคำแหง เลขที่ 000 000 665 117<br>
+                        ติดต่อโทร: 099-876-5432
+                    </p>
                 </div>
             </div>
 

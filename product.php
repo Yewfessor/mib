@@ -221,7 +221,7 @@ $path = "assets/images/product/";
                         $result_all = mysqli_query($connection, $sql_all);
                         $Num_Rows   = mysqli_num_rows($result_all);
 
-                        $Per_Page   = 12;
+                        $Per_Page   = 16;
                         $Page       = $_GET["Page"];
 
                         if (!$_GET["Page"]) {
@@ -270,7 +270,7 @@ $path = "assets/images/product/";
                     ทั้งหมด <?php echo $Num_Rows; ?> รายการ : <?php echo $Num_Pages; ?> หน้า :
                     <?php
                         if ($Prev_Page) {
-                            echo " <a href='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$Prev_Page'><< Back</a> ";
+                            echo " <a href='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$Prev_Page'>< ก่อนหน้า </a> ";
                         }
 
                         $intRankPage = 2;
@@ -285,13 +285,13 @@ $path = "assets/images/product/";
 
                         for ($i = $FirstShowPage; $i <= $LastShowPage; $i++) {
                             if ($i != $Page) {
-                                echo "[ <a href='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$i'>$i</a> ]";
+                                echo "<a href='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$i'>$i</a>&nbsp;";
                             } else {
                                 echo "<b> $i </b>";
                             }
                         }
                         if ($Page != $Num_Pages) {
-                            echo " <a href ='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$Next_Page'>Next>></a> ";
+                            echo " <a href ='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$Next_Page'>ถัดไป ></a> ";
                         }
 
                         mysqli_close($connection);
@@ -368,7 +368,7 @@ $path = "assets/images/product/";
                     ทั้งหมด <?php echo $Num_Rows; ?> รายการ : <?php echo $Num_Pages; ?> หน้า :
                 <?php
                         if ($Prev_Page) {
-                            echo " <a href='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$Prev_Page'><< Back</a> ";
+                            echo " <a href='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$Prev_Page'>< ก่อนหน้า</a> ";
                         }
 
                         $intRankPage = 2;
@@ -389,7 +389,7 @@ $path = "assets/images/product/";
                             }
                         }
                         if ($Page != $Num_Pages) {
-                            echo " <a href ='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$Next_Page'>Next>></a> ";
+                            echo " <a href ='$_SERVER[SCRIPT_NAME]?product_type_id=$product_type_id&product_linebar_id=$product_linebar_id&Page=$Next_Page'>ถัดไป ></a> ";
                         }
                     }
                 ?>
