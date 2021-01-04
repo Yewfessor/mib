@@ -43,7 +43,7 @@ $path_list          = "script.php";
                     $query = mysqli_query($connection, $sql_type);
                     ?>
                     ประเภท
-                    <select class="form-control" name="product_type_id" id="product_type" require>
+                    <select class="form-control" name="product_type_id" id="product_type" required>
                         <option value="" selected disabled>-กรุณาเลือกประเภท-</option>
                         <?php foreach ($query as $value) { ?>
                             <option value="<?= $value['product_type_id'] ?>"><?= $value['product_type_name'] ?></option>
@@ -52,7 +52,7 @@ $path_list          = "script.php";
                 </div>
                 <div class="col-sm-3" align="left">
                     ชนิด
-                    <select class="form-control" name="product_line_up_id" id="product_line_up" disabled require>
+                    <select class="form-control" name="product_line_up_id" id="product_line_up" disabled required>
                     </select>
                 </div>
 

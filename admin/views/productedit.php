@@ -86,7 +86,7 @@ $product_line_up_name = $row["product_line_up_name"];
                     $query = mysqli_query($connection, $sql_type);
                     ?>
                     ประเภท
-                    <select class="form-control" name="product_type_id" id="product_type" require> 
+                    <select class="form-control" name="product_type_id" id="product_type" required> 
                         <option value="<?php echo $product_type_id; ?>" selected ><?php echo $product_type_name; ?></option>
                         <?php foreach ($query as $value) { ?>
                             <option value="<?= $value['product_type_id'] ?>"><?= $value['product_type_name'] ?></option>
@@ -95,7 +95,7 @@ $product_line_up_name = $row["product_line_up_name"];
                 </div>
                 <div class="col-sm-3" align="left">
                     ชนิด
-                    <select class="form-control" name="product_line_up_id" id="product_line_up" require>
+                    <select class="form-control" name="product_line_up_id" id="product_line_up" required>
                         <option value="<?php echo $product_line_up_id; ?>" selected><?php echo $product_line_up_name; ?></option>
                     </select>
                 </div>
