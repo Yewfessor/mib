@@ -53,13 +53,13 @@ function dateTime($date_time)
                         <a href="index.php" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="index.php#product" class="nav-link">Product</a>
+                        <a href="product.php?product_type_id=0&product_linebar_id=0&Page=1" class="nav-link">Product</a>
                     </li>
                     <li class="nav-item">
                         <a href="index.php#about" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="index.php#news" class="nav-link">News</a>
+                        <a href="newsAll.php" class="nav-link">News</a>
                     </li>
                     <li class="nav-item">
                         <a href="software.php" class="nav-link">Software</a>
