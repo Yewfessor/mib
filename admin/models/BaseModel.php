@@ -2,7 +2,7 @@
 $server     = "localhost";
 $username   = "root";
 $password   = "";
-$database   = "ph17385860351_mib";
+$database   = "mib";
 
 /* $server     = "localhost";
 	$username   = "id15331195_mibthailand";

@@ -4,11 +4,13 @@
 include("../BaseModel.php");
 $sql = "INSERT INTO tb_product_type
 (
-    product_type_name
+    product_type_name,
+    list_no
 ) 
 VALUES 
 (
-    '" . $_POST["product_type_name"] . "'
+    '" . $_POST["product_type_name"] . "',
+    '" . $_POST["list_no"] . "'
 )";
 $result = mysqli_query($connection, $sql) or die("error : " . mysqli_error($connection));
 if ($result) {
