@@ -68,13 +68,13 @@ $path = "assets/images/product/";
                         <a href="index.php" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="index.php#product" class="nav-link">Product</a>
+                        <a href="product.php?product_type_id=0&product_linebar_id=0&Page=1" class="nav-link">Product</a>
                     </li>
                     <li class="nav-item">
                         <a href="index.php#about" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="index.php#news" class="nav-link">News</a>
+                        <a href="newsAll.php" class="nav-link">News</a>
                     </li>
                     <li class="nav-item">
                         <a href="software.php" class="nav-link">Software</a>
@@ -98,7 +98,7 @@ $path = "assets/images/product/";
         <a href="product.php?product_type_id=0&product_linebar_id=0" class="menu-list">All Product</a>
         <?php
         include $path_basemodel;
-        $sql_typebar2 = "SELECT * FROM tb_product_type ";
+        $sql_typebar2 = "SELECT * FROM tb_product_type order by list_no ASC";
         $result_typebar2 = mysqli_query($connection, $sql_typebar2);
         while ($row_typebar2 = mysqli_fetch_array($result_typebar2)) {
             $product_type_bar2 = $row_typebar2["product_type_id"]; ?>
@@ -141,7 +141,7 @@ $path = "assets/images/product/";
                     <?php
                 } else {
                     $sql_type = "SELECT * FROM tb_product_type
-                     where product_type_id = '" . $product_type_id . "' ";
+                     where product_type_id = '" . $product_type_id . "' ORDER BY list_no ASC";
                     $result_type = mysqli_query($connection, $sql_type);
                     while ($row_type = mysqli_fetch_array($result_type)) {
                         $product_type_name = $row_type["product_type_name"]; ?>
@@ -160,7 +160,7 @@ $path = "assets/images/product/";
 
                     <a href="product.php?product_type_id=0&product_linebar_id=0&Page=1" class="btn-list">All Product</a>
                     <?php
-                    $sql_typebar = "SELECT * FROM tb_product_type ";
+                    $sql_typebar = "SELECT * FROM tb_product_type ORDER BY list_no ASC";
                     $result_typebar = mysqli_query($connection, $sql_typebar);
                     while ($row_typebar = mysqli_fetch_array($result_typebar)) {
                         $product_type_bar = $row_typebar["product_type_id"]; ?>

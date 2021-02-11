@@ -57,7 +57,7 @@ function dateTime($date_time)
                         <a href="#about" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#news" class="nav-link">News</a>
+                        <a href="newsAll.php" class="nav-link">News</a>
                     </li>
                     <li class="nav-item">
                         <a href="software.php" class="nav-link">Software</a>
