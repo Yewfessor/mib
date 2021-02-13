@@ -55,9 +55,9 @@ $path_productlinemodel_delete   = "models/productlinemodel/productlinedelete.php
         <form>
             <table border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC"  width="100%">
                 <tr align="center" bgcolor="#FFFFFF">
-                    <td align="center"><strong>Type</strong></td>
-                    <td align="center"><strong>Sub-Type</strong></td>
-                    <td align="center"><strong>Delete</strong></td>
+                    <td align="center"><strong>หมวดหมู่</strong></td>
+                    <td align="center"><strong>หมวดหมู่ย่อย</strong></td>
+                    <td align="center"><strong>ลบ</strong></td>
                 </tr>
                 <?php
                 while ($row = mysqli_fetch_array($result)) {

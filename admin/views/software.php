@@ -89,11 +89,11 @@ $path_sofwaremodel_manual       = "models/softwaremodel/manualupload.php";
         <form>
             <table cellpadding="3" cellspacing="1" width="100%">
                 <tr>
-                    <td align="center"><strong>File Name</strong></td>
-                    <td align="center"><strong>File Manual</strong></td>
-                    <td align="center"><strong>Type</strong></td>
-                    <td align="center"><strong>Category</strong></td>
-                    <td align="center" colspan="3"><strong>Option</strong></td>
+                    <td align="center"><strong>ชื่อไฟล์</strong></td>
+                    <td align="center"><strong>คู่มือ</strong></td>
+                    <td align="center"><strong>ประเภท</strong></td>
+                    <td align="center"><strong>หมวดหมู่</strong></td>
+                    <td align="center" colspan="3"><strong>จัดการ</strong></td>
                 </tr>
                 <?php
                 include $path_basemodel;

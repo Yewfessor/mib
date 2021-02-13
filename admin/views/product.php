@@ -151,21 +151,20 @@ $path_list          = "script.php";
             <table border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" width="100%">
                 <tr align="center">
                     <td>&nbsp;&nbsp;</td>
-                    <td align="center"><strong>Product ID</strong></td>
-                    <td align="center"><strong>Picture</strong></td>
-                    <td align="center"><strong>Name</strong></td>
-                    <td align="center"><strong>Description</strong></td>
-                    <td align="center"><strong>Price</strong></td>
-                    <td align="center"><strong>Category</strong></td>
-                    <td align="center"><strong>Type</strong></td>
-                    <td align="center" colspan="2"><strong>Option</strong></td>
+                    <td align="center"><strong>ภาพประกอบ</strong></td>
+                    <td align="center"><strong>ชื่อสินค้า</strong></td>
+                    <td align="center"><strong>คำอธิบาย</strong></td>
+                    <td align="center"><strong>ราคา</strong></td>
+                    <td align="center"><strong>หมวดหมู่</strong></td>
+                    <td align="center"><strong>หมวดหมู่ย่อย</strong></td>
+                    <td align="center" colspan="2"><strong>จัดการ</strong></td>
                 </tr>
                 <?php
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
                     <tr align="center" height="150px">
                         <td></td>
-                        <td align="center"><?php echo $row["product_id"]; ?></td>
+                        <?php $row["product_id"]; ?>
                         <td><img height="100" src="<?php echo $path_image . $row["product_image"]; ?>"></td>
                         <td align="center"><?php echo $row["product_name_en"]; ?></td>
                         <td align="center"><?php echo $row["product_description_en"]; ?></td>

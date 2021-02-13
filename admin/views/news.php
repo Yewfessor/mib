@@ -74,18 +74,17 @@ $path_images    = "../assets/images/news/";
             <form>
                 <table border="0" cellpadding="3" cellspacing="1" width="100%">
                     <tr align="center">
-                        <td align="center"><strong>News ID</strong></td>
-                        <td align="center"><strong>Image</strong></td>
-                        <td align="center"><strong>Topic</strong></td>
-                        <td align="center"><strong>Add Date</strong></td>
-                        <td align="center"><strong>Last Update</strong></td>
-                        <td align="center" colspan="2"><strong>Option</strong></td>
+                        <td align="center"><strong>ภาพประกอบ</strong></td>
+                        <td align="center"><strong>หัวข้อ</strong></td>
+                        <td align="center"><strong>วันที่เขียน</strong></td>
+                        <td align="center"><strong>วันที่แก้ไขล่าสุด</strong></td>
+                        <td align="center" colspan="2"><strong>จัดการ</strong></td>
                     </tr>
                     <?php
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
                         <tr align="center" height="150px">
-                            <td><?php echo $row["news_id"] ?></td>
+                            <?php $row["news_id"] ?>
                             <td><img height="100" src="<?php echo $path_images . $row["news_image"]; ?>"></td>
                             <td><?php echo $row["news_name"]; ?></td>
                             <td><br><?php echo "วันที่ :" . $row["adddate"]; ?></td>
