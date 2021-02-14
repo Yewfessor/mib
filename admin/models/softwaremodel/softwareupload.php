@@ -13,9 +13,9 @@ $product_type_id    = $_POST['product_type_id'];
 
 
 // if (strlen($name)) {
-        move_uploaded_file($tmp, $path . $name);
+move_uploaded_file($tmp, $path . $name);
 
-        $sql = "INSERT INTO tb_software 
+$sql = "INSERT INTO tb_software 
         (
             software_name,
             software_file,
@@ -31,14 +31,14 @@ $product_type_id    = $_POST['product_type_id'];
             '" . $product_type_id . "',
             '" . $date . "'
         )";
-    $result = mysqli_query($connection, $sql) or die("error : " . mysqli_error($connection));
+$result = mysqli_query($connection, $sql) or die("error : " . mysqli_error($connection));
 
-    if ($result) {
-        echo "<script type='text/javascript'>alert('บันทึกข้อมูลแล้ว')</script>";
-        echo "<meta http-equiv ='refresh'content='0;URL=../../index.php'>";
-    } else {
-        echo "<script type='text/javascript'>alert('ไม่สามารถบันทึกข้อมูลได้');window.history.go(-1);</script>";
-    }
+if ($result) {
+    echo "<script type='text/javascript'>alert('บันทึกข้อมูลแล้ว')</script>";
+    echo "<meta http-equiv ='refresh'content='0;URL=../../index.php'>";
+} else {
+    echo "<script type='text/javascript'>alert('ไม่สามารถบันทึกข้อมูลได้');window.history.go(-1);</script>";
+}
 
 //}
 ?>

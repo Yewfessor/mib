@@ -7,6 +7,7 @@ $path_manualupload              = "views/softwaremanual.php";
 $path_sofwaremodel_upload       = "models/softwaremodel/softwareupload.php";
 $path_sofwaremodel_delete       = "models/softwaremodel/softwaredelete.php";
 $path_sofwaremodel_manual       = "models/softwaremodel/manualupload.php";
+$path_sofwaremodel_manual_delete  = "models/softwaremodel/manualdelete.php";
 
 
 
@@ -14,13 +15,13 @@ $path_sofwaremodel_manual       = "models/softwaremodel/manualupload.php";
 
 <!--Upload Detail Software-->
 <div class="col-xs-12 col-sm-12 col-md-12" id="software">
-    <h1 id="slide-product">Manage Software</h1><br>
+ <br>
 
     <div class="thumbnail">
         <div class="" align="center">
-            <h3>อัพโหลด โปรแกรม</h3>
+            <h3>อัพโหลด คู่มือ</h3>
         </div>
-        <form class="form-horizontal" action="<?php echo $path_sofwaremodel_upload; ?>" method="post" enctype="multipart/form-data" name="upload_software">
+        <form class="form-horizontal" action="<?php echo $path_sofwaremodel_manual; ?>" method="post" enctype="multipart/form-data" name="upload_software">
             <div class="form-group">
                 <div class="col-sm-2" align="right"></div>
                 <div class="col-sm-8" align="left">
@@ -70,7 +71,7 @@ $path_sofwaremodel_manual       = "models/softwaremodel/manualupload.php";
                 <div class="col-sm-2" align="right"></div>
                 <div class="col-sm-7" align="left">
                     ไฟล์ประกอบ <font color="red">(ขนาดไฟล์ไม่เกิน 50 MB)</font>
-                    <input type="file" name="fileupload" id="fileupload" require>
+                    <input type="file" name="manualupload" id="manualupload" require>
                 </div>
             </div>
             <div class="form-group">
@@ -106,7 +107,7 @@ $path_sofwaremodel_manual       = "models/softwaremodel/manualupload.php";
                     LEFT JOIN tb_product_type 
                     ON tb_software.product_type_id = tb_product_type.product_type_id 
                     LEFT JOIN tb_software_type
-                    ON tb_software.software_type_id = tb_software_type.software_type_id where software_manual = ''";
+                    ON tb_software.software_type_id = tb_software_type.software_type_id where software_file = ''";
                 $result = mysqli_query($connection, $sql);
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -115,11 +116,10 @@ $path_sofwaremodel_manual       = "models/softwaremodel/manualupload.php";
                         <td align="center"><?php echo $row["software_type_name"]; ?></td>
                         <td align="center"><?php echo $row["product_type_name"]; ?></td>
                         <td align="center">
-                            <a href="<?php echo $path_software . $row["software_file"]; ?>" download><i class="fas fa-download"></i></a>
+                            <a href="<?php echo $path_manual . $row["software_manual"]; ?>" download><i class="fas fa-file-download"></i></a>
                             &nbsp;
-                            <a href="<?php echo $path_sofwaremodel_delete; ?>?delete_id=<?php echo $row["software_id"]; ?>&delete_file=<?php echo $row["software_file"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            <a href="<?php echo $path_sofwaremodel_manual_delete; ?>?delete_id=<?php echo $row["software_id"]; ?>&delete_file=<?php echo $row["software_manual"]; ?>" onclick="return confirm('ต้องการลบข้อมูลหรือไม่')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </td>
-                        
                     </tr>
                 <?php
                 }

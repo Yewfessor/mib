@@ -92,6 +92,9 @@ date_default_timezone_set("Asia/Bangkok");
 					<?php include("views/software.php"); ?>
 				</div><br>
 				<div>
+					<?php include("views/manual.php"); ?>
+				</div><br>
+				<div>
 					<?php include("views/news.php"); ?>
 				</div><br>
 				<div>
